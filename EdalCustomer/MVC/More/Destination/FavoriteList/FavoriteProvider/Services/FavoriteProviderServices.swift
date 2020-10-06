@@ -10,10 +10,18 @@ import Foundation
 class FavoriteProviderServices{
     // for update favorite provider search 4 update favorite provider
     func updateFavoriteProvider(withProviderId providerId: Int, favorite: Int, completion: @escaping (_ error: String?, _ data: FavoriteProvider?) -> Void){
-        let url = URLs.base + "/api/customer/profile/update-my-favorites"
         let parameters:[String: Any] = ["provider_id": providerId,
                                         "favorite": favorite,
                                         "device_type": "2"]
+
+        ApiClient.CallApi(endPoint: .updateMyFavorites(parameters: parameters)) { (data: FavoriteProvider? , error: Error?, code) in
+            guard error == nil  else {
+                completion(error?.localizedDescription, nil)
+                return
+            }
+            completion(nil, data)
+        }
+        let url = URLs.base + "/api/customer/profile/update-my-favorites"
         
         let headers = RequestComponent.headerComponent([.lang , .authorization])
         

@@ -95,9 +95,8 @@ class ExploreVC: UIViewController {
         self.showLoading()
         services.updateFavoriteProvider(withProviderId: proId, favorite: fav, completion: { (error, data) in
             self.hideLoading()
-            
             if let error = error{
-                self.alertUser(title: "", message: error)
+                self.alertUser(title: "Error" , message: error)
                 return
             }
             guard let _ = data else{return}
@@ -170,7 +169,7 @@ extension ExploreVC: UICollectionViewDataSource {
             cell.businessNameLabel.text = mainExploreCategoriesData[indexPath.item].businessName
             let businessImage = URL(string: mainExploreCategoriesData[indexPath.item].image!)
             print("image_url:\(String(describing: businessImage))")
-            cell.businessImageView.sd_setImage(with: businessImage)
+            cell.businessImageView.sd_setImage(with: businessImage ?? URL(string: ""))
             cell.categoriesNameLabel.text = mainExploreCategoriesData[indexPath.item].categoryName
             if mainExploreCategoriesData[indexPath.item].imagesCount == 0 {
                 cell.imagesCountLabel.text = "No Photos"
@@ -179,9 +178,9 @@ extension ExploreVC: UICollectionViewDataSource {
             }
             
             cell.categoriesRateView.rating = Double(mainExploreCategoriesData[indexPath.item].rate!)
-            let bgImage = URL(string: mainExploreCategoriesData[indexPath.item].bgImage!)
+            let bgImage = URL(string: mainExploreCategoriesData[indexPath.item].bg_image!)
             print("image_url:\(String(describing: bgImage))")
-            cell.bgImageView.sd_setImage(with: bgImage)
+            cell.bgImageView.sd_setImage(with: bgImage ?? URL(string: ""))
             if mainExploreCategoriesData[indexPath.row].maxValue! >= 1000{
                 cell.maxValuePriceLabel.text = formatPoints(num: mainExploreCategoriesData[indexPath.item].maxValue!)
             }
@@ -203,7 +202,7 @@ extension ExploreVC: UICollectionViewDataSource {
             cell.businessNameLabel.text = recentlyBookCategoriesData[indexPath.item].name
             let bgImage = URL(string: recentlyBookCategoriesData[indexPath.item].icon!)
             print("image_url:\(String(describing: bgImage))")
-            cell.bgImageView.sd_setImage(with: bgImage)
+            cell.bgImageView.sd_setImage(with: bgImage ?? URL(string: ""))
             cell.maxValuePriceLabel.text = formatPoints(num: recentlyBookCategoriesData[indexPath.item].maxValue)
             cell.minValuePriceLabel.text = formatPoints(num: (recentlyBookCategoriesData[indexPath.item].minValue ?? 0 ) as! Int)
            
@@ -264,9 +263,9 @@ extension ExploreVC: UITableViewDataSource {
         
         
         cell.categoriesRateView.rating = Double(recommendedCategoriesData[indexPath.item].rate ?? 0)
-        let bgImage = URL(string: recommendedCategoriesData[indexPath.item].bgImage!)
+        let bgImage = URL(string: recommendedCategoriesData[indexPath.item].bg_image!)
         print("image_url:\(String(describing: bgImage))")
-        cell.bgImageView.sd_setImage(with: bgImage)
+        cell.bgImageView.sd_setImage(with: bgImage ?? URL(string: ""))
         cell.maxValuePriceLabel.text = formatPoints(num: recommendedCategoriesData[indexPath.item].maxValue!)
         cell.minValuePriceLabel.text = formatPoints(num: recommendedCategoriesData[indexPath.item].minValue!)
         if recommendedCategoriesData[indexPath.item].favorite == false {

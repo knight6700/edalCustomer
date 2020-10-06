@@ -243,6 +243,10 @@
 		12DF3072247734D10006421B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DF3065247734D00006421B /* UIImageExtension.swift */; };
 		12DF3074247741110006421B /* SingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DF3073247741110006421B /* SingletonClass.swift */; };
 		9ED347340802F72E33F17F4C /* Pods_EdalCustomer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD3EBA7AFE552115DEF50FA /* Pods_EdalCustomer.framework */; };
+		DAABC7D9252D0FED0073F3DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D5252D0FED0073F3DE /* Constants.swift */; };
+		DAABC7DA252D0FED0073F3DE /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D6252D0FED0073F3DE /* EndPoints.swift */; };
+		DAABC7DB252D0FED0073F3DE /* APIConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */; };
+		DAABC7DC252D0FED0073F3DE /* ApiClinet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D8252D0FED0073F3DE /* ApiClinet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -487,6 +491,10 @@
 		1C92FA05C049F4D085C1DA2A /* Pods-EdalCustomer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EdalCustomer.debug.xcconfig"; path = "Target Support Files/Pods-EdalCustomer/Pods-EdalCustomer.debug.xcconfig"; sourceTree = "<group>"; };
 		1FD3EBA7AFE552115DEF50FA /* Pods_EdalCustomer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EdalCustomer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F166BF4D5735B7AEB879F8 /* Pods-EdalCustomer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EdalCustomer.release.xcconfig"; path = "Target Support Files/Pods-EdalCustomer/Pods-EdalCustomer.release.xcconfig"; sourceTree = "<group>"; };
+		DAABC7D5252D0FED0073F3DE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DAABC7D6252D0FED0073F3DE /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigurations.swift; sourceTree = "<group>"; };
+		DAABC7D8252D0FED0073F3DE /* ApiClinet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClinet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -580,6 +588,7 @@
 		12DF2E632477347C0006421B /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				DAABC7D4252D0FED0073F3DE /* NewNetworkLayer2 */,
 				12DF2E642477347C0006421B /* RequestManager.swift */,
 				12DF2E652477347C0006421B /* RequestComponent.swift */,
 				12DF2E662477347C0006421B /* DefaultResponse.swift */,
@@ -1579,6 +1588,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DAABC7D4252D0FED0073F3DE /* NewNetworkLayer2 */ = {
+			isa = PBXGroup;
+			children = (
+				DAABC7D5252D0FED0073F3DE /* Constants.swift */,
+				DAABC7D6252D0FED0073F3DE /* EndPoints.swift */,
+				DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */,
+				DAABC7D8252D0FED0073F3DE /* ApiClinet.swift */,
+			);
+			path = NewNetworkLayer2;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1819,6 +1839,7 @@
 				12DF2FCD2477348B0006421B /* EditLocationVC.swift in Sources */,
 				12DF2FA72477348B0006421B /* ProviderDetailsServicesVC.swift in Sources */,
 				12DF2E6B2477347C0006421B /* DefaultResponse.swift in Sources */,
+				DAABC7DC252D0FED0073F3DE /* ApiClinet.swift in Sources */,
 				12DF2FDD2477348B0006421B /* CategoryCell.swift in Sources */,
 				12DF2FF32477348B0006421B /* FilteringVC.swift in Sources */,
 				12DF2FE42477348B0006421B /* SubCategoriesVC.swift in Sources */,
@@ -1885,6 +1906,7 @@
 				12DF300F2477348B0006421B /* NewPasswordVC.swift in Sources */,
 				12DF2E36247733AD0006421B /* AppDelegate.swift in Sources */,
 				12DF2FF22477348B0006421B /* TapticEngine.swift in Sources */,
+				DAABC7DB252D0FED0073F3DE /* APIConfigurations.swift in Sources */,
 				12DF2F9C2477348B0006421B /* ProviderDetailsVC.swift in Sources */,
 				12DF303B247734B80006421B /* Subclasses.swift in Sources */,
 				12DF2FAB2477348B0006421B /* BookingCell.swift in Sources */,
@@ -1921,6 +1943,7 @@
 				12DF2FF92477348B0006421B /* ServicesSubCategoriesResponse.swift in Sources */,
 				12DF2F9F2477348B0006421B /* BusinessProfileDetailsResponse.swift in Sources */,
 				12DF2F9A2477348B0006421B /* BusinessProfileServicesVC.swift in Sources */,
+				DAABC7D9252D0FED0073F3DE /* Constants.swift in Sources */,
 				12DF2FAE2477348B0006421B /* MyEdalServices.swift in Sources */,
 				12DF2FFD2477348B0006421B /* SelectedLocation.swift in Sources */,
 				12DF2F832477348B0006421B /* ResourceCollectionViewCell.swift in Sources */,
@@ -1940,6 +1963,7 @@
 				12DF30102477348B0006421B /* PasswordResetSuccessedVC.swift in Sources */,
 				12DF2FD42477348B0006421B /* FavoriteCell.swift in Sources */,
 				12DF2FC92477348B0006421B /* ProfileNavigator.swift in Sources */,
+				DAABC7DA252D0FED0073F3DE /* EndPoints.swift in Sources */,
 				12DF2FDF2477348B0006421B /* CatItemsCell.swift in Sources */,
 				12DF2E6A2477347C0006421B /* RequestComponent.swift in Sources */,
 				12DF2F912477348B0006421B /* HomeServices.swift in Sources */,
