@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoadingView" customModule="edal_IosCustomerApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpe-Or-URT">
+                    <rect key="frame" x="85" y="180" width="150" height="120"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1RH-BE-de9">
+                            <rect key="frame" x="56.5" y="27" width="37" height="37"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="37" id="8Hl-Iw-CP6"/>
+                                <constraint firstAttribute="height" constant="37" id="nuu-ET-cdc"/>
+                            </constraints>
+                            <color key="color" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziR-Of-Y4E">
+                            <rect key="frame" x="8" y="72" width="134" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ziR-Of-Y4E" firstAttribute="top" secondItem="1RH-BE-de9" secondAttribute="bottom" constant="8" id="8ma-cE-txX"/>
+                        <constraint firstItem="ziR-Of-Y4E" firstAttribute="leading" secondItem="tpe-Or-URT" secondAttribute="leading" constant="8" id="BHQ-U2-mhl"/>
+                        <constraint firstItem="1RH-BE-de9" firstAttribute="top" secondItem="tpe-Or-URT" secondAttribute="top" constant="27" id="JtF-39-qhR"/>
+                        <constraint firstItem="1RH-BE-de9" firstAttribute="centerX" secondItem="tpe-Or-URT" secondAttribute="centerX" id="T6V-Cc-0Rt"/>
+                        <constraint firstAttribute="width" constant="150" id="dek-Aq-QNX"/>
+                        <constraint firstAttribute="trailing" secondItem="ziR-Of-Y4E" secondAttribute="trailing" constant="8" id="eeI-Hy-pNk"/>
+                        <constraint firstAttribute="height" constant="120" id="voF-0Z-MnZ"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ziR-Of-Y4E" secondAttribute="bottom" constant="8" id="wSK-WC-mpx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tpe-Or-URT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gjt-3h-dsq"/>
+                <constraint firstItem="tpe-Or-URT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hUO-Pq-Kzm"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="activityIndicator" destination="1RH-BE-de9" id="u2Z-kE-SAZ"/>
+                <outlet property="loadingNamedLabel" destination="ziR-Of-Y4E" id="VKV-vY-8pG"/>
+                <outlet property="mainView" destination="tpe-Or-URT" id="6Xc-ad-hlo"/>
+            </connections>
+            <point key="canvasLocation" x="131" y="155"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CatItemsCell" id="gTV-IL-0wX" customClass="CatItemsCell" customModule="edal_IosCustomerApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="123" height="127"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="123" height="127"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kew-TS-4An">
+                        <rect key="frame" x="0.0" y="0.0" width="123" height="127"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paN-kF-jMU">
+                                <rect key="frame" x="8" y="8" width="107" height="111"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="mzL-3Q-hTz">
+                                        <rect key="frame" x="0.0" y="8" width="107" height="95"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Huu-4E-SZB">
+                                                <rect key="frame" x="0.0" y="0.0" width="107" height="67.5"/>
+                                                <subviews>
+                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Emm-ae-e0d">
+                                                        <rect key="frame" x="32.5" y="13" width="42" height="42"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="42" id="LD3-5H-j5m"/>
+                                                            <constraint firstAttribute="width" constant="42" id="jUA-j5-XR9"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="Emm-ae-e0d" firstAttribute="centerY" secondItem="Huu-4E-SZB" secondAttribute="centerY" id="99f-lV-eFP"/>
+                                                    <constraint firstItem="Emm-ae-e0d" firstAttribute="centerX" secondItem="Huu-4E-SZB" secondAttribute="centerX" id="RC4-lb-eaf"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automotive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65l-iD-bTI">
+                                                <rect key="frame" x="0.0" y="80.5" width="107" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="mzL-3Q-hTz" firstAttribute="leading" secondItem="paN-kF-jMU" secondAttribute="leading" id="3I3-EE-mGq"/>
+                                    <constraint firstAttribute="trailing" secondItem="mzL-3Q-hTz" secondAttribute="trailing" id="Fy3-Nb-gIA"/>
+                                    <constraint firstItem="mzL-3Q-hTz" firstAttribute="top" secondItem="paN-kF-jMU" secondAttribute="top" constant="8" id="ID4-0e-wgt"/>
+                                    <constraint firstItem="mzL-3Q-hTz" firstAttribute="centerY" secondItem="paN-kF-jMU" secondAttribute="centerY" id="UJD-W5-3o6"/>
+                                    <constraint firstItem="mzL-3Q-hTz" firstAttribute="centerX" secondItem="paN-kF-jMU" secondAttribute="centerX" id="j3u-5f-YyR"/>
+                                    <constraint firstAttribute="bottom" secondItem="mzL-3Q-hTz" secondAttribute="bottom" constant="8" id="qrH-hR-1rl"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="1.75"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="paN-kF-jMU" firstAttribute="leading" secondItem="Kew-TS-4An" secondAttribute="leading" constant="8" id="0cp-81-1Ex"/>
+                            <constraint firstAttribute="trailing" secondItem="paN-kF-jMU" secondAttribute="trailing" constant="8" id="Je2-hw-zRr"/>
+                            <constraint firstAttribute="bottom" secondItem="paN-kF-jMU" secondAttribute="bottom" constant="8" id="PPO-5P-Lia"/>
+                            <constraint firstItem="paN-kF-jMU" firstAttribute="top" secondItem="Kew-TS-4An" secondAttribute="top" constant="8" id="s5g-AX-6kt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Kew-TS-4An" secondAttribute="trailing" id="7ef-AO-21e"/>
+                <constraint firstAttribute="bottom" secondItem="Kew-TS-4An" secondAttribute="bottom" id="LFQ-Gy-mid"/>
+                <constraint firstItem="Kew-TS-4An" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="q0E-wP-FeS"/>
+                <constraint firstItem="Kew-TS-4An" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="rXa-31-fsw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="123" height="127"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="categoryImageView" destination="Emm-ae-e0d" id="4va-ua-QYN"/>
+                <outlet property="categoryTitle" destination="65l-iD-bTI" id="TMA-DI-v4p"/>
+                <outlet property="fullView" destination="Kew-TS-4An" id="vpk-J9-mIU"/>
+                <outlet property="searchByCategoriesView" destination="paN-kF-jMU" id="6P5-du-7sZ"/>
+            </connections>
+            <point key="canvasLocation" x="-2.5" y="139.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

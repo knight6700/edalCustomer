@@ -1,0 +1,391 @@
+/* 
+  Localizable.strings
+  edal-IosApp
+
+  Created by hesham ghalaab on 7/30/18.
+  Copyright © 2018 hesham ghalaab. All rights reserved.
+*/
+
+// MARK: --> for Alerts
+"ok_key" = "Ok";
+
+//////////////////////////////////////////////////////////
+// MARK: Authentication
+//////////////////////////////////////////////////////////
+
+// MARK: --> Inline errors
+"fieldIsRequired" = "This field is required";
+"emailNotValid" = "email is not valid";
+"passwordNotValid" = "Password is not valid";
+"lettersOnly" = "This field must have letters only";
+"numbersOnly" = "This field must have numbers only";
+"10NumbersOnly" = "Mobile must be greater than 10 numbers";
+"8CharactersatLeast" = "Enter at least 8 characters";
+"oneNumOneChar" = "This field must have letters and numbers";
+"passwordNotMatched" = "password is not matched";
+"selectCity" = "please select city";
+"selectCategory" = "please select category";
+"verificationCode" = "please make sure to write the verification code";
+"oneChar" = "make sure that each field have a minimum of 1 character";
+"locationServicesNotEnabled" = "Location services are not enabled, please make sure to enable it";
+
+// MARK: --> MapVC
+"6jP-cM-geq.normalTitle" = "Search here..!";
+"7yy-K0-WUV.normalTitle" = "Save";
+"F0I-Jk-rdi.title" = "Dropped Pin";
+"SGi-Kj-tVe.text" = "Dropped Pin";
+
+
+// MARK: --> for Alerts
+"ok_key" = "Ok";
+
+// MARK: --> Inline errors
+"fieldIsRequired" = "This field is required";
+"emailNotValid" = "email is not valid";
+"passwordNotValid" = "Password is not valid";
+"mobileNumberNotValid" = "mobile number is not valid";
+"lettersOnly" = "This field must have letters only";
+"numbersOnly" = "This field must have numbers only";
+"11NumbersOnly" = "Mobile must be 11 numbers";
+"8CharactersatLeast" = "Enter at least 8 characters";
+"oneNumOneChar" = "This field must have letters and numbers";
+"passwordNotMatched" = "password is not matched";
+"selectCity" = "please select city";
+"selectCategory" = "please select category";
+"verificationCode" = "please make sure to write the verification code";
+"oneChar" = "make sure that each field have a minimum of 1 character";
+"locationServicesNotEnabled" = "Location services are not enabled, please make sure to enable it";
+
+
+
+//Authentication
+
+/* Class = "UIButton"; normalTitle = "Don't have an account? Sign up"; ObjectID = "LLm-HS-f3w"; */
+"LLm-HS-f3w.normalTitle" = "Don't have an account? Sign up";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "5bk-KV-etf"; */
+"5bk-KV-etf.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "or connect with"; ObjectID = "9V4-nP-Nip"; */
+"9V4-nP-Nip.text" = "or connect with";
+
+
+
+//Login
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "aTz-kv-1fN"; */
+"aTz-kv-1fN.placeholder" = "Email";
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "32T-g2-5va"; */
+"32T-g2-5va.placeholder" = "Password";
+/* Class = "UIButton"; normalTitle = "Forget Password?"; ObjectID = "6qf-LE-x45"; */
+"6qf-LE-x45.normalTitle" = "Forget Password?";
+/* Class = "UIButton"; normalTitle = "Login Now"; ObjectID = "n4J-8G-nqi"; */
+"n4J-8G-nqi.normalTitle" = "Login Now";
+
+
+// registration
+
+/* Class = "UINavigationItem"; title = "Registeration"; ObjectID = "Qqv-PZ-JEP"; */
+"Qqv-PZ-JEP.title" = "Registeration";
+
+/* Class = "UITextField"; placeholder = "First Name"; ObjectID = "FIo-GP-uhI"; */
+"FIo-GP-uhI.placeholder" = "First Name";
+
+/* Class = "UITextField"; placeholder = "Last Name"; ObjectID = "hSx-OD-HBm"; */
+"hSx-OD-HBm.placeholder" = "Last Name";
+
+/* Class = "UILabel"; text = "+20"; ObjectID = "pwT-dC-Aa5"; */
+"pwT-dC-Aa5.text" = "+20";
+
+/* Class = "UITextField"; placeholder = "Mobile"; ObjectID = "30M-6y-NXO"; */
+"30M-6y-NXO.placeholder" = "Mobile";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "IvN-2F-Hj2"; */
+"IvN-2F-Hj2.placeholder" = "Email";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "avJ-wN-oMC"; */
+"avJ-wN-oMC.text" = "Gender";
+
+/* Class = "UIButton"; normalTitle = "Male"; ObjectID = "f6W-lm-bDm"; */
+"f6W-lm-bDm.normalTitle" = "Male";
+
+/* Class = "UIButton"; normalTitle = "Female"; ObjectID = "9HN-UA-7hE"; */
+"9HN-UA-7hE.normalTitle" = "Female";
+
+/* Class = "UIButton"; normalTitle = "Age"; ObjectID = "6oT-hf-Hlh"; */
+"6oT-hf-Hlh.normalTitle" = "Age";
+
+/* Class = "UIButton"; normalTitle = "Select City"; ObjectID = "w4c-Zz-K8r"; */
+"w4c-Zz-K8r.normalTitle" = "Select City";
+
+/* Class = "UIButton"; normalTitle = "Select District"; ObjectID = "QKN-6c-Pmh"; */
+"QKN-6c-Pmh.normalTitle" = "Select District";
+
+
+/* Class = "UIButton"; normalTitle = "Location"; ObjectID = "bct-tZ-B0C"; */
+"bct-tZ-B0C.normalTitle" = "Location";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "iY8-mm-nlQ"; */
+"iY8-mm-nlQ.normalTitle" = "Next";
+
+
+//LookUpPopUpVc
+
+/* Class = "UILabel"; text = "No. Of years in Business"; ObjectID = "6Nx-8L-RLS"; */
+"6Nx-8L-RLS.text" = "No. Of years in Business";
+
+
+
+//password VC
+
+/* Class = "UINavigationItem"; title = "Password"; ObjectID = "RpK-A3-55N"; */
+"RpK-A3-55N.title" = "Password";
+
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "OZn-LT-BXE"; */
+"OZn-LT-BXE.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "DoK-ak-PLM"; */
+"DoK-ak-PLM.placeholder" = "Confirm Password";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "XfR-U6-YN8"; */
+"XfR-U6-YN8.normalTitle" = "Next";
+
+
+//verification
+
+/* Class = "UINavigationItem"; title = "Verification"; ObjectID = "GY5-lt-CUX"; */
+"GY5-lt-CUX.title" = "Verification";
+
+
+/* Class = "UILabel"; text = "We have sent you an access code via SMS for Mobile number verifications"; ObjectID = "Xfi-vG-EBO"; */
+"Xfi-vG-EBO.text" = "We have sent you an access code via SMS for Mobile number verifications";
+
+/* Class = "UILabel"; text = "Sent via SMS on this number"; ObjectID = "deV-9u-gw5"; */
+"deV-9u-gw5.text" = "Sent via SMS on this number";
+
+
+/* Class = "UILabel"; text = "020100152634832"; ObjectID = "Ef5-V7-zdh"; */
+"Ef5-V7-zdh.text" = "020100152634832";
+
+/* Class = "UILabel"; text = "To change number? "; ObjectID = "9Uk-jR-6pS"; */
+"9Uk-jR-6pS.text" = "To change number? ";
+
+
+/* Class = "UIButton"; normalTitle = "Click here"; ObjectID = "p1k-28-NAK"; */
+"p1k-28-NAK.normalTitle" = "Click here";
+
+/* Class = "UITextField"; placeholder = "Enter your mobile number"; ObjectID = "fUO-rF-zEO"; */
+"fUO-rF-zEO.placeholder" = "Enter your mobile number";
+
+/* Class = "UITextField"; placeholder = "Enter your mobile number"; ObjectID = "fUO-rF-zEO"; */
+"Xua-gB-JOJ.text" = "";
+
+
+
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "ZPq-uQ-dle"; */
+"ZPq-uQ-dle.normalTitle" = "Submit";
+
+/* Class = "UILabel"; text = "+20"; ObjectID = "fnw-Ca-dvo"; */
+"fnw-Ca-dvo.text" = "+20";
+
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "nFj-Nk-Zb3"; */
+"nFj-Nk-Zb3.normalTitle" = "Send";
+
+/* Class = "UIButton"; normalTitle = "Resend Code"; ObjectID = "c5P-MB-3zE"; */
+"c5P-MB-3zE.normalTitle" = "Resend Code";
+
+/* Class = "UILabel"; text = "enter code"; ObjectID = "YjQ-wi-xQA"; */
+"YjQ-wi-xQA.text" = "enter code";
+
+//ThankYou
+
+/* Class = "UILabel"; text = "Thank You"; ObjectID = "RlR-ij-gBU"; */
+"RlR-ij-gBU.text" = "Thank You";
+
+/* Class = "UILabel"; text = "For joining us , you can login to app after you get approval for your mail"; ObjectID = "WZI-wf-JD4"; */
+"WZI-wf-JD4.text" = "For joining us , you can login to app after you get approval for your mail";
+
+/* Class = "UIButton"; normalTitle = "Enjoy Now"; ObjectID = "POI-X3-0hb"; */
+"POI-X3-0hb.normalTitle" = "Enjoy Now";
+
+
+//forget password
+
+/* Class = "UILabel"; text = "Forget Password"; ObjectID = "eSU-fB-Sut"; */
+"eSU-fB-Sut.text" = "Forget Password";
+
+/* Class = "UILabel"; text = "Don't :) worry just enter your phone number and reset new your password"; ObjectID = "HP6-Sw-SH4"; */
+"HP6-Sw-SH4.text" = "Don't :) worry just enter your phone number and reset new your password";
+
+/* Class = "UITextField"; placeholder = "Enter your mobile number"; ObjectID = "DTi-h3-YOh"; */
+"DTi-h3-YOh.placeholder" = "Enter your mobile number";
+
+/* Class = "UIButton"; normalTitle = "send"; ObjectID = "iJZ-pb-LR7"; */
+"iJZ-pb-LR7.normalTitle" = "send";
+
+
+//password Reset Succeed VC
+
+/* Class = "UINavigationItem"; title = "Password Reset Succeeded"; ObjectID = "nUc-xv-tB7"; */
+"nUc-xv-tB7.title" = "Password Reset Succeeded";
+
+/* Class = "UILabel"; text = "Password Reset Succeeded"; ObjectID = "zKO-hD-pon"; */
+"zKO-hD-pon.text" = "Password Reset Succeeded";
+
+
+/* Class = "UIButton"; normalTitle = "Login now"; ObjectID = "yNV-2c-HrK"; */
+"yNV-2c-HrK.normalTitle" = "Login now";
+
+
+//New Password VC
+
+/* Class = "UINavigationItem"; title = "New Password"; ObjectID = "mu8-cS-wMn"; */
+"mu8-cS-wMn.title" = "New Password";
+
+/* Class = "UITextField"; placeholder = "New Password"; ObjectID = "Wbb-4c-28n"; */
+"6c0-Hb-YKX.placeholder" = "New Password";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "5tg-TR-qh6"; */
+"Jfg-oa-CUi.placeholder" = "Confirm Password";
+
+
+//Terms and conditions
+
+/* Class = "UINavigationItem"; title = "Terms and Conditions"; ObjectID = "qQa-rC-hKq"; */
+"qQa-rC-hKq.title" = "Terms and Conditions";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "LNQ-ip-wz2"; */
+"LNQ-ip-wz2.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UIButton"; normalTitle = "Agree and submit"; ObjectID = "1xg-qe-SvK"; */
+"1xg-qe-SvK.normalTitle" = "Agree and submit";
+
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "NQZ-lU-bIX"; */
+"NQZ-lU-bIX.normalTitle" = "Submit";
+
+
+/* Class = "UILabel"; text = "Clicking Submit means that you agree to \nthe Terms & Conditions and Privacy Policy."; ObjectID = "mJ5-X0-LRI"; */
+"mJ5-X0-LRI.text" = "Clicking Submit means that you agree to \nthe Terms & Conditions and Privacy Policy.";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "mjy-uc-CL3"; */
+"mjy-uc-CL3.normalTitle" = "Close";
+
+
+
+//profile VC
+/* navigation bar title */
+"4oD-1J-HUA.title" = " ";
+
+"MI6-ca-QbZ.text" = "Welcome";
+
+"vIB-54-exd.text" = "this is your first login Please complete your data and enjoy";
+
+"T0k-7h-wQ7.normalTitle" = "Save";
+
+"Pta-YO-uHI.normalTitle" = "Skip>>";
+
+
+
+//Categories VC
+
+"fRP-xN-p7F.title" = " ";
+
+"2iH-Lj-VC4.text" = "Tell us what your favorite";
+
+"8lg-O2-VKt.text" = "CATEGORYS";
+
+"tU8-iU-qxJ.normalTitle" = "Reset";
+
+"azB-h2-zqO.normalTitle" = "Next";
+
+
+//Explore VC
+
+
+//tab bar item title
+
+"ymn-Ug-paF.title" = "Explore";
+
+//nav bar title
+"fim-3L-afI.title" = "Explore";
+
+//header of recently book
+"15v-x3-7mB.text" = "Recenlty Book";
+
+//header of recommended
+"rG4-un-BlB.text" = "Recommended";
+
+
+// recommended cell
+
+"fYs-XW-74B.text" = "Toi Beauty Salon";
+
+"iJz-Qx-QUq.text" = "10 photo";
+
+"Kse-6E-vXK.text" = "Hairstylist";
+
+"2fZ-PL-wfM.text" = "60";
+
+"G3m-ql-qq4.text" = "EGP";
+
+"xco-29-XwK.text" = "150";
+
+"Xb1-UU-ZOB.text" = "EGP";
+
+// recently book cell
+
+"VSO-0p-TSD.text" = "Fitness";
+
+"zuC-LE-6Lc.text" = "60";
+
+"v4B-un-nhL.text" = "EGP";
+
+"uJ1-hz-mxF.text" = "150";
+
+"rmw-Yi-EmR.text" = "EGP";
+
+
+// main explore cell
+
+"jA4-PI-3mH.text" = "Toi Beauty Salon";
+
+"zvG-NJ-xRW.text" = "10 photo";
+
+"gh9-HS-xQF.text" = "Hairstylist";
+
+"p4k-Hb-nvb.text" = "60";
+
+"0mt-0E-Oxp.text" = "EGP";
+
+"5Gn-m4-3dS.text" = "150";
+
+"mPz-pK-sUR.text" = "EGP";
+
+
+
+// MARK: --> PickImage
+"PickImagePhotoSource" = "Photo Source";
+"PickImageChooseSource" = "Choose a Source";
+"PickImageCamera" = "Camera";
+"PickImagePhotoLibrary" = "Photo Library";
+"PickImageCancel" = "Cancel";
+
+// info.Plist
+"API_CANCEL_TITLE" = "Cancel pro";
+
+
+
+
+
+
+
+
+
+
+
+
+
