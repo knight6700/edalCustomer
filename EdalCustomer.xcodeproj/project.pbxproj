@@ -247,6 +247,7 @@
 		DAABC7DA252D0FED0073F3DE /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D6252D0FED0073F3DE /* EndPoints.swift */; };
 		DAABC7DB252D0FED0073F3DE /* APIConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */; };
 		DAABC7DC252D0FED0073F3DE /* ApiClinet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D8252D0FED0073F3DE /* ApiClinet.swift */; };
+		DAABC7E4252D36B80073F3DE /* ServiceItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7E2252D36B80073F3DE /* ServiceItemDetailsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -495,6 +496,7 @@
 		DAABC7D6252D0FED0073F3DE /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigurations.swift; sourceTree = "<group>"; };
 		DAABC7D8252D0FED0073F3DE /* ApiClinet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClinet.swift; sourceTree = "<group>"; };
+		DAABC7E2252D36B80073F3DE /* ServiceItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -657,6 +659,7 @@
 				12DF2E802477348B0006421B /* BookingViewController.swift */,
 				12DF2E812477348B0006421B /* ResourceCollectionViewCell.swift */,
 				12DF2E822477348B0006421B /* ServiceItemDetailsViewController.swift */,
+				DAABC7E6252D36BC0073F3DE /* ServiceItemDetailsCell */,
 				12DF2E832477348B0006421B /* Services */,
 				12DF2E852477348B0006421B /* RecentlyBookCell */,
 			);
@@ -1599,6 +1602,14 @@
 			path = NewNetworkLayer2;
 			sourceTree = "<group>";
 		};
+		DAABC7E6252D36BC0073F3DE /* ServiceItemDetailsCell */ = {
+			isa = PBXGroup;
+			children = (
+				DAABC7E2252D36B80073F3DE /* ServiceItemDetailsTableViewCell.swift */,
+			);
+			path = ServiceItemDetailsCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1931,6 +1942,7 @@
 				12DF2E60247734710006421B /* UIButtonLocalizedExtension.swift in Sources */,
 				12DF2E5D247734710006421B /* UIBarItemLocalizedExtension.swift in Sources */,
 				12DF30062477348B0006421B /* AuthPresenter.swift in Sources */,
+				DAABC7E4252D36B80073F3DE /* ServiceItemDetailsTableViewCell.swift in Sources */,
 				12DF301F2477348B0006421B /* LookupAll.swift in Sources */,
 				12DF2FCB2477348B0006421B /* ProfileServices.swift in Sources */,
 				12DF2FC52477348B0006421B /* ComplaintsCell.swift in Sources */,
