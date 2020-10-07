@@ -7,7 +7,17 @@
 //
 
 import UIKit
+import Cosmos
 
+struct ServiceItemDetailsModel {
+    var imageUrl: String
+    var name: String
+    var images: [String]
+    var type: String
+    var rate: Double
+    var totalReview: Int
+    var isFavourite: Bool
+}
 class ServiceItemDetailsViewController: UIViewController,UIScrollViewDelegate {
 var scrollView = UIScrollView(frame: CGRect(x:0, y:100, width:320 , height: 523))
 var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
@@ -19,7 +29,14 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
     @IBOutlet weak var topHeaderV: UIView!
     @IBOutlet weak var detalsV: UIView!
     @IBOutlet weak var tbView: UITableView!
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var totalReviewsLabel: UILabel!
+    @IBOutlet weak var ratingView: CosmosView!
+    @IBOutlet weak var favButton: UIButton!
     
+    
+    var serviceItemDetailsModel:ServiceItemDetailsModel?
     var subServiceId = 0
     
     override func viewDidLoad() {
@@ -28,11 +45,26 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
         detalsV.scale()
         //tbView.scale()
         getSubServiceInfo ()
-        
-       
-               
-        // Do any additional setup after loading the view.
+        setupUI()
     }
+    
+    private func setupUI() {
+        
+        guard let service = serviceItemDetailsModel else {return}
+        headerLabel.text = service.name
+        typeLabel.text = service.type
+        totalReviewsLabel.text = "\(service.totalReview) Reviews"
+        storeImage.sd_setImage(with: URL(string: service.imageUrl), completed: nil)
+        if service.isFavourite  {
+            // recommendedCategoriesData[indexPath]
+            favButton.setImage(#imageLiteral(resourceName: "faviconact"), for: .normal)
+        } else {
+            favButton.setImage(#imageLiteral(resourceName: "faviconUn"), for: .normal)
+        }
+
+        
+    }
+    
     func initScrollView() {
         scrollView = UIScrollView(frame: CGRect(x:0, y:0, width:self.view.frame.width , height: 200 ))
         scrollView.showsHorizontalScrollIndicator = false
@@ -71,8 +103,18 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
         scrollView.setContentOffset(CGPoint(x:x, y:0), animated: true)
         }
     }
+    
     @IBAction func favoriteBtnPressed(_ sender: Any) {
-        
+        guard let service = serviceItemDetailsModel else {return}
+        if service.isFavourite == false  {
+            // recommendedCategoriesData[indexPath]
+            favButton.setImage(#imageLiteral(resourceName: "faviconact"), for: .normal)
+        } else {
+            favButton.setImage(UIImage(named: "faviconUn"), for: .normal)
+            favButton.imageView?.contentMode = .scaleToFill
+        }
+        serviceItemDetailsModel?.isFavourite.toggle()
+
     }
     @IBAction func ServicesAction(_ sender: UIButton) {
            
@@ -109,6 +151,7 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
             guard let data = details else {return}
             self.bookingServiceDetailsModel = data
             self.initScrollView()
+            self.tbView.reloadData()
         }
     }
 
@@ -126,19 +169,30 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
 
 extension ServiceItemDetailsViewController : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UITableViewCell else {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ServiceItemDetailsTableViewCell else {
                  return UITableViewCell()
               }
+        cell.selectionStyle = .none
+        cell.serviceNameLabel.text = bookingServiceDetailsModel?.sub_service?.service_name
+        cell.priceLabel.text = "\(bookingServiceDetailsModel?.sub_service?.price ?? 0)"
+        cell.serviceDescriptionLabel.text = bookingServiceDetailsModel?.sub_service?.description
+        cell.delegate = self
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+}
+extension ServiceItemDetailsViewController: ServiceItemDetailsDelegate {
+    func bookService(cell: UITableViewCell) {
+        let index = tbView.indexPath(for: cell)
+        print(index?.row ?? 0)
         let detailsVC = Initializer.createViewController(storyBoard: .HomeSB, andId: "BookingViewController") as! BookingViewController
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
+    
     
 }

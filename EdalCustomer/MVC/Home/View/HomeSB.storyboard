@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pYH-zB-jN1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pYH-zB-jN1">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +19,7 @@
         <!--MyEdal-->
         <scene sceneID="FxM-Ug-Neb">
             <objects>
-                <viewController id="a3p-RL-HlK" customClass="MyEdalVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a3p-RL-HlK" customClass="MyEdalVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yWe-7n-Nht">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +46,7 @@
                                 <rect key="frame" x="0.0" y="93" width="375" height="525"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="111" id="z66-WN-I5l" customClass="BookingCell" customModule="edal_IosCustomerApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="111" id="z66-WN-I5l" customClass="BookingCell" customModule="EdalCustomer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z66-WN-I5l" id="TMr-QO-usa">
@@ -85,7 +84,7 @@
         <!--Search-->
         <scene sceneID="Svt-jZ-UYJ">
             <objects>
-                <viewController id="9Ar-J2-3pm" customClass="SearchVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9Ar-J2-3pm" customClass="SearchVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JZK-07-2kC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +137,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow_Copy_6" translatesAutoresizingMaskIntoConstraints="NO" id="cAI-jI-1LY">
-                                                                                <rect key="frame" x="305" y="0.0" width="16" height="44"/>
+                                                                                <rect key="frame" x="313" y="0.0" width="8" height="44"/>
                                                                             </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -223,7 +222,7 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="5Rc-SZ-vbU" customClass="CategoryCell" customModule="edal_IosCustomerApp" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="5Rc-SZ-vbU" customClass="CategoryCell" customModule="EdalCustomer" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="115" width="374" height="420"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -339,7 +338,7 @@
         <!--Explore-->
         <scene sceneID="ATt-Ig-izn">
             <objects>
-                <viewController id="k1B-kV-ChC" customClass="ExploreVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="k1B-kV-ChC" customClass="ExploreVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Js2-z2-pbT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -488,7 +487,7 @@
                                                     <constraint firstAttribute="height" constant="18" id="8Mv-d9-BUi"/>
                                                 </constraints>
                                             </stackView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="190" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SGj-V1-Rkd" customClass="IntrinsicTableView" customModule="edal_IosCustomerApp" customModuleProvider="target">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="190" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SGj-V1-Rkd" customClass="IntrinsicTableView" customModule="EdalCustomer" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="436" width="359" height="573"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableView>
@@ -553,7 +552,7 @@
         <!--More-->
         <scene sceneID="rQe-cC-Ajb">
             <objects>
-                <viewController id="zpV-mT-QCB" customClass="MoreVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zpV-mT-QCB" customClass="MoreVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hkU-BI-DOr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1015,7 +1014,7 @@
         <!--Alerts-->
         <scene sceneID="UJm-wY-qDD">
             <objects>
-                <viewController id="UFr-a1-8ET" customClass="AlertsVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UFr-a1-8ET" customClass="AlertsVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gaT-TW-5Gj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1031,7 +1030,7 @@
         <!--Home Tab Bar Controller-->
         <scene sceneID="qDy-H1-PlY">
             <objects>
-                <tabBarController storyboardIdentifier="HomeVC" id="pYH-zB-jN1" customClass="HomeTabBarController" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeVC" id="pYH-zB-jN1" customClass="HomeTabBarController" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Xuc-RS-Lp4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yRn-Ny-Tfe">
@@ -1116,7 +1115,7 @@
         <!--Service Item Details View Controller-->
         <scene sceneID="RKs-cn-noX">
             <objects>
-                <viewController storyboardIdentifier="ServiceItemDetailsViewController" id="skA-CO-kPE" customClass="ServiceItemDetailsViewController" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ServiceItemDetailsViewController" id="skA-CO-kPE" customClass="ServiceItemDetailsViewController" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1qi-AR-vLO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1155,7 +1154,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="354"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="f6i-hu-C1k">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="f6i-hu-C1k" customClass="ServiceItemDetailsTableViewCell" customModule="EdalCustomer" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f6i-hu-C1k" id="Iil-eg-GHy">
@@ -1173,21 +1172,25 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 EGP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j54-OK-8wb">
                                                             <rect key="frame" x="275.5" y="11" width="84.5" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="84.5" id="Ex8-Yb-d35"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW – Try our new Sorbet Drybar Hair Care.." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8w5-Ir-Vkx">
-                                                            <rect key="frame" x="15" y="31" width="259.5" height="38"/>
+                                                            <rect key="frame" x="15" y="31" width="264" height="38"/>
                                                             <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="13"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYu-j4-QAc">
-                                                            <rect key="frame" x="282.5" y="39" width="84.5" height="33"/>
+                                                            <rect key="frame" x="287" y="39" width="80" height="33"/>
                                                             <color key="backgroundColor" red="0.26274509800000001" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="Xam-uM-Njs"/>
+                                                                <constraint firstAttribute="width" constant="80" id="yxV-w5-jmk"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                             <state key="normal" title="Book">
@@ -1198,6 +1201,9 @@
                                                                     <real key="value" value="8"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="bookPressed:" destination="f6i-hu-C1k" eventType="touchUpInside" id="FfD-Yn-jjd"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -1213,10 +1219,14 @@
                                                         <constraint firstItem="j54-OK-8wb" firstAttribute="top" secondItem="Iil-eg-GHy" secondAttribute="topMargin" id="fht-iH-KhM"/>
                                                         <constraint firstItem="xMD-xZ-Ai6" firstAttribute="leading" secondItem="Iil-eg-GHy" secondAttribute="leadingMargin" id="hBS-9W-hxj"/>
                                                         <constraint firstItem="j54-OK-8wb" firstAttribute="leading" secondItem="xMD-xZ-Ai6" secondAttribute="trailing" constant="8" id="kI2-pi-ipf"/>
-                                                        <constraint firstItem="j54-OK-8wb" firstAttribute="width" secondItem="pYu-j4-QAc" secondAttribute="width" id="rGa-4G-VS1"/>
                                                         <constraint firstAttribute="trailing" secondItem="pYu-j4-QAc" secondAttribute="trailing" constant="8" id="yOT-j2-W9A"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="priceLabel" destination="j54-OK-8wb" id="5Uk-vV-FzI"/>
+                                                    <outlet property="serviceDescriptionLabel" destination="8w5-Ir-Vkx" id="vi1-Hh-uHi"/>
+                                                    <outlet property="serviceNameLabel" destination="xMD-xZ-Ai6" id="f45-vp-EiI"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -1252,16 +1262,20 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIk-1k-xad" userLabel="FavButton">
                                         <rect key="frame" x="339.5" y="18" width="27.5" height="30"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ZIk-1k-xad" secondAttribute="height" multiplier="11:12" id="M4c-Xm-OiG"/>
                                             <constraint firstAttribute="height" constant="30" id="SN4-UL-dmX"/>
                                         </constraints>
-                                        <state key="normal" image="faviconact"/>
+                                        <state key="normal" image="faviconUn">
+                                            <color key="titleColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="favoriteBtnPressed:" destination="skA-CO-kPE" eventType="touchUpInside" id="MLX-fN-owY"/>
                                         </connections>
                                     </button>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VI8-3l-vJa" customClass="CosmosView" customModule="Cosmos">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI8-3l-vJa" customClass="CosmosView" customModule="Cosmos">
                                         <rect key="frame" x="277" y="54.5" width="90" height="14"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
@@ -1402,11 +1416,16 @@
                     <connections>
                         <outlet property="detailsBtn" destination="9hu-tU-dLh" id="5e5-2R-6t7"/>
                         <outlet property="detalsV" destination="Qoh-wQ-Nbs" id="7Cg-aF-Mk4"/>
+                        <outlet property="favButton" destination="ZIk-1k-xad" id="hbJ-aY-2ko"/>
+                        <outlet property="headerLabel" destination="rD3-As-Oa3" id="k5O-t8-EKb"/>
+                        <outlet property="ratingView" destination="VI8-3l-vJa" id="X9O-z5-q3B"/>
                         <outlet property="reviewsBtn" destination="fEZ-Td-obF" id="tG1-5L-Fba"/>
                         <outlet property="servBtn" destination="GsV-3g-F2s" id="KaY-ri-3r5"/>
                         <outlet property="storeImage" destination="yZt-ij-5kn" id="toz-Nf-viF"/>
                         <outlet property="tbView" destination="rYq-8D-7yV" id="XuV-PY-j4M"/>
                         <outlet property="topHeaderV" destination="cnG-0o-IC4" id="LQT-ic-8N2"/>
+                        <outlet property="totalReviewsLabel" destination="oOj-v4-2Xj" id="oXK-qI-miO"/>
+                        <outlet property="typeLabel" destination="PBg-4K-hUl" id="p1l-6d-afG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NhW-Dc-jk2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1416,7 +1435,7 @@
         <!--Booking View Controller-->
         <scene sceneID="qiE-TY-Ymp">
             <objects>
-                <viewController storyboardIdentifier="BookingViewController" id="vH5-0l-9M9" customClass="BookingViewController" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingViewController" id="vH5-0l-9M9" customClass="BookingViewController" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WsX-H6-qXo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1440,7 +1459,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="resourcesCell" id="HbT-aL-C3M" customClass="ResourcesCollectionViewCell" customModule="edal_IosCustomerApp" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="resourcesCell" id="HbT-aL-C3M" customClass="ResourcesCollectionViewCell" customModule="EdalCustomer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="1" width="107" height="113"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1587,7 +1606,7 @@
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pi" translatesAutoresizingMaskIntoConstraints="NO" id="k62-Bv-LPl" customClass="RoundedImageView" customModule="edal_IosCustomerApp" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pi" translatesAutoresizingMaskIntoConstraints="NO" id="k62-Bv-LPl" customClass="RoundedImageView" customModule="EdalCustomer" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="8" width="38" height="38"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="k62-Bv-LPl" secondAttribute="height" multiplier="1:1" id="w8r-Vi-dbW"/>
@@ -1902,7 +1921,7 @@
         <image name="contact" width="27" height="27"/>
         <image name="egypt_flag" width="28" height="19"/>
         <image name="explorInActive" width="23" height="23"/>
-        <image name="faviconact" width="24" height="22"/>
+        <image name="faviconUn" width="24" height="22"/>
         <image name="fl" width="25" height="23"/>
         <image name="helpcwnter" width="27" height="24"/>
         <image name="leftarrow" width="24" height="48"/>

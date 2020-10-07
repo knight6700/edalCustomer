@@ -232,7 +232,31 @@ extension ExploreVC: UICollectionViewDelegate{
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //MARK:- Navigation to Movie Details
+        if collectionView == self.mainExploreCollectionView{
+            let item = mainExploreCategoriesData[indexPath.row]
+            let id = "ServiceItemDetailsViewController"
+            let vc = Initializer.createViewController(storyBoard: .HomeSB, andId: id) as! ServiceItemDetailsViewController
+            vc.subServiceId = item.id!
+            vc.serviceItemDetailsModel = ServiceItemDetailsModel(imageUrl: item.image ?? "", name: item.businessName ?? "", images: [item.image ?? ""], type: item.categoryName ?? "",rate: item.rate ?? 0.0, totalReview: item.raters ?? 0,isFavourite: item.favorite ?? false)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else {
+            let item = recentlyBookCategoriesData[indexPath.row]
+
+            // navigator.navigate(to: .serviceItemdetail())
+            let id = "ServiceItemDetailsViewController"
+            let vc = Initializer.createViewController(storyBoard: .HomeSB, andId: id) as! ServiceItemDetailsViewController
+            vc.serviceItemDetailsModel = ServiceItemDetailsModel(imageUrl: item.icon ?? "", name: item.name ?? "", images: [item.icon ?? ""], type: "SPA" ,rate: 4.0, totalReview: 50,isFavourite: true)
+            vc.subServiceId = item.id!
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
       
+
+    }
+    
+    private func didPrssedCollectionView(index: Int) {
+               // do Something
+            
     }
 }
 
@@ -311,12 +335,12 @@ extension ExploreVC : ExploreCellDelegate {
     
     func didPressItemButton(index: Int) {
            // do Something
-            let item = mainExploreCategoriesData[index]
-             let navigator = MoreNavigator(nav: self.navigationController)
-           // navigator.navigate(to: .serviceItemdetail())
+        let item = recommendedCategoriesData[index]
         let id = "ServiceItemDetailsViewController"
         let vc = Initializer.createViewController(storyBoard: .HomeSB, andId: id) as! ServiceItemDetailsViewController
         vc.subServiceId = item.id!
+        vc.serviceItemDetailsModel = ServiceItemDetailsModel(imageUrl: item.image ?? "", name: item.business_name ?? "", images: [item.bg_image ?? ""], type: item.categoryName ?? "" ,rate: item.rate ?? 0.0, totalReview: item.raters ?? 0,isFavourite: item.favorite ?? false)
+
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
