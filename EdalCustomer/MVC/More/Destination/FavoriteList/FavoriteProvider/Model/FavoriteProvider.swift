@@ -9,8 +9,13 @@
 import Foundation
 
 struct Errors: Codable {
-    
+    var subServiceID: String?
+
+    enum CodingKeys: String, CodingKey {
+        case subServiceID = "sub_service_id"
+    }
 }
+
 class FavoriteProvider: Codable {
     let lang, status, error_msg: String?
     let errors: Errors?

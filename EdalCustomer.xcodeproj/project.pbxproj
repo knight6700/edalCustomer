@@ -243,6 +243,8 @@
 		12DF3072247734D10006421B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DF3065247734D00006421B /* UIImageExtension.swift */; };
 		12DF3074247741110006421B /* SingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DF3073247741110006421B /* SingletonClass.swift */; };
 		9ED347340802F72E33F17F4C /* Pods_EdalCustomer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD3EBA7AFE552115DEF50FA /* Pods_EdalCustomer.framework */; };
+		DA71A538252E05A200023236 /* GradianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71A537252E05A100023236 /* GradianView.swift */; };
+		DA71A53A252E965500023236 /* ServiceItemDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71A539252E965500023236 /* ServiceItemDetailsModel.swift */; };
 		DAABC7D9252D0FED0073F3DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D5252D0FED0073F3DE /* Constants.swift */; };
 		DAABC7DA252D0FED0073F3DE /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D6252D0FED0073F3DE /* EndPoints.swift */; };
 		DAABC7DB252D0FED0073F3DE /* APIConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */; };
@@ -492,6 +494,8 @@
 		1C92FA05C049F4D085C1DA2A /* Pods-EdalCustomer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EdalCustomer.debug.xcconfig"; path = "Target Support Files/Pods-EdalCustomer/Pods-EdalCustomer.debug.xcconfig"; sourceTree = "<group>"; };
 		1FD3EBA7AFE552115DEF50FA /* Pods_EdalCustomer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EdalCustomer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F166BF4D5735B7AEB879F8 /* Pods-EdalCustomer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EdalCustomer.release.xcconfig"; path = "Target Support Files/Pods-EdalCustomer/Pods-EdalCustomer.release.xcconfig"; sourceTree = "<group>"; };
+		DA71A537252E05A100023236 /* GradianView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradianView.swift; sourceTree = "<group>"; };
+		DA71A539252E965500023236 /* ServiceItemDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItemDetailsModel.swift; sourceTree = "<group>"; };
 		DAABC7D5252D0FED0073F3DE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DAABC7D6252D0FED0073F3DE /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigurations.swift; sourceTree = "<group>"; };
@@ -688,6 +692,7 @@
 			isa = PBXGroup;
 			children = (
 				12DF2E7F2477348B0006421B /* SubServiceModel.swift */,
+				DA71A539252E965500023236 /* ServiceItemDetailsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1514,6 +1519,7 @@
 				12DF3035247734B80006421B /* Initializer.swift */,
 				12DF3036247734B80006421B /* DateTimePicker.swift */,
 				12DF3037247734B80006421B /* Defaults.swift */,
+				DA71A537252E05A100023236 /* GradianView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1862,11 +1868,13 @@
 				12DF300C2477348B0006421B /* LooksUpPopUpVC.swift in Sources */,
 				12761D2B2478574F00108F91 /* ServicesProvidersModel.swift in Sources */,
 				12DF2E61247734710006421B /* UILabelLocalizedExtension.swift in Sources */,
+				DA71A538252E05A200023236 /* GradianView.swift in Sources */,
 				12DF2E6C2477347C0006421B /* Media.swift in Sources */,
 				12DF2FD72477348B0006421B /* PaymentInfoVC.swift in Sources */,
 				129506192495273D00A290B5 /* CategoryResponseModel.swift in Sources */,
 				12DF3041247734B80006421B /* DateTimePicker.swift in Sources */,
 				12DF2E40247733AD0006421B /* EdalCustomer.xcdatamodeld in Sources */,
+				DA71A53A252E965500023236 /* ServiceItemDetailsModel.swift in Sources */,
 				12DF30122477348B0006421B /* PasswordVC.swift in Sources */,
 				12DF3070247734D10006421B /* TableView+CollectionViewIndicator.swift in Sources */,
 				12DF2F8B2477348B0006421B /* HomeTabBarController.swift in Sources */,

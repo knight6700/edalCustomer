@@ -37,6 +37,7 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
     
     
     var serviceItemDetailsModel:ServiceItemDetailsModel?
+    
     var subServiceId = 0
     
     override func viewDidLoad() {
@@ -59,7 +60,7 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
             // recommendedCategoriesData[indexPath]
             favButton.setImage(#imageLiteral(resourceName: "faviconact"), for: .normal)
         } else {
-            favButton.setImage(#imageLiteral(resourceName: "faviconUn"), for: .normal)
+            favButton.setImage(#imageLiteral(resourceName: "unfavorite"), for: .normal)
         }
 
         
@@ -105,24 +106,40 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
     }
     
     @IBAction func favoriteBtnPressed(_ sender: Any) {
+        self.showLoading()
         guard let service = serviceItemDetailsModel else {return}
         if service.isFavourite == false  {
             // recommendedCategoriesData[indexPath]
-            favButton.setImage(#imageLiteral(resourceName: "faviconact"), for: .normal)
+            bookngService.favItem(withProviderId: subServiceId, isFav: .isFav) { [weak self] (error, data) in
+                self?.hideLoading()
+                guard error == nil else {
+                    self?.alertUser(title: "Error", message: error ?? "")
+                    return
+                }
+                self?.favButton.setImage(#imageLiteral(resourceName: "faviconact"), for: .normal)
+            }
         } else {
-            favButton.setImage(UIImage(named: "faviconUn"), for: .normal)
-            favButton.imageView?.contentMode = .scaleToFill
+            
+            bookngService.favItem(withProviderId: subServiceId, isFav: .isFav) { [weak self] (error, data) in
+                self?.hideLoading()
+                guard error == nil else {
+                    self?.alertUser(title: "Error", message: error ?? "")
+                    return
+                }
+                self?.favButton.setImage(#imageLiteral(resourceName: "unfavorite"), for: .normal)
+            }
         }
         serviceItemDetailsModel?.isFavourite.toggle()
 
     }
+    
     @IBAction func ServicesAction(_ sender: UIButton) {
-           
         sender.backgroundColor = UIColor.init(displayP3Red: 243/255, green: 116/255, blue: 33/255, alpha: 1.0)
         detailsBtn.backgroundColor = UIColor.init(displayP3Red: 67/255, green: 128/255, blue: 194/255, alpha: 1.0)
         reviewsBtn.backgroundColor = UIColor.init(displayP3Red: 67/255, green: 128/255, blue: 194/255, alpha: 1.0)
         
     }
+    
     @IBAction func detailsAction(_ sender: UIButton) {
             sender.backgroundColor = UIColor.init(displayP3Red: 243/255, green: 116/255, blue: 33/255, alpha: 1.0)
              servBtn.backgroundColor = UIColor.init(displayP3Red: 67/255, green: 128/255, blue: 194/255, alpha: 1.0)
@@ -140,30 +157,20 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
     // MARK: - API Calls
     var bookngService = BookingServices()
     var bookingServiceDetailsModel :SubServiceDefaultResponse?
+    var serviceItemDetailsResponseModel: ServiceItemDetailsResponseModel?
     private func getSubServiceInfo () {
         self.showLoading()
-        bookngService.getSubBookingService(sub_service_id: self.subServiceId) { (error, details) in
-            self.hideLoading()
+        bookngService.getServices(sub_service_id: self.subServiceId) { [weak self](error: String?, data: ServiceItemDetailsResponseModel?) in
+            self?.hideLoading()
             if let error = error{
-                self.alertUser(title: "", message: error)
+                self?.alertUser(title: "", message: error)
                 return
             }
-            guard let data = details else {return}
-            self.bookingServiceDetailsModel = data
-            self.initScrollView()
-            self.tbView.reloadData()
+            self?.serviceItemDetailsResponseModel = data
+            self?.initScrollView()
+            self?.tbView.reloadData()
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -178,9 +185,12 @@ extension ServiceItemDetailsViewController : UITableViewDataSource,UITableViewDe
                  return UITableViewCell()
               }
         cell.selectionStyle = .none
-        cell.serviceNameLabel.text = bookingServiceDetailsModel?.sub_service?.service_name
-        cell.priceLabel.text = "\(bookingServiceDetailsModel?.sub_service?.price ?? 0)"
-        cell.serviceDescriptionLabel.text = bookingServiceDetailsModel?.sub_service?.description
+        guard let data = serviceItemDetailsResponseModel else {
+            return cell
+        }
+        cell.serviceNameLabel.text = data.defaultResponse?.subService?.serviceName ?? ""
+        cell.priceLabel.text = "\(data.defaultResponse?.subService?.price ?? 0)"
+        cell.serviceDescriptionLabel.text = data.defaultResponse?.subService?.subServiceDescription
         cell.delegate = self
         return cell
     }
@@ -191,6 +201,7 @@ extension ServiceItemDetailsViewController: ServiceItemDetailsDelegate {
         let index = tbView.indexPath(for: cell)
         print(index?.row ?? 0)
         let detailsVC = Initializer.createViewController(storyBoard: .HomeSB, andId: "BookingViewController") as! BookingViewController
+        detailsVC.resources = serviceItemDetailsResponseModel?.defaultResponse?.resources?.data
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     

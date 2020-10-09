@@ -16,9 +16,10 @@ class ApiClient {
         return AF.request(route).responseJSON(completionHandler: { (response) in
             switch response.result {
             case .success(let value):
-                print(value)
+                //                print(value)
                 do {
                     let DataResponsed = try JSONDecoder().decode(T.self, from: response.data!)
+                    print(DataResponsed)
                     completion(DataResponsed, nil, response.response?.statusCode)
                 } catch {
                     completion(nil, error,response.response?.statusCode)
@@ -34,7 +35,19 @@ class ApiClient {
         performRequest(route: endPoint) { (results, error,code) in
             completion(results, error,code ?? 1001 )
         }
+    }
+    
+    static func checkErrors (error: String?, errorSubCategories: String?, completion: @escaping ( _ error: String?,  _ subserviceInfoResponse: ServiceItemDetailsResponseModel?) -> Void) {
+        guard error == nil else {
+            completion(error,nil)
+            return
         }
-
-
+        guard errorSubCategories == nil else {
+            completion(errorSubCategories,nil)
+            return
+        }
+    }
+    
+    
+    
 }
