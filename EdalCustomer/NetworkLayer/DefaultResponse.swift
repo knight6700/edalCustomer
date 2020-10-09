@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct DefaultResponse: Decodable {
-    // TODO
-    // TODO
-//    var lang: String
-//    var status: String
-//    var error_msg: String
-//    var errors: [String: String]
-//    
-}
+//struct DefaultResponse: Decodable {
+//    // TODO
+//    // TODO
+////    var lang: String
+////    var status: String
+////    var error_msg: String
+////    var errors: [String: String]
+////    
+//}

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentlyBookCell" id="gTV-IL-0wX" customClass="RecentlyBookCell" customModule="edal_IosCustomerApp" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentlyBookCell" id="gTV-IL-0wX" customClass="RecentlyBookCell" customModule="EdalCustomer" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="175" height="181"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -28,9 +25,17 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoB" translatesAutoresizingMaskIntoConstraints="NO" id="IRV-7A-O4q">
                                         <rect key="frame" x="0.0" y="0.0" width="165" height="166"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6v-9a-FT7">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzB-MJ-llG" customClass="GradientView" customModule="EdalCustomer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="165" height="166"/>
                                         <color key="backgroundColor" white="0.26000000000000001" alpha="0.26000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                                <color key="value" white="0.0" alpha="0.2639744718" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                                <color key="value" white="0.0" alpha="0.2639744718" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fitness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSO-0p-TSD">
                                         <rect key="frame" x="12" y="9" width="56.5" height="19.5"/>
@@ -98,25 +103,25 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="IRV-7A-O4q" firstAttribute="top" secondItem="IlD-R5-7EQ" secondAttribute="top" id="1BV-88-ipV"/>
+                                    <constraint firstAttribute="bottom" secondItem="pzB-MJ-llG" secondAttribute="bottom" id="5hb-QJ-1Kr"/>
                                     <constraint firstItem="KAC-9y-9Ax" firstAttribute="leading" secondItem="VSO-0p-TSD" secondAttribute="leading" id="6h1-e3-6AI"/>
                                     <constraint firstItem="VSO-0p-TSD" firstAttribute="top" secondItem="IlD-R5-7EQ" secondAttribute="top" constant="9" id="Axg-ZJ-0Lo"/>
-                                    <constraint firstAttribute="bottom" secondItem="z6v-9a-FT7" secondAttribute="bottom" id="GLF-Lj-NSy"/>
+                                    <constraint firstItem="pzB-MJ-llG" firstAttribute="top" secondItem="IlD-R5-7EQ" secondAttribute="top" id="Fxp-Ad-osA"/>
                                     <constraint firstAttribute="trailing" secondItem="IRV-7A-O4q" secondAttribute="trailing" id="GzY-pQ-sw7"/>
                                     <constraint firstItem="KAC-9y-9Ax" firstAttribute="top" secondItem="VSO-0p-TSD" secondAttribute="bottom" constant="5" id="OtM-Nn-hHD"/>
                                     <constraint firstItem="VSO-0p-TSD" firstAttribute="leading" secondItem="IlD-R5-7EQ" secondAttribute="leading" constant="12" id="ZBq-ww-GOl"/>
-                                    <constraint firstItem="z6v-9a-FT7" firstAttribute="top" secondItem="IlD-R5-7EQ" secondAttribute="top" id="ZOt-Hw-zgc"/>
                                     <constraint firstItem="KAC-9y-9Ax" firstAttribute="leading" secondItem="IlD-R5-7EQ" secondAttribute="leading" constant="12" id="cmY-l4-TVO"/>
-                                    <constraint firstAttribute="trailing" secondItem="z6v-9a-FT7" secondAttribute="trailing" id="nxK-zY-h7W"/>
+                                    <constraint firstItem="pzB-MJ-llG" firstAttribute="leading" secondItem="IlD-R5-7EQ" secondAttribute="leading" id="kJh-aL-XF7"/>
                                     <constraint firstAttribute="bottom" secondItem="IRV-7A-O4q" secondAttribute="bottom" id="uEB-1w-sAl"/>
-                                    <constraint firstItem="z6v-9a-FT7" firstAttribute="leading" secondItem="IlD-R5-7EQ" secondAttribute="leading" id="xny-ef-qE6"/>
                                     <constraint firstItem="IRV-7A-O4q" firstAttribute="leading" secondItem="IlD-R5-7EQ" secondAttribute="leading" id="xwi-I4-tzv"/>
+                                    <constraint firstAttribute="trailing" secondItem="pzB-MJ-llG" secondAttribute="trailing" id="y4p-Ll-bDo"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ght-Kx-U5X" userLabel="PriceRangeView">
                                 <rect key="frame" x="12" y="141" width="151" height="35"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="idg-cj-aQx">
-                                        <rect key="frame" x="13.5" y="6.5" width="124.5" height="23"/>
+                                        <rect key="frame" x="13.5" y="6" width="124.5" height="23"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zuC-LE-6Lc">
                                                 <rect key="frame" x="0.0" y="0.0" width="23.5" height="23"/>

@@ -10,10 +10,10 @@ import Alamofire
 enum EndPoints: APIConfigurations {
     
     case updateMyFavorites(parameters:[String:  Any])
-    
+    case subService(id: String)
     var method: HTTPMethod {
         switch self {
-        case .updateMyFavorites:  return .post
+        case .updateMyFavorites, .subService:  return .post
         }
     }
 
@@ -32,6 +32,8 @@ enum EndPoints: APIConfigurations {
         switch self {
         case .updateMyFavorites:
             return "customer/profile/update-my-favorites"
+        case .subService(let id):
+            return "customer/booking/sub-service?device_type=2&sub_service_id=\(id)"
         }
     }
 
@@ -39,6 +41,8 @@ enum EndPoints: APIConfigurations {
         switch self {
         case .updateMyFavorites(let parameters):
             return parameters
+        case .subService:
+            return nil
         }
     }
 

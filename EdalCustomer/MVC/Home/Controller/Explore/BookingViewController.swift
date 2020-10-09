@@ -12,12 +12,14 @@ class BookingViewController: UIViewController,CalenderDelegate {
     @IBOutlet weak var resourcesCollectionView: UICollectionView!
     @IBOutlet weak var timesCollectionView: UICollectionView!
      
-    var resources: Resources!
+//    var resources: Resources!
+    var resources: [ResourcesDatumm]?
     lazy var  calenderView: CalenderView = {
           let calenderView = CalenderView(theme: MyTheme.light)
           calenderView.translatesAutoresizingMaskIntoConstraints=false
           return calenderView
       }()
+    var selectedIndexResource: Int?
     // Do any additional
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +37,13 @@ class BookingViewController: UIViewController,CalenderDelegate {
         let navigator = MoreNavigator(nav: self.navigationController)
         navigator.navigate(to: .paymentInfo)
     }
+    
     @IBAction func confirmBooking(_ sender: Any) {
   
         let payVC = Initializer.createViewController(storyBoard: .PaymentInfoSB, andId:"PaymentInfoVC")
         self.navigationController?.pushViewController(payVC, animated: true)
     }
+    
     func didTapDate(date: String, available: Bool) {
            if available == true {
                print(date)
@@ -47,10 +51,16 @@ class BookingViewController: UIViewController,CalenderDelegate {
             self.alertUser(title: "you tapped", message: "\(date)")
            }
      }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == timesCollectionView {
             timesSelectedindex = indexPath.row
             timesCollectionView.reloadData()
+        }else {
+            let selectedCell:ResourcesCollectionViewCell = resourcesCollectionView.cellForItem(at: indexPath) as! ResourcesCollectionViewCell
+            selectedIndexResource = indexPath.row
+            selectedCell.setupSelectView(selected: true)
+            resourcesCollectionView.reloadData()
         }
     }
     var timesSelectedindex = -1
@@ -69,10 +79,10 @@ class BookingViewController: UIViewController,CalenderDelegate {
 extension BookingViewController: UICollectionViewDelegate,UICollectionViewDataSource {
    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if collectionView == resourcesCollectionView {
-        guard let count = resources?.data?.count else {return 5}
+        guard let count = resources?.count else {return 0}
         return count
     } else {
-        guard let count = resources?.data?.count else {return 5}
+        guard let count = resources?.count else {return 0}
         return count
     }
       }
@@ -83,9 +93,15 @@ extension BookingViewController: UICollectionViewDelegate,UICollectionViewDataSo
       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == resourcesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "resourcesCell", for: indexPath) as! ResourcesCollectionViewCell
-            //          cell.resourcesImageView.addImage(withImage: resources.data[indexPath.row].image , andPlaceHolder: "")
-            //          cell.resourcesNameLabel.text = resources.data[indexPath.row].name
-            //          cell.resourcesTitleLabel.text = resources.data[indexPath.row].position
+            guard let resources = resources else {return cell}
+                      cell.resourcesImageView.addImage(withImage: resources[indexPath.row].image , andPlaceHolder: "")
+                      cell.resourcesNameLabel.text = resources[indexPath.row].name
+                      cell.resourcesTitleLabel.text = resources[indexPath.row].position
+            if selectedIndexResource == indexPath.row {
+                cell.setupSelectView(selected: true)
+            }else {
+                cell.setupSelectView(selected: false)
+            }
                       return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as! UICollectionViewCell
@@ -101,7 +117,4 @@ extension BookingViewController: UICollectionViewDelegate,UICollectionViewDataSo
         }
           
       }
-      
-
-    
 }

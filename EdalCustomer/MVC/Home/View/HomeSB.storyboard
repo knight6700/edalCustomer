@@ -1262,12 +1262,11 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIk-1k-xad" userLabel="FavButton">
                                         <rect key="frame" x="339.5" y="18" width="27.5" height="30"/>
-                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ZIk-1k-xad" secondAttribute="height" multiplier="11:12" id="M4c-Xm-OiG"/>
                                             <constraint firstAttribute="height" constant="30" id="SN4-UL-dmX"/>
                                         </constraints>
-                                        <state key="normal" image="faviconUn">
+                                        <state key="normal" image="Unfavorite">
                                             <color key="titleColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -1275,7 +1274,7 @@
                                             <action selector="favoriteBtnPressed:" destination="skA-CO-kPE" eventType="touchUpInside" id="MLX-fN-owY"/>
                                         </connections>
                                     </button>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI8-3l-vJa" customClass="CosmosView" customModule="Cosmos">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VI8-3l-vJa" customClass="CosmosView" customModule="Cosmos">
                                         <rect key="frame" x="277" y="54.5" width="90" height="14"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
@@ -1517,6 +1516,7 @@
                                                             <outlet property="resourcesImageView" destination="cr1-6R-bhO" id="c7n-1E-hBM"/>
                                                             <outlet property="resourcesNameLabel" destination="pDT-6q-Fxn" id="up7-eG-7aF"/>
                                                             <outlet property="resourcesTitleLabel" destination="KfK-KC-Sws" id="QCE-Rg-pmt"/>
+                                                            <outlet property="viewContainer" destination="Peh-up-ped" id="cAz-5b-B8Q"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -1912,6 +1912,7 @@
     </scenes>
     <resources>
         <image name="Arrow_Copy_6" width="8" height="5"/>
+        <image name="Unfavorite" width="32" height="32"/>
         <image name="alertInActive" width="25" height="26"/>
         <image name="avatar" width="133" height="133"/>
         <image name="balance" width="24" height="25"/>
@@ -1921,7 +1922,6 @@
         <image name="contact" width="27" height="27"/>
         <image name="egypt_flag" width="28" height="19"/>
         <image name="explorInActive" width="23" height="23"/>
-        <image name="faviconUn" width="24" height="22"/>
         <image name="fl" width="25" height="23"/>
         <image name="helpcwnter" width="27" height="24"/>
         <image name="leftarrow" width="24" height="48"/>

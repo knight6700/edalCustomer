@@ -24,10 +24,19 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoa" translatesAutoresizingMaskIntoConstraints="NO" id="IkI-bA-yuS">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="129"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xt6-OO-Et8">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xt6-OO-Et8" customClass="GradientView" customModule="EdalCustomer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="129"/>
                                         <color key="backgroundColor" white="0.26000000000000001" alpha="0.26000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                                <color key="value" white="0.0" alpha="0.2639744718" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                                <color key="value" white="0.0" alpha="0.26397447183098594" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCe-EB-OEX" userLabel="categoryNameView">
                                         <rect key="frame" x="15" y="88" width="137" height="26"/>
