@@ -245,6 +245,9 @@
 		9ED347340802F72E33F17F4C /* Pods_EdalCustomer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD3EBA7AFE552115DEF50FA /* Pods_EdalCustomer.framework */; };
 		DA71A538252E05A200023236 /* GradianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71A537252E05A100023236 /* GradianView.swift */; };
 		DA71A53A252E965500023236 /* ServiceItemDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71A539252E965500023236 /* ServiceItemDetailsModel.swift */; };
+		DA96DB252530C19600D304AC /* MyDealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96DB232530C19600D304AC /* MyDealsTableViewCell.swift */; };
+		DA96DB262530C19600D304AC /* MyDealsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA96DB242530C19600D304AC /* MyDealsTableViewCell.xib */; };
+		DA96DB282530D2AE00D304AC /* UpCommeingDealsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96DB272530D2AE00D304AC /* UpCommeingDealsResponse.swift */; };
 		DAABC7D9252D0FED0073F3DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D5252D0FED0073F3DE /* Constants.swift */; };
 		DAABC7DA252D0FED0073F3DE /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D6252D0FED0073F3DE /* EndPoints.swift */; };
 		DAABC7DB252D0FED0073F3DE /* APIConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */; };
@@ -496,6 +499,9 @@
 		37F166BF4D5735B7AEB879F8 /* Pods-EdalCustomer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EdalCustomer.release.xcconfig"; path = "Target Support Files/Pods-EdalCustomer/Pods-EdalCustomer.release.xcconfig"; sourceTree = "<group>"; };
 		DA71A537252E05A100023236 /* GradianView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradianView.swift; sourceTree = "<group>"; };
 		DA71A539252E965500023236 /* ServiceItemDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItemDetailsModel.swift; sourceTree = "<group>"; };
+		DA96DB232530C19600D304AC /* MyDealsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDealsTableViewCell.swift; sourceTree = "<group>"; };
+		DA96DB242530C19600D304AC /* MyDealsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyDealsTableViewCell.xib; sourceTree = "<group>"; };
+		DA96DB272530D2AE00D304AC /* UpCommeingDealsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCommeingDealsResponse.swift; sourceTree = "<group>"; };
 		DAABC7D5252D0FED0073F3DE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DAABC7D6252D0FED0073F3DE /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigurations.swift; sourceTree = "<group>"; };
@@ -631,6 +637,7 @@
 		12DF2E722477348B0006421B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DA96DB222530C17D00D304AC /* MyDeal */,
 				12DF2E732477348B0006421B /* Controller */,
 				12DF2E8C2477348B0006421B /* HomeNavigator */,
 				12DF2E8F2477348B0006421B /* Model */,
@@ -883,6 +890,7 @@
 			isa = PBXGroup;
 			children = (
 				12DF2EC02477348B0006421B /* MyEdalServices.swift */,
+				DA96DB272530D2AE00D304AC /* UpCommeingDealsResponse.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1597,6 +1605,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA96DB222530C17D00D304AC /* MyDeal */ = {
+			isa = PBXGroup;
+			children = (
+				DA96DB232530C19600D304AC /* MyDealsTableViewCell.swift */,
+				DA96DB242530C19600D304AC /* MyDealsTableViewCell.xib */,
+			);
+			path = MyDeal;
+			sourceTree = "<group>";
+		};
 		DAABC7D4252D0FED0073F3DE /* NewNetworkLayer2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1722,6 +1739,7 @@
 				124F7046248431BD00AC48C4 /* GoogleService-Info.plist in Resources */,
 				12DF3057247734C80006421B /* SF-UI-Display-Ultralight_1.ttf in Resources */,
 				12DF2FA32477348B0006421B /* BPReviewsHeaderView.xib in Resources */,
+				DA96DB262530C19600D304AC /* MyDealsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1795,6 +1813,7 @@
 				12DF30202477348B0006421B /* TokenDefaultResponse.swift in Sources */,
 				12DF30092477348B0006421B /* TermsAndConditionsVC.swift in Sources */,
 				12DF303F247734B80006421B /* StoryBoard.swift in Sources */,
+				DA96DB252530C19600D304AC /* MyDealsTableViewCell.swift in Sources */,
 				12DF2E3A247733AD0006421B /* ViewController.swift in Sources */,
 				12DF2FD92477348B0006421B /* SettingVC.swift in Sources */,
 				12DF30162477348B0006421B /* ResendCode.swift in Sources */,
@@ -1898,6 +1917,7 @@
 				12DF2FEF2477348B0006421B /* FilterSideMenuVC.swift in Sources */,
 				12DF30182477348B0006421B /* VerifyCodeResponse.swift in Sources */,
 				12DF2FB02477348B0006421B /* ProviderResponse.swift in Sources */,
+				DA96DB282530D2AE00D304AC /* UpCommeingDealsResponse.swift in Sources */,
 				12DF30132477348B0006421B /* AuthenticationVC.swift in Sources */,
 				12DF2FB52477348B0006421B /* BubblePickerNode.swift in Sources */,
 				12DF2FF62477348B0006421B /* SubCategoriesResponse.swift in Sources */,

@@ -37,7 +37,7 @@ class ApiClient {
         }
     }
     
-    static func checkErrors (error: String?, errorSubCategories: String?, completion: @escaping ( _ error: String?,  _ subserviceInfoResponse: ServiceItemDetailsResponseModel?) -> Void) {
+    static func checkErrors <T: Decodable>(error: String?, errorSubCategories: String?, completion: @escaping ( _ error: String?,  _ subserviceInfoResponse: T?) -> Void) {
         guard error == nil else {
             completion(error,nil)
             return

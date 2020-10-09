@@ -11,30 +11,13 @@ import Foundation
 
 class MyEdalServices {
     
-    func getUpcomingBooking(completion: @escaping (_ error: String?, _ data: SearchLookUpsResponse?) -> ()){
-        
-        let url = URLs.base + "/api/customer/booking/list"
-        
-        let parameters:[String: Any] = ["device_type": "2"]
-        let headers = RequestComponent.headerComponent([.lang])
-        RequestManager().request(fromUrl: url, byMethod: .post, withParameters: parameters, andHeaders: headers) { (error, data: SearchLookUpsResponse?) in
-            
-            if let error = error {
-                completion(error, nil)
-                return
-            }
-            
-            guard let data = data else {
-                completion(nil, nil)
-                return
-            }
-            
-            guard data.status == "1" else {
-                completion(data.errorMsg, nil)
-                return
-            }
-            
-            completion(nil, data)
+    func getUpcomingBooking(page: String, completion: @escaping (_ error: String?, _ data: UpCommingResponse?) -> ()){
+        let parameters = ["device_type": "2",
+                          "page": page,
+                          "sort": "1"]
+        ApiClient.CallApi(endPoint: .bookingList(parameters: parameters)) { (data: UpCommingResponse?, error: Error?, code) in
+            ApiClient.checkErrors(error: error?.localizedDescription, errorSubCategories: data?.errors?.subServiceID, completion: completion)
+            completion(nil,data)
         }
     }
     
