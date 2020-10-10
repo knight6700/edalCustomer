@@ -470,7 +470,7 @@ extension SearchVC: UICollectionViewDataSource {
         print(collectionView.frame.width)
         let cell =  CatCollectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
         
-        cell.categoriesObject = []
+        cell.categoriesObject = categoriesData
         ///cell.returnDate(stopPagination: stopPagination, data: [])
         if allData[indexPath.row].count == 0 {
             getAllCategories(for: indexPath.row)
