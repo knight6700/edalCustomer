@@ -53,7 +53,7 @@ extension UIImageView {
     func setRounded(){
         self.layer.cornerRadius = self.frame.size.width / 2
         self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.5019607843, blue: 0.7607843137, alpha: 1)
     }
 }
 

@@ -248,6 +248,8 @@
 		DA96DB252530C19600D304AC /* MyDealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96DB232530C19600D304AC /* MyDealsTableViewCell.swift */; };
 		DA96DB262530C19600D304AC /* MyDealsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA96DB242530C19600D304AC /* MyDealsTableViewCell.xib */; };
 		DA96DB282530D2AE00D304AC /* UpCommeingDealsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96DB272530D2AE00D304AC /* UpCommeingDealsResponse.swift */; };
+		DA96DB2B2531B10100D304AC /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96DB292531B10100D304AC /* LoadingTableViewCell.swift */; };
+		DA96DB2C2531B10100D304AC /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA96DB2A2531B10100D304AC /* LoadingTableViewCell.xib */; };
 		DAABC7D9252D0FED0073F3DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D5252D0FED0073F3DE /* Constants.swift */; };
 		DAABC7DA252D0FED0073F3DE /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D6252D0FED0073F3DE /* EndPoints.swift */; };
 		DAABC7DB252D0FED0073F3DE /* APIConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */; };
@@ -502,6 +504,8 @@
 		DA96DB232530C19600D304AC /* MyDealsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDealsTableViewCell.swift; sourceTree = "<group>"; };
 		DA96DB242530C19600D304AC /* MyDealsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyDealsTableViewCell.xib; sourceTree = "<group>"; };
 		DA96DB272530D2AE00D304AC /* UpCommeingDealsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCommeingDealsResponse.swift; sourceTree = "<group>"; };
+		DA96DB292531B10100D304AC /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		DA96DB2A2531B10100D304AC /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		DAABC7D5252D0FED0073F3DE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DAABC7D6252D0FED0073F3DE /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigurations.swift; sourceTree = "<group>"; };
@@ -1610,6 +1614,8 @@
 			children = (
 				DA96DB232530C19600D304AC /* MyDealsTableViewCell.swift */,
 				DA96DB242530C19600D304AC /* MyDealsTableViewCell.xib */,
+				DA96DB292531B10100D304AC /* LoadingTableViewCell.swift */,
+				DA96DB2A2531B10100D304AC /* LoadingTableViewCell.xib */,
 			);
 			path = MyDeal;
 			sourceTree = "<group>";
@@ -1735,6 +1741,7 @@
 				12DF2E3D247733AD0006421B /* Main.storyboard in Resources */,
 				12DF2F872477348B0006421B /* RecentlyBookCell.xib in Resources */,
 				12DF2F802477348B0006421B /* ExploreCollectionViewCell.xib in Resources */,
+				DA96DB2C2531B10100D304AC /* LoadingTableViewCell.xib in Resources */,
 				12DF2FE02477348B0006421B /* CategoryItemsCell.xib in Resources */,
 				124F7046248431BD00AC48C4 /* GoogleService-Info.plist in Resources */,
 				12DF3057247734C80006421B /* SF-UI-Display-Ultralight_1.ttf in Resources */,
@@ -1823,6 +1830,7 @@
 				12DF30032477348B0006421B /* SearchResultNavigator.swift in Sources */,
 				12A0EC8724774F1A001807F2 /* LookupAllModel.swift in Sources */,
 				12DF3072247734D10006421B /* UIImageExtension.swift in Sources */,
+				DA96DB2B2531B10100D304AC /* LoadingTableViewCell.swift in Sources */,
 				12DF300E2477348B0006421B /* OnBoardVC.swift in Sources */,
 				12DF2F972477348B0006421B /* BusinessProfileDetailsVC.swift in Sources */,
 				12DF2FAF2477348B0006421B /* FavoriteListVC.swift in Sources */,

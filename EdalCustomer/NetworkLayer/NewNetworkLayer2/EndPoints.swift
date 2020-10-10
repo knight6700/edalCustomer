@@ -12,9 +12,10 @@ enum EndPoints: APIConfigurations {
     case updateMyFavorites(parameters:[String:  Any])
     case subService(id: String)
     case bookingList(parameters: [String: Any])
+    case bookingHistory(parameters: [String: Any])
     var method: HTTPMethod {
         switch self {
-        case .updateMyFavorites, .subService, .bookingList:  return .post
+        case .updateMyFavorites, .subService, .bookingList, .bookingHistory:  return .post
         }
     }
 
@@ -37,12 +38,14 @@ enum EndPoints: APIConfigurations {
             return "customer/booking/sub-service?device_type=2&sub_service_id=\(id)"
         case .bookingList:
             return "customer/booking/list"
+        case .bookingHistory:
+            return "customer/booking/history"
         }
     }
 
     var parameters: Parameters? {
         switch self {
-        case .updateMyFavorites(let parameters), .bookingList(let parameters):
+        case .updateMyFavorites(let parameters), .bookingList(let parameters), .bookingHistory(let parameters):
             return parameters
         case .subService:
             return nil

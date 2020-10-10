@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum MyDeals {
+    case upComing
+    case history
+}
 class MyEdalVC: UIViewController {
 
     @IBOutlet weak var upcomingBookingsButton: UIButton!
@@ -16,11 +20,17 @@ class MyEdalVC: UIViewController {
     @IBOutlet weak var bookingTable: UITableView!
     var data: UpCommingResponse?
     let services = MyEdalServices()
+    var numberOfPage = 1
+    var dealType = MyDeals.upComing
+    var totamLimits = 10
+    var isLoading = true
+    var totalPages: Int {
+        return self.data?.defaultResponse?.books?.meta?.pagination?.totalPages ?? 0
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getUpcomingBooking()
-
-        
         // Do any additional setup after loading the view.
     }
 
@@ -34,25 +44,86 @@ class MyEdalVC: UIViewController {
         bookingTable.delegate = self
         bookingTable.dataSource = self
         bookingTable.register(UINib(nibName: "MyDealsTableViewCell", bundle: nil), forCellReuseIdentifier: "MyDealsCell")
+        bookingTable.register(UINib(nibName: "LoadingTableViewCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")
         bookingTable.separatorStyle = .none
+        upcomingBookingsButton.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.9843137255, blue: 0.9843137255, alpha: 1)
+        bookingHistoryButton.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
+    }
+    
+    func addFooterReffresher() {
+        guard !isLoading else { return }
+            let totalPages = self.data?.defaultResponse?.books?.meta?.pagination?.totalPages ?? 0
+            if self.numberOfPage <= totalPages {
+                switch self.dealType {
+                case .history :
+                    self.getBookingHistory()
+                case .upComing:
+                    self.getUpcomingBooking()
+                }
+            }
     }
     
     func getUpcomingBooking(){
-        services.getUpcomingBooking(page: "1") { [weak self ](error, data) in
-            self?.data = data
-            self?.bookingTable.reloadData()
+        self.showLoading()
+        isLoading = true
+        services.getUpcomingBooking(page: "\(numberOfPage)") { [weak self ](error, data) in
+            self?.hideLoading()
+            guard error == nil else {
+                self?.alertUser(title: "Error", message: error ?? "")
+                return
+            }
+            if self?.data == nil {
+                self?.data = data
+            }else {
+                guard let array = data?.defaultResponse?.books?.data else {return}
+                self?.data?.defaultResponse?.books?.data?.append(contentsOf: array)
+            }
+            DispatchQueue.main.async {
+                self?.bookingTable.reloadData()
+            }
+            self?.numberOfPage += 1
+            self?.isLoading = false
         }
     }
     
     func getBookingHistory(){
-        
+        self.showLoading()
+        isLoading = true
+        services.getHistoryServices(page: "\(numberOfPage)") { [weak self ](error, data) in
+            self?.hideLoading()
+            guard error == nil else {
+                self?.alertUser(title: "Error", message: error ?? "")
+                return
+            }
+            if self?.data == nil {
+                self?.data = data
+            }else {
+                guard let array = data?.defaultResponse?.books?.data else {return}
+                self?.data?.defaultResponse?.books?.data?.append(contentsOf: array)
+            }
+            DispatchQueue.main.async {
+                self?.bookingTable.reloadData()
+            }
+            self?.numberOfPage += 1
+            self?.isLoading = false
+        }
     }
     
     @IBAction func bookingPressed(_ sender: UIButton) {
+        data = nil
+        numberOfPage = 1
         if sender.tag == 0 {
-            
+            dealType = .upComing
+            getUpcomingBooking()
+            upcomingBookingsButton.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.9843137255, blue: 0.9843137255, alpha: 1)
+            bookingHistoryButton.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
+
         }else {
-            
+            dealType = .history
+            getBookingHistory()
+            upcomingBookingsButton.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
+            bookingHistoryButton.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.9843137255, blue: 0.9843137255, alpha: 1)
+
         }
     }
     
@@ -75,29 +146,65 @@ class MyEdalVC: UIViewController {
 }
 
 extension MyEdalVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 extension MyEdalVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data?.defaultResponse?.books?.data?.count ?? 0
+        let count = data?.defaultResponse?.books?.data?.count ?? 0
+        if count  > 0 {
+            tableView.backgroundView = nil
+            guard  numberOfPage <= totalPages else {
+                return count
+            }
+            return count + 1
+        }else {
+            let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            noDataLabel.text          = "No data available"
+            noDataLabel.textColor     = #colorLiteral(red: 0.262745098, green: 0.5019607843, blue: 0.7607843137, alpha: 1)
+            noDataLabel.textAlignment = .center
+            tableView.backgroundView  = noDataLabel
+            tableView.separatorStyle  = .none
+            return count
+
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyDealsCell", for: indexPath) as? MyDealsTableViewCell else {
-            return UITableViewCell()
-        }
-        guard let book = data?.defaultResponse?.books?.data?[indexPath.row] else {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingTableViewCell
+        let totalPages = self.data?.defaultResponse?.books?.meta?.pagination?.totalPages ?? 0
+        if indexPath.row == data?.defaultResponse?.books?.data?.count ?? 0 - 1 ,
+            numberOfPage <= totalPages{
+            cell.loadingIndicator.startAnimating()
+        }else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyDealsCell", for: indexPath) as? MyDealsTableViewCell else {
+                return UITableViewCell()
+            }
+            guard let book = data?.defaultResponse?.books?.data?[indexPath.row] else {
+                return cell
+            }
+            cell.dealImage.addImage(withImage:  book.providerImage ?? "", andPlaceHolder: "photoa")
+            cell.dealTitleLabel.text = book.providerName ?? ""
+            cell.dealDateLabel.text = book.startDate ?? ""
+            cell.dealTimeLabel.text = "\(book.from ?? "") - \(book.to ?? "")"
+            cell.dealStatusValueLabel.text = book.statusText ?? ""
+            cell.backgroundColor = .clear
             return cell
         }
-        cell.dealImage.addImage(withImage:  book.providerImage ?? "", andPlaceHolder: "photoa")
-        cell.dealTitleLabel.text = book.providerName ?? ""
-        cell.dealDateLabel.text = book.startDate ?? ""
-        cell.dealTimeLabel.text = "\(book.from ?? "") - \(book.to ?? "")"
-        cell.dealStatusValueLabel.text = book.statusText ?? ""
-        cell.backgroundColor = .clear
         return cell
     }
-    
-    
+        
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard !isLoading else { return }
+            let totalPages = self.data?.defaultResponse?.books?.meta?.pagination?.totalPages ?? 0
+            if numberOfPage <= totalPages {
+                let array = self.data?.defaultResponse?.books?.data?.count ?? 0 - 1
+                if indexPath.row  == array {
+                    addFooterReffresher()
+                }
+            }
+
+    }
 }
