@@ -24,14 +24,7 @@ class CatItemsCell: UICollectionViewCell {
     }
     
     func setUpUI() {
-        searchByCategoriesView.backgroundColor = .white
-        categoryTitle.textColor = UIColor.lightGray
-//        searchByCategoriesView.roundView(withCorner: 13.0, borderColor: borderColor, borderWidth: 0.5)
-//        searchByCategoriesView.dropShadow(color: shadowColor, opacity: 0.5, offSet: CGSize(width: 1, height: 1), radius: 0.5, scale: true)
-        
-        fullView.roundView(withCorner: 13.0)
-       // searchByCategoriesView.roundView(withCorner: 13.0)
-        //searchByCategoriesView.addCategoryShadow()
+        fullView.roundView(withCorner: 20)
     }
 
 }

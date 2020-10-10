@@ -48,7 +48,7 @@ class CategoryItemsCell: UICollectionViewCell {
     }
     
     @objc func searchByCategoriesViewTapAction(sender: UITapGestureRecognizer) {
-        searchByCategoriesView.roundView(withCorner: 13.0, borderColor: UIColor.init(red: 237/255, green: 237/255, blue: 237/255, alpha: 1.0), borderWidth: 0.5)
+        searchByCategoriesView.roundView(withCorner: 13.0, borderColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), borderWidth: 0.5)
         categoryImageView.tintColor = blueColor
         //searchByCategoriesView
       //  delegate?.searchByCategoriesViewTapped(cell: self)
