@@ -21,6 +21,17 @@ class MyEdalServices {
         }
     }
     
+    func getHistoryServices(page: String, completion: @escaping (_ error: String?, _ data: UpCommingResponse?) -> ()) {
+        let parameters = ["device_type": "2",
+                          "page": page,
+                          "sort": "1"]
+        ApiClient.CallApi(endPoint: .bookingHistory(parameters: parameters)) { (data: UpCommingResponse?, error: Error?, code) in
+            ApiClient.checkErrors(error: error?.localizedDescription, errorSubCategories: data?.errors?.subServiceID, completion: completion)
+            completion(nil,data)
+        }
+
+    }
+    
     func getSubCategory(by categoryId: Int, completion: @escaping (_ error: String?, _ data: SubCategoriesResponse?) -> ()){
         
         let url = URLs.base + "/api/customer/search/categories/sub-categories"

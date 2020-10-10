@@ -19,7 +19,6 @@ class ApiClient {
                 //                print(value)
                 do {
                     let DataResponsed = try JSONDecoder().decode(T.self, from: response.data!)
-                    print(DataResponsed)
                     completion(DataResponsed, nil, response.response?.statusCode)
                 } catch {
                     completion(nil, error,response.response?.statusCode)

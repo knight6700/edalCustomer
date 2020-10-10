@@ -20,6 +20,7 @@ target 'EdalCustomer' do
   pod 'Cosmos'
   pod 'SwiftyJSON'
   pod 'SideMenu', '~> 4.0'
-    pod 'ObjectMapper'
+  pod 'ObjectMapper'
+
 
 end
