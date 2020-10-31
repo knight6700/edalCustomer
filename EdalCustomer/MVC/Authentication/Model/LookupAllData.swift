@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LookupAllData: Decodable {
+struct LookupAllData: Codable {
     let id: Int         // for all
     let title: String?  // for business_sizes, years_of_experience, districts
     let name: String?   // for categories, cities

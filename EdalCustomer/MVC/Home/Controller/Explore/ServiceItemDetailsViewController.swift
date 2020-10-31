@@ -57,7 +57,6 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
         totalReviewsLabel.text = "\(service.totalReview) Reviews"
         storeImage.sd_setImage(with: URL(string: service.imageUrl), completed: nil)
         if service.isFavourite  {
-            // recommendedCategoriesData[indexPath]
             favButton.setImage(#imageLiteral(resourceName: "faviconact"), for: .normal)
         } else {
             favButton.setImage(#imageLiteral(resourceName: "unfavorite"), for: .normal)
@@ -77,10 +76,11 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
             
             frame.origin.x = self.scrollView.frame.size.width * CGFloat(index)
             frame.size = self.scrollView.frame.size
-            let subView = Bundle.main.loadNibNamed("Intro", owner: self, options: nil)! [0] as! UIView
+            let subView = Bundle.main.loadNibNamed("Intro", owner: self, options: nil)! [0] as! IntroUIScrollView
+            subView.image.addImage(withImage: serviceItemDetailsModel?.images[0], andPlaceHolder: "edallogo")
             subView.frame = frame
             subView.backgroundColor = UIColor.clear
-            self.scrollView .addSubview(subView)
+            self.scrollView.addSubview(subView)
             //            scrollView.scale()
         }
         
@@ -202,6 +202,7 @@ extension ServiceItemDetailsViewController: ServiceItemDetailsDelegate {
         print(index?.row ?? 0)
         let detailsVC = Initializer.createViewController(storyBoard: .HomeSB, andId: "BookingViewController") as! BookingViewController
         detailsVC.resources = serviceItemDetailsResponseModel?.defaultResponse?.resources?.data
+        detailsVC.serviceItemDetailsResponseModel = serviceItemDetailsResponseModel
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     

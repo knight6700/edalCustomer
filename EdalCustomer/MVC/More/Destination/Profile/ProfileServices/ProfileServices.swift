@@ -18,13 +18,33 @@ class ProfileServices {
         let url = URLs.base + "/api/customer/profile/update-image"
         let parameters = ["device_type":"2"]
         let headers = RequestComponent.headerComponent([.lang , .authorization])
+        AF.upload(multipartFormData: { multipartFormData in
+            guard let data = image.jpegData(compressionQuality: 0.5) else { return }
+            let mediaImage = Media(withData: data, forKey: "image", mimeType: "image/jpeg", fileName: "photo\(arc4random()).jpeg")
+
+            multipartFormData.append(mediaImage?.data ?? Data(), withName: mediaImage?.key ?? "", fileName: mediaImage?.fileName ?? "", mimeType: mediaImage?.mimeType)
+            for (key, value) in parameters {
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+            }
+        }, to: url,
+           headers: headers).responseDecodable(of: UpdateImageResponse.self) { response in
+            print(response.result)
+            switch response.result {
+            case .success(let data):
+                print(data)
+                completion(nil,data)
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(error.localizedDescription,nil)
+            }
+        }
         /*
         Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
             guard let data = image.jpegData(compressionQuality: 0.5) else { return }
             guard let mediaImage = Media(withData: data, forKey: "image", mimeType: "image/jpeg", fileName: "photo\(arc4random()).jpeg") else { return }
             form.append(mediaImage.data, withName: mediaImage.key, fileName: mediaImage.fileName, mimeType: mediaImage.mimeType)
             
-            // if there is parameters
+             if there is parameters
             for (key, value) in parameters {
                 form.append(value.data(using: String.Encoding.utf8)!, withName: key)
             }
@@ -71,7 +91,6 @@ class ProfileServices {
         let parameters:[String: Any] = ["device_type": "2"]
         
         let headers = RequestComponent.headerComponent([.lang , .authorization])
-        
         RequestManager().request(fromUrl: url, byMethod: .post, withParameters: parameters, andHeaders: headers) { (error, data: GetCustomerResponse?) in
             
             if let error = error {
@@ -92,6 +111,8 @@ class ProfileServices {
             completion(nil, data)
         }
     }
+    
+    
     
     
     func updatePassword(passowrd: String, newPassword: String, confirmPassword: String,  completion: @escaping (_ error: String?, _ data: RegisterResponse?) -> Void){
@@ -122,7 +143,7 @@ class ProfileServices {
     }
     
     func updateCustomerPersonalInfo(firstName: String, lastName: String, email: String, gender: Int, age: Int,  completion: @escaping (_ error: String?, _ errors: [String: String]?, _ data: GetCustomerResponse?) -> Void){
-        let url = URLs.base + "}/api/customer/profile/personal-info/update"
+        let url = URLs.base + "/api/customer/profile/personal-info/update"
         let parameters:[String: Any] = ["device_type": "2",
                                         "first_name": firstName,
                                         "last_name": lastName,

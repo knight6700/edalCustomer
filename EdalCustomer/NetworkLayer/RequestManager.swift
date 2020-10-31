@@ -80,8 +80,14 @@ class RequestManager {
                     
                     if code == 200 || code == 201{
                         // 200 success in general , 201 success for signUp
-//                        self.handleSuccess(response: response, completion: completion)
-                        
+                        do {
+                            let DataResponsed = try JSONDecoder().decode(T.self, from: response.data!)
+                            completion(nil, DataResponsed)
+                        } catch {
+                            print(error)
+                            completion(error.localizedDescription, nil)
+                        }
+
                     }else if code == 400 {
                         //invalid url: your sent a request that this server could not understand.
                         self.handleError(response: response, completion: completion)

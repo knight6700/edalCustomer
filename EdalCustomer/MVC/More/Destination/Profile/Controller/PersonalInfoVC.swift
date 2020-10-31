@@ -40,7 +40,7 @@ class PersonalInfoVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getCustomerInfo()
-        handleNavigationBar()
+        self.handleNavigationBars()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -51,19 +51,6 @@ class PersonalInfoVC: UIViewController {
         
     }
     
-    func handleNavigationBar(){
-        let attributes: [NSAttributedString.Key : Any] = [
-            NSAttributedString.Key.foregroundColor : UIColor.white]
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.navigationController?.navigationBar.titleTextAttributes = attributes
-        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.barTintColor = UIColor.blueColor()
-        self.navigationController?.view.backgroundColor = UIColor.white
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-    }
     
    
     private func getCustomerInfo(){
@@ -91,7 +78,8 @@ class PersonalInfoVC: UIViewController {
     
     func updateUIWithCustomerData(for customer: Customer){
         
-        profileImageView.addImage(withImage: customer.image, andPlaceHolder: "")
+        profileImageView.addImage(withImage: customer.image, andPlaceHolder: "avatar")
+        profileImageView.setRounded(color: .white)
         profileNameLabel.text = customer.first_name
         profileEmailLabel.text = customer.email
         firstNameLabel.text = customer.first_name
@@ -120,13 +108,16 @@ class PersonalInfoVC: UIViewController {
         providerMarker.map = mapView
         // Center camera to marker position
         mapView.camera = GMSCameraPosition.camera(withTarget: providerMarker.position, zoom: 8)
+        mapView.layer.cornerRadius = 10
+        mapView.layer.masksToBounds = true
        // providerMarker[providerTitle] = providerMarker
     }
 
     
     @IBAction func onTappedEditLocation(_ sender: UIButton) {
         let navigator = ProfileNavigator(nav: self.navigationController)
-        navigator.navigate(to: .editLocation)
+        guard let customer = customer  else {return}
+        navigator.navigate(to: .editLocation(customer: customer))
     }
     
     @IBAction func onTappedBack(_ sender: UIButton) {
@@ -137,4 +128,22 @@ class PersonalInfoVC: UIViewController {
         let navigator = ProfileNavigator(nav: self.navigationController)
         navigator.navigate(to: .editPersonalInfo)
     }
+}
+extension UIViewController {
+    func handleNavigationBars(){
+        let attributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor : UIColor.white]
+        
+        self.navigationController?.navigationBar.titleTextAttributes = attributes
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.323800981, green: 0.5801380277, blue: 0.8052206635, alpha: 1)
+        self.navigationController?.view.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationController?.hidesBarsOnSwipe = true
+
+    }
+
 }

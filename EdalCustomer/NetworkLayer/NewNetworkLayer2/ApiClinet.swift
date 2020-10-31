@@ -16,11 +16,12 @@ class ApiClient {
         return AF.request(route).responseJSON(completionHandler: { (response) in
             switch response.result {
             case .success(let value):
-                //                print(value)
+                    print(value)
                 do {
                     let DataResponsed = try JSONDecoder().decode(T.self, from: response.data!)
                     completion(DataResponsed, nil, response.response?.statusCode)
                 } catch {
+                    print(error)
                     completion(nil, error,response.response?.statusCode)
                 }
             case .failure(let error):
@@ -50,3 +51,10 @@ class ApiClient {
     
     
 }
+extension Encodable {
+  var dictionary: [String: Any]? {
+    guard let data = try? JSONEncoder().encode(self) else { return nil }
+    return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
+  }
+}
+

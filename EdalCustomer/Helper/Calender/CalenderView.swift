@@ -154,15 +154,13 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
             cell?.backgroundColor=Colors.darkRed
             let lbl = cell?.subviews[1] as! UILabel
             lbl.textColor=UIColor.white
-            delegate?.didTapDate(date: "Date:\(calcDate)/\(currentMonthIndex)/\(currentYear)", available: true)
+            delegate?.didTapDate(date: "\(currentYear)-\(currentMonthIndex)-\(calcDate)", available: true)
         }
        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath)
-       
-        
         let calcDate = indexPath.row-firstWeekDayOfMonth+2
         if  bookedSlotDate.contains(calcDate) {
             cell?.backgroundColor=UIColor.clear

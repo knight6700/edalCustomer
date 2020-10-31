@@ -32,7 +32,7 @@ class EditPersonalInfoVC: UIViewController {
     @IBOutlet weak var selectedAgeView: UIView!
     @IBOutlet weak var selectAgeButton: UIButton!
     @IBOutlet weak var mobileView: UIView!
-    
+    let authenticationServices = AuthenticationServices()
     // MARK: Properties
     private let redColor = UIColor(red: 207/255, green: 16/255, blue: 41/255, alpha: 1)
     private let lightColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
@@ -63,10 +63,8 @@ class EditPersonalInfoVC: UIViewController {
     // MARK: Methods
     // configuration: to configure any protocols
     private func configuration(){
-        
         lookupAll()
-        
-        
+        self.handleNavigationBars()
     }
     // setupUI: to setup data or make a custom design
     private func setupUI(){
@@ -74,7 +72,7 @@ class EditPersonalInfoVC: UIViewController {
         lastNameField.roundView(withCorner: 4, borderColor: lightColor, borderWidth: 0.5)
         mobileView.roundView(withCorner: 4, borderColor: lightColor, borderWidth: 0.5)
         emailField.roundView(withCorner: 4, borderColor: lightColor, borderWidth: 0.5)
-        profileImageView.roundView(withCorner: profileImageView.frame.width/2)
+        profileImageView.setRounded(color: .white)
         
         let light = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
         selectedAgeView.roundView(withCorner: 4, borderColor: light, borderWidth: 0.5)
@@ -162,7 +160,7 @@ class EditPersonalInfoVC: UIViewController {
             }
             
             guard let _data = data else{ return }
-//            self.lookUpAll = _data
+            self.lookUpAll = _data
         }
     }
         

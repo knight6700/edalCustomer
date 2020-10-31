@@ -14,7 +14,7 @@ class SearchVC: UIViewController {
     
     @IBOutlet weak var timeTextFiled: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var selectCityDistrictButton: UIButton!
+    @IBOutlet weak var selectCityDistrictButton: TextFieldImage!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var categoriesPageControl: UIPageControl!
     
@@ -47,6 +47,7 @@ class SearchVC: UIViewController {
     var currentOffsetX = 0
     var time: Int = 0
     var cityDistrictDataPicker: [String] = ["Choose City, Distract"]
+    var searchLookUpsResponse: SearchLookUpsResponse?
     override func viewDidLoad() {
         super.viewDidLoad()
         SingletonClass.shared.searchNav = self.navigationController!
@@ -73,18 +74,22 @@ class SearchVC: UIViewController {
         SetLeftSIDEImage(TextField: timeTextFiled, ImageName: "timeIcon")
         searchTextField.roundView(withCorner: 8.0)
         selectCityDistrictButton.roundView(withCorner: 8.0)
-        selectCityDistrictButton.setTitle("Choose City, Distract", for: .normal)
+        selectCityDistrictButton.placeholder = "Choose City, Distract"
         timeTextFiled.roundView(withCorner: 8.0)
         dateTextField.roundView(withCorner: 8.0)
         searchButton.roundView(withCorner: 8.0)
         selectCityDistrictView.roundView(withCorner: 8.0)
+        searchButton.backgroundColor = #colorLiteral(red: 0.323800981, green: 0.5801380277, blue: 0.8052206635, alpha: 0.7860804966)
+        [searchTextField, timeTextFiled, dateTextField, timeTextFiled].forEach { (textField) in
+            textField?.delegate = self
+        }
     }
     
     func showPickerInActionSheet() {
         let title = ""
         let message = "\n\n\n\n\n\n\n\n\n\n"
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.actionSheet)
-        alert.isModalInPopover = true
+        alert.modalPresentationStyle = .overCurrentContext
         //Create a frame (placeholder/wrapper) for the picker and then create the picker
         let pickerFrame: CGRect = CGRect(x: 17,y: 52,width: 270,height: 200) // CGRectMake(left), top, width, height) - left and top are like margins
         picker = UIPickerView(frame: pickerFrame)
@@ -137,7 +142,7 @@ class SearchVC: UIViewController {
     @objc func cancelSelection(){
         print("Cancel")
         self.dismiss(animated: true, completion: nil)
-        selectCityDistrictButton.setTitle("Choose City, Distract", for: .normal)
+        selectCityDistrictButton.text = ""
         // We dismiss the alert. Here you can add your additional code to execute when cancel is pressed
     }
     @objc func doneSelection(){
@@ -146,18 +151,19 @@ class SearchVC: UIViewController {
         // We dismiss the alert. Here you can add your additional code to execute when cancel is pressed
     }
     
-    @IBOutlet weak var cityDistrictButton: UIButton!
-    @IBAction func onTappedSelectCityDistrict(_ sender: UIButton) {
-        showPickerInActionSheet()
-        cityDistrictButton.tintColor = .black
-        getIndicatorTintColor(image: indicatorCityDistrictImage)
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handleNavigationBar()
         CatCollectionView.allowsMultipleSelection = false
         getAllCategoriesOneTime(for: 1)
         refreshAllInputs()
+    }
+    
+    @IBAction func pressedCityAndDistrectied(_ sender: Any) {
+        self.view.endEditing(true)
+        showPickerInActionSheet()
+        getIndicatorTintColor(image: indicatorCityDistrictImage)
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -167,7 +173,6 @@ class SearchVC: UIViewController {
     }
     func refreshAllInputs(){
         searchTextField.text = ""
-        cityDistrictButton.setTitle("Choose City, Distract", for: .normal)
         dateTextField.text = ""
         timeTextFiled.text = ""
     }
@@ -242,6 +247,7 @@ class SearchVC: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         dateTextField.text = formatter.string(from: datePicker.date)
+        self.dismiss(animated: true)
         self.view.endEditing(true)
     }
     
@@ -304,6 +310,17 @@ class SearchVC: UIViewController {
             guard let _data = data else{return}
             self.CategoriesTotalpages = ((_data.paginated_categories?.meta?.pagination?.total_pages)!)
         })
+    }
+    
+    func getAllLookUps()  {
+        let services = CategoriesServices()
+        services.getAllCities { [weak self] (error: String?, data: SearchLookUpsResponse?) in
+            guard error == nil else {
+                self?.alertUser(title: "Error", message: error ?? "")
+                return
+            }
+            self?.searchLookUpsResponse = data
+        }
     }
     
     
@@ -370,34 +387,19 @@ class SearchVC: UIViewController {
     }
     
     func getSearchLooksUp() {
-        let services = SearchServices()
-        services.getSearchLookUps { (error, data) in
-            if let error = error{
-                self.alertUser(title: "", message: error)
+        let services = CategoriesServices()
+        services.getAllCities { [weak self] (error: String?, data: SearchLookUpsResponse?) in
+            guard error == nil else {
+                self?.alertUser(title: "Error", message: error ?? "")
                 return
             }
-            guard let _data = data else{return}
-            self.citiesData = _data.defaultResponse.citiesDistricts.data
-            
-            for index in 0..<(self.citiesData.count) {
-                let cityName = (self.citiesData[index].name)
-                self.districtData = self.citiesData[index].districts.data
-                var districtId = 0
-                while districtId < (self.districtData.count) {
-                    let cityDistrict = "\(cityName), \(self.districtData[districtId].title)"
-                    self.districtIds.append((self.districtData[districtId].id))
-                    self.cityDistrictDataPicker.append(cityDistrict)
-                    print(self.districtIds)
-                    print(cityDistrict)
-                    districtId+=1
-                }
-                print(self.cityDistrictDataPicker)
-            }
-            self.picker?.dataSource = self
-            self.picker?.delegate = self
-            print(self.citiesDataIds)
-            print(self.citiesData)
+            self?.searchLookUpsResponse = data
+            self?.picker?.dataSource = self
+            self?.picker?.delegate = self
+            self?.picker?.reloadAllComponents()
+
         }
+
     }
     
     
@@ -435,7 +437,6 @@ extension SearchVC: UICollectionViewDelegate {
         //handling starting of scroll
         if currentOffsetX == 0 && Int(scrollView.contentOffset.x) < 0 {
             return
-            print("current_page<CategoriesTotalpages",current_page, CategoriesTotalpages)
         }
         //handling next scrolling
         if currentOffsetX <= Int(scrollView.contentOffset.x) && Int(scrollView.contentOffset.x) < (Int(UIScreen.main.bounds.width)*(CategoriesTotalpages-1))  {
@@ -511,7 +512,7 @@ extension SearchVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         print(cityDistrictDataPicker.count)
         if component == 0 {
-            return self.cityDistrictDataPicker.count
+            return self.searchLookUpsResponse?.defaultResponse.citiesDistricts.data.count ?? 0
         }else {
             return 0
         }
@@ -520,18 +521,18 @@ extension SearchVC: UIPickerViewDelegate {
     // Return the title of each row in your picker ... In my case that will be the profile name or the username string
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
-            return "\(self.cityDistrictDataPicker[row])"
+            return "\(self.searchLookUpsResponse?.defaultResponse.citiesDistricts.data[row].name ?? "")"
         } else {
             return ""
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectCityDistrictButton.setTitle(self.cityDistrictDataPicker[row], for: UIControl.State.normal)
+        selectCityDistrictButton.text = self.searchLookUpsResponse?.defaultResponse.citiesDistricts.data[row].name ?? ""
         if row == 0 {
           selectedDistrictId = 0
         }else {
-          selectedDistrictId = districtIds[row - 1]
+            selectedDistrictId = self.searchLookUpsResponse?.defaultResponse.citiesDistricts.data[row].id ?? 0
         }
         
         print("selectedDistrictId", selectedDistrictId)
@@ -544,7 +545,29 @@ extension SearchVC: UIPickerViewDataSource {
     
     
 }
-
+extension SearchVC: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        searchButton.isEnabled = false
+        if timeTextFiled.text != "" , searchTextField.text != "",
+            dateTextField.text != "", searchTextField.text != "",
+        selectCityDistrictButton.text != "" {
+            searchButton.isEnabled = true
+            searchButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.5019607843, blue: 0.7607843137, alpha: 1)
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        searchButton.isEnabled = false
+        searchButton.backgroundColor = #colorLiteral(red: 0.323800981, green: 0.5801380277, blue: 0.8052206635, alpha: 0.7860804966)
+        if timeTextFiled.text != "" , searchTextField.text != "",
+            dateTextField.text != "", searchTextField.text != "",
+        selectCityDistrictButton.text != "" {
+            searchButton.isEnabled = true
+            searchButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.5019607843, blue: 0.7607843137, alpha: 1)
+        }
+    }
+}
 
 
 

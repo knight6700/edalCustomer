@@ -11,7 +11,11 @@ import GoogleMaps
 import Cosmos
 
 class ShowMapVC: UIViewController {
-    var providerServicesData = [HomeProvidersDatum]()
+    var providerServicesData: [ProvidersDatum]{
+        return searchableResponse?.providers?.data ?? [ProvidersDatum]()
+    }
+    var searchableResponse: SearchableResponse?
+
 
 //    var providerServicesData = [ProviderUserModel]()
     var ProviderMarkerDict: [String: GMSMarker] = [:]
@@ -20,7 +24,6 @@ class ShowMapVC: UIViewController {
     var long: String?
     var location = SelectedLocation()
     //var ProviderMarkerDict: [String: GMSMarker] = [:]
-
     @IBOutlet weak var navigationBar: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var titleNavigationBar: UILabel!

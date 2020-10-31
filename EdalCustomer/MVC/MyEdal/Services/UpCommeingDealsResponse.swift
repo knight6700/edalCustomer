@@ -43,6 +43,7 @@ struct Datum: Codable {
     var to, endDate: String?
     var status: Int?
     var statusText: String?
+    var price: Float?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -59,6 +60,7 @@ struct Datum: Codable {
         case endDate = "end_date"
         case status
         case statusText = "status_text"
+        case price
     }
 }
 

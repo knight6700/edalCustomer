@@ -24,10 +24,10 @@ class ResourcesCollectionViewCell: UICollectionViewCell {
             resourcesImageView.setRounded()
         }else {
             contentView.cornerRadius = 0
-            contentView.borderColor = .clear
+            contentView.borderColor = .white
             contentView.borderWidth = 0
             contentView.layer.masksToBounds = false
-            
+            unRounded()
         }
     }
     

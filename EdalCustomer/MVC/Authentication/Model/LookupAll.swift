@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LookupAll: Decodable {
+class LookupAll: Codable {
     let lang: String = ""
     let status: String = ""
     let error_msg: String = ""
@@ -21,10 +21,10 @@ class LookupAll: Decodable {
     let terms: String = ""
 }
 
-class Cities: Decodable {
+class Cities: Codable {
     let data: [LookupAllData]
 }
-class Ages: Decodable {
+class Ages: Codable {
     let data: [LookupAllData]
 }
 

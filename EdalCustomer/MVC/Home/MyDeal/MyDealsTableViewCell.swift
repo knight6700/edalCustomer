@@ -26,7 +26,6 @@ class MyDealsTableViewCell: UITableViewCell {
         contentainrView.layer.shadowOffset = .zero
         contentainrView.layer.shadowRadius = 10
 
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,4 +34,26 @@ class MyDealsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setStatusColor(id: Int) {
+        switch id {
+            case 1:
+                dealStatusValueLabel.textColor = .yellow
+            case  2:
+                break
+            case 3:
+                dealStatusValueLabel.textColor = .green
+            case 4:
+                dealStatusValueLabel.textColor = #colorLiteral(red: 0.3541823626, green: 0.6177722812, blue: 0.9613298774, alpha: 1)
+            case 5:
+                dealStatusTitleLabel.textColor = .orange
+            case 6:
+                dealStatusTitleLabel.textColor = .green
+            case 7:
+                dealStatusTitleLabel.textColor = .red
+            case 8:
+                dealStatusTitleLabel.textColor = .red
+            default:
+                dealStatusTitleLabel.textColor = .black
+        }
+    }
 }

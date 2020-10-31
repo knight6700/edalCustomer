@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tI9-V4-q8j">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tI9-V4-q8j">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,17 +10,17 @@
         <!--Complaints-->
         <scene sceneID="WNR-TD-at2">
             <objects>
-                <viewController storyboardIdentifier="ComplaintsListVC" hidesBottomBarWhenPushed="YES" id="tI9-V4-q8j" customClass="ComplaintsListVC" customModule="edal_IosApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComplaintsVC" hidesBottomBarWhenPushed="YES" id="tI9-V4-q8j" customClass="ComplaintsListVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZXg-Ac-8A2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6oK-7p-1ZV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="eyH-f3-DH3">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eyH-f3-DH3" id="XuC-lc-kwF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -56,13 +54,13 @@
         <!--23/12/2017-->
         <scene sceneID="nFL-LA-45M">
             <objects>
-                <viewController storyboardIdentifier="ComplaintsInfoVC" id="B7i-nB-Ibb" customClass="ComplaintsInfoVC" customModule="edal_IosApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComplaintsInfoVC" id="B7i-nB-Ibb" customClass="ComplaintsInfoVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yNC-tD-lUk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pending" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6f-PS-LUf">
-                                <rect key="frame" x="0.0" y="64" width="375" height="33"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="33"/>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.4549019608" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="mbJ-YI-FHv"/>
@@ -72,7 +70,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJP-1L-HhO">
-                                <rect key="frame" x="0.0" y="97" width="375" height="570"/>
+                                <rect key="frame" x="0.0" y="77" width="375" height="590"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jll-Kw-Ldy">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="499"/>
@@ -271,7 +269,7 @@
         <!--Reopen ComplaintVC-->
         <scene sceneID="lT4-NX-6RK">
             <objects>
-                <viewController storyboardIdentifier="ReopenComplaintVC" id="9vd-hW-jX5" customClass="ReopenComplaintVC" customModule="edal_IosApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReopenComplaintVC" id="9vd-hW-jX5" customClass="ReopenComplaintVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ns-n5-R4R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,6 +375,9 @@ Reopen this complaint</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d1c-Ta-YHz"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="zFq-gv-1A2" id="tZ1-8H-OKq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqJ-mu-6IA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -391,7 +392,7 @@ Reopen this complaint</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tKz-So-XRi">
-                                <rect key="frame" x="0.0" y="33" width="375" height="70.5"/>
+                                <rect key="frame" x="0.0" y="13" width="375" height="70.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="complainticon" translatesAutoresizingMaskIntoConstraints="NO" id="pSh-Rd-jTH">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -405,14 +406,14 @@ Reopen this complaint</string>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-ch-6RB" userLabel="indicatorView">
-                                <rect key="frame" x="0.0" y="119.5" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="XIN-Xc-z8L"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="SUa-Jm-wJT">
-                                <rect key="frame" x="16" y="120.5" width="343" height="44"/>
+                                <rect key="frame" x="16" y="100.5" width="343" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select complaint reason" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je6-Kk-bpk">
                                         <rect key="frame" x="0.0" y="0.0" width="330.5" height="44"/>
@@ -429,20 +430,20 @@ Reopen this complaint</string>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvi-GD-V5N" userLabel="indicatorView">
-                                <rect key="frame" x="0.0" y="164.5" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="144.5" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="da0-13-snv"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMa-Xm-SKX">
-                                <rect key="frame" x="16" y="181.5" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="161.5" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your comment" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-KM-Jr3">
-                                <rect key="frame" x="16" y="209.5" width="343" height="84"/>
+                                <rect key="frame" x="16" y="189.5" width="343" height="84"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="Kkp-YM-2mT"/>
@@ -451,7 +452,7 @@ Reopen this complaint</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUa-1r-tEK">
-                                <rect key="frame" x="56.5" y="319.5" width="262.5" height="44"/>
+                                <rect key="frame" x="56.5" y="299.5" width="262.5" height="44"/>
                                 <color key="backgroundColor" red="0.26274509800000001" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ztb-bS-OxH"/>

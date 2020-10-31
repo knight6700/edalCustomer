@@ -13,7 +13,7 @@ class Media {
     let key: String
     let fileName: String
     let data: Data
-    let mimeType: String
+    var mimeType: String
     
     init?(withData data: Data, forKey key: String, mimeType: String, fileName: String) {
         self.data = data

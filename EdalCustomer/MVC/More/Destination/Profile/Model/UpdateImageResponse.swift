@@ -13,7 +13,7 @@ class UpdateImageResponse: Decodable {
     let lang, status, errorMsg: String
     let errors: [String:String]
     let defaultResponse: [DefaultResponse]?
-    let customer: Customer
+    let customer: Customer?
     
     enum CodingKeys: String, CodingKey {
         case lang, status

@@ -250,11 +250,18 @@
 		DA96DB282530D2AE00D304AC /* UpCommeingDealsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96DB272530D2AE00D304AC /* UpCommeingDealsResponse.swift */; };
 		DA96DB2B2531B10100D304AC /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96DB292531B10100D304AC /* LoadingTableViewCell.swift */; };
 		DA96DB2C2531B10100D304AC /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA96DB2A2531B10100D304AC /* LoadingTableViewCell.xib */; };
+		DA9817212544C0A50027A64E /* TimeCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9817202544C0A50027A64E /* TimeCellCollectionViewCell.swift */; };
+		DA981723254742A30027A64E /* BookAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA981722254742A30027A64E /* BookAppointment.swift */; };
+		DA98172D254788930027A64E /* MyEdalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA98172B254788930027A64E /* MyEdalDetailsViewController.swift */; };
+		DA98172E254788930027A64E /* MyEdalDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA98172C254788930027A64E /* MyEdalDetailsViewController.xib */; };
+		DAA0270A2540B4F5007FD64E /* TextField+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA027092540B4F5007FD64E /* TextField+Images.swift */; };
 		DAABC7D9252D0FED0073F3DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D5252D0FED0073F3DE /* Constants.swift */; };
 		DAABC7DA252D0FED0073F3DE /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D6252D0FED0073F3DE /* EndPoints.swift */; };
 		DAABC7DB252D0FED0073F3DE /* APIConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */; };
 		DAABC7DC252D0FED0073F3DE /* ApiClinet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7D8252D0FED0073F3DE /* ApiClinet.swift */; };
 		DAABC7E4252D36B80073F3DE /* ServiceItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAABC7E2252D36B80073F3DE /* ServiceItemDetailsTableViewCell.swift */; };
+		DAB5FE142549951700A518A6 /* IntroUIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5FE132549951700A518A6 /* IntroUIScrollView.swift */; };
+		DAB5FE162549A11500A518A6 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB5FE152549A11500A518A6 /* LanguageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -506,11 +513,18 @@
 		DA96DB272530D2AE00D304AC /* UpCommeingDealsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCommeingDealsResponse.swift; sourceTree = "<group>"; };
 		DA96DB292531B10100D304AC /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		DA96DB2A2531B10100D304AC /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		DA9817202544C0A50027A64E /* TimeCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		DA981722254742A30027A64E /* BookAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointment.swift; sourceTree = "<group>"; };
+		DA98172B254788930027A64E /* MyEdalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEdalDetailsViewController.swift; sourceTree = "<group>"; };
+		DA98172C254788930027A64E /* MyEdalDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEdalDetailsViewController.xib; sourceTree = "<group>"; };
+		DAA027092540B4F5007FD64E /* TextField+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Images.swift"; sourceTree = "<group>"; };
 		DAABC7D5252D0FED0073F3DE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DAABC7D6252D0FED0073F3DE /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		DAABC7D7252D0FED0073F3DE /* APIConfigurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigurations.swift; sourceTree = "<group>"; };
 		DAABC7D8252D0FED0073F3DE /* ApiClinet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClinet.swift; sourceTree = "<group>"; };
 		DAABC7E2252D36B80073F3DE /* ServiceItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		DAB5FE132549951700A518A6 /* IntroUIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroUIScrollView.swift; sourceTree = "<group>"; };
+		DAB5FE152549A11500A518A6 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -666,8 +680,10 @@
 		12DF2E752477348B0006421B /* Explore */ = {
 			isa = PBXGroup;
 			children = (
+				DA98171F2544C0870027A64E /* TimeCell */,
 				12DF2E762477348B0006421B /* RecommendedCell */,
 				12DF2E792477348B0006421B /* Intro.xib */,
+				DAB5FE132549951700A518A6 /* IntroUIScrollView.swift */,
 				12DF2E7A2477348B0006421B /* ExploreVC.swift */,
 				12DF2E7B2477348B0006421B /* ExploreCell */,
 				12DF2E7E2477348B0006421B /* Model */,
@@ -704,6 +720,7 @@
 			children = (
 				12DF2E7F2477348B0006421B /* SubServiceModel.swift */,
 				DA71A539252E965500023236 /* ServiceItemDetailsModel.swift */,
+				DA981722254742A30027A64E /* BookAppointment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -873,6 +890,7 @@
 		12DF2EB92477348B0006421B /* MyEdal */ = {
 			isa = PBXGroup;
 			children = (
+				DA9817242547883E0027A64E /* MyEdalDetails */,
 				12DF2EBA2477348B0006421B /* Controller */,
 				12DF2EBF2477348B0006421B /* Services */,
 			);
@@ -1196,6 +1214,7 @@
 			isa = PBXGroup;
 			children = (
 				12DF2F0B2477348B0006421B /* SettingVC.swift */,
+				DAB5FE152549A11500A518A6 /* LanguageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1588,6 +1607,7 @@
 				12DF3063247734D00006421B /* TableView+CollectionViewIndicator.swift */,
 				12DF3064247734D00006421B /* UIFontExtension.swift */,
 				12DF3065247734D00006421B /* UIImageExtension.swift */,
+				DAA027092540B4F5007FD64E /* TextField+Images.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1618,6 +1638,23 @@
 				DA96DB2A2531B10100D304AC /* LoadingTableViewCell.xib */,
 			);
 			path = MyDeal;
+			sourceTree = "<group>";
+		};
+		DA98171F2544C0870027A64E /* TimeCell */ = {
+			isa = PBXGroup;
+			children = (
+				DA9817202544C0A50027A64E /* TimeCellCollectionViewCell.swift */,
+			);
+			path = TimeCell;
+			sourceTree = "<group>";
+		};
+		DA9817242547883E0027A64E /* MyEdalDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DA98172B254788930027A64E /* MyEdalDetailsViewController.swift */,
+				DA98172C254788930027A64E /* MyEdalDetailsViewController.xib */,
+			);
+			path = MyEdalDetails;
 			sourceTree = "<group>";
 		};
 		DAABC7D4252D0FED0073F3DE /* NewNetworkLayer2 */ = {
@@ -1737,6 +1774,7 @@
 				12DF2FBA2477348B0006421B /* CategoriesSB.storyboard in Resources */,
 				12DF2FA12477348B0006421B /* BusinessProfileSB.storyboard in Resources */,
 				12DF3051247734C80006421B /* SF-UI-Display-Thin.ttf in Resources */,
+				DA98172E254788930027A64E /* MyEdalDetailsViewController.xib in Resources */,
 				12DF2FFA2477348B0006421B /* SearchSB.storyboard in Resources */,
 				12DF2E3D247733AD0006421B /* Main.storyboard in Resources */,
 				12DF2F872477348B0006421B /* RecentlyBookCell.xib in Resources */,
@@ -1864,6 +1902,7 @@
 				12DF301A2477348B0006421B /* Customer.swift in Sources */,
 				12DF30002477348B0006421B /* MapServices.swift in Sources */,
 				12DF2FDB2477348B0006421B /* MoreNavigator.swift in Sources */,
+				DAB5FE142549951700A518A6 /* IntroUIScrollView.swift in Sources */,
 				12DF2E692477347C0006421B /* RequestManager.swift in Sources */,
 				12DF30022477348B0006421B /* RangeSlider.swift in Sources */,
 				12DF2F812477348B0006421B /* SubServiceModel.swift in Sources */,
@@ -1887,6 +1926,7 @@
 				12DF2FDD2477348B0006421B /* CategoryCell.swift in Sources */,
 				12DF2FF32477348B0006421B /* FilteringVC.swift in Sources */,
 				12DF2FE42477348B0006421B /* SubCategoriesVC.swift in Sources */,
+				DAA0270A2540B4F5007FD64E /* TextField+Images.swift in Sources */,
 				12DF2FAD2477348B0006421B /* MyEdalVC.swift in Sources */,
 				12DF2FC12477348B0006421B /* ComplaintsListVC.swift in Sources */,
 				12DF2FD32477348B0006421B /* GetCustomerResponse.swift in Sources */,
@@ -1894,6 +1934,7 @@
 				12DF2F8D2477348B0006421B /* HomePresenter.swift in Sources */,
 				12DF300C2477348B0006421B /* LooksUpPopUpVC.swift in Sources */,
 				12761D2B2478574F00108F91 /* ServicesProvidersModel.swift in Sources */,
+				DA98172D254788930027A64E /* MyEdalDetailsViewController.swift in Sources */,
 				12DF2E61247734710006421B /* UILabelLocalizedExtension.swift in Sources */,
 				DA71A538252E05A200023236 /* GradianView.swift in Sources */,
 				12DF2E6C2477347C0006421B /* Media.swift in Sources */,
@@ -1905,9 +1946,11 @@
 				12DF30122477348B0006421B /* PasswordVC.swift in Sources */,
 				12DF3070247734D10006421B /* TableView+CollectionViewIndicator.swift in Sources */,
 				12DF2F8B2477348B0006421B /* HomeTabBarController.swift in Sources */,
+				DA9817212544C0A50027A64E /* TimeCellCollectionViewCell.swift in Sources */,
 				123F5BE024785FAC002089E6 /* ProviderResponseModel.swift in Sources */,
 				12DF2FCF2477348B0006421B /* UpdatedPasswordVC.swift in Sources */,
 				12DF306E247734D10006421B /* UIViewExtension.swift in Sources */,
+				DA981723254742A30027A64E /* BookAppointment.swift in Sources */,
 				12DF30192477348B0006421B /* RegisterResponse.swift in Sources */,
 				12DF2FE82477348B0006421B /* ContainerVC.swift in Sources */,
 				12DF2FE32477348B0006421B /* SortingPopupVC.swift in Sources */,
@@ -1957,6 +2000,7 @@
 				12DF2F9C2477348B0006421B /* ProviderDetailsVC.swift in Sources */,
 				12DF303B247734B80006421B /* Subclasses.swift in Sources */,
 				12DF2FAB2477348B0006421B /* BookingCell.swift in Sources */,
+				DAB5FE162549A11500A518A6 /* LanguageViewController.swift in Sources */,
 				12DF2FA52477348B0006421B /* BPReviewsCell.swift in Sources */,
 				12DF3071247734D10006421B /* UIFontExtension.swift in Sources */,
 				12DF301E2477348B0006421B /* OnBoard.swift in Sources */,
