@@ -91,9 +91,9 @@ class BookingViewController: UIViewController,CalenderDelegate {
             if object is UICollectionView {
                 if let newValue = change?[.newKey]{
                     let newSize = newValue as! CGSize
-                    guard let count =  selectData?.times?.count else {return}
+                     let count =  selectData?.times?.count ?? 0
                     let cG = CGSize(width: count - 10, height: count)
-                        self.timesHightConstraint.constant = firstTime == 0 ? 0 : (newSize.height - cG.width)
+                    self.timesHightConstraint.constant = firstTime == 0 ? 50 : count == 0 ?  50 : (newSize.height - cG.width)
                     self.timesCollectionView.isScrollEnabled = false
                 }
             }
@@ -135,6 +135,7 @@ class BookingViewController: UIViewController,CalenderDelegate {
             guard  let index = selectedIndexResource else {
                 return
             }
+        
             if resources?[index].datesTimes?.filter({$0.date == date}).count ?? 0 > 0 {
                 selectData = resources?[index].datesTimes?.filter({$0.date == date})[0]
                 firstTime = 1
@@ -239,7 +240,7 @@ extension BookingViewController: UICollectionViewDelegate,UICollectionViewDataSo
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let width = collectionView.frame.width / 3 - 1
+        let width = collectionView.frame.width / 3 
         return CGSize(width: width, height: width)
     }
 
@@ -256,7 +257,7 @@ extension BookingViewController: UICollectionViewDelegate,UICollectionViewDataSo
 extension UICollectionView {
 
     func setEmptyMessage(_ message: String) {
-        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height + 20))
         messageLabel.text = message
         messageLabel.textColor = .black
         messageLabel.numberOfLines = 0;

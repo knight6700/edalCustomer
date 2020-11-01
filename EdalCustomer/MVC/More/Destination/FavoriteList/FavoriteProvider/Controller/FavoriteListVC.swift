@@ -19,6 +19,7 @@ class FavoriteListVC: UIViewController, RecommendedCellDelegate {
 
     var providersData: FavoriteListModel?
     var favoriteProvider: FavoriteProvider?
+    var firstTime = true
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteTableView.delegate = self
@@ -47,7 +48,10 @@ class FavoriteListVC: UIViewController, RecommendedCellDelegate {
             self?.isLoading = false
             self?.hideLoading()
             if let error = error {
-                self?.alertUser(title: "Error", message: error)
+                if self?.firstTime ?? true {
+                    self?.alertUser(title: "Error", message: error)
+                    self?.firstTime = false
+                }
                 self?.getFavoriteProviders()
                 return
             }

@@ -276,8 +276,8 @@ class serviceData: Mappable {
     var id: Int?
       var name: String? = ""
       var icon: String? = ""
-      var minValue:Any?
-      var maxValue  = 0
+      var minValue:Int? = 1
+      var maxValue: Int? = 1
       
     required init?(map: Map) {
         
@@ -288,6 +288,6 @@ class serviceData: Mappable {
         id        <- map["id"]
         name     <- map["name"]
         icon   <- map["icon"]
-        minValue   <- map["minValue"]
-        maxValue   <- map["maxValue"]
+        minValue   <- map["min_value"]
+        maxValue   <- map["max_value"]
     }}

@@ -65,6 +65,7 @@ class SearchVC: UIViewController {
         //loadMoreCategories(page: current_page)
         showDatePicker()
         showTimePicker()
+        
     }
     
     func setupUI() {
@@ -80,7 +81,7 @@ class SearchVC: UIViewController {
         searchButton.roundView(withCorner: 8.0)
         selectCityDistrictView.roundView(withCorner: 8.0)
         searchButton.backgroundColor = #colorLiteral(red: 0.323800981, green: 0.5801380277, blue: 0.8052206635, alpha: 0.7860804966)
-        [searchTextField, timeTextFiled, dateTextField, timeTextFiled].forEach { (textField) in
+        [searchTextField, timeTextFiled, dateTextField, timeTextFiled,selectCityDistrictButton].forEach { (textField) in
             textField?.delegate = self
         }
     }
@@ -161,6 +162,7 @@ class SearchVC: UIViewController {
     
     @IBAction func pressedCityAndDistrectied(_ sender: Any) {
         self.view.endEditing(true)
+        searchTextField.endEditing(true)
         showPickerInActionSheet()
         getIndicatorTintColor(image: indicatorCityDistrictImage)
 
@@ -227,6 +229,7 @@ class SearchVC: UIViewController {
     
     func showDatePicker(){
         //Formate Date
+        self.view.endEditing(true)
         datePicker.datePickerMode = .date
         
         //ToolBar
@@ -243,7 +246,7 @@ class SearchVC: UIViewController {
     }
     
     @objc func donedatePicker(){
-        
+        self.view.endEditing(true)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         dateTextField.text = formatter.string(from: datePicker.date)
@@ -257,6 +260,7 @@ class SearchVC: UIViewController {
     
     func showTimePicker(){
         //Formate Date
+        self.view.endEditing(true)
         timePicker.datePickerMode = .time
         
         //ToolBar
@@ -274,7 +278,6 @@ class SearchVC: UIViewController {
     }
     
     @objc func doneTimePicker(){
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm a "
         formatter.amSymbol = "AM"
@@ -510,6 +513,7 @@ extension SearchVC: UICollectionViewDataSource {
 extension SearchVC: UIPickerViewDelegate {
     // returns number of rows in each component..
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        self.view.endEditing(true)
         print(cityDistrictDataPicker.count)
         if component == 0 {
             return self.searchLookUpsResponse?.defaultResponse.citiesDistricts.data.count ?? 0
@@ -528,6 +532,7 @@ extension SearchVC: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.view.endEditing(true)
         selectCityDistrictButton.text = self.searchLookUpsResponse?.defaultResponse.citiesDistricts.data[row].name ?? ""
         if row == 0 {
           selectedDistrictId = 0
@@ -536,6 +541,7 @@ extension SearchVC: UIPickerViewDelegate {
         }
         
         print("selectedDistrictId", selectedDistrictId)
+        
     }
 }
 extension SearchVC: UIPickerViewDataSource {
@@ -556,8 +562,16 @@ extension SearchVC: UITextFieldDelegate {
         }
         return true
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == selectCityDistrictButton {
+            self.view.endEditing(true)
+        }
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        self.view.endEditing(true)
+        searchTextField.endEditing(true)
+        selectCityDistrictButton.endEditing(true)
         searchButton.isEnabled = false
         searchButton.backgroundColor = #colorLiteral(red: 0.323800981, green: 0.5801380277, blue: 0.8052206635, alpha: 0.7860804966)
         if timeTextFiled.text != "" , searchTextField.text != "",
