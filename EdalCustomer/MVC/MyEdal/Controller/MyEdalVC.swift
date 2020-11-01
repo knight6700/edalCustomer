@@ -147,8 +147,11 @@ class MyEdalVC: UIViewController {
 
 extension MyEdalVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let vc = MyEdalDetailsViewController()
+        vc.data = data?.defaultResponse?.books?.data?[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
 
 extension MyEdalVC: UITableViewDataSource {
@@ -157,16 +160,13 @@ extension MyEdalVC: UITableViewDataSource {
         if count  > 0 {
             tableView.backgroundView = nil
             guard  numberOfPage <= totalPages else {
+                self.bookingTable.restore()
                 return count
             }
+            bookingTable.restore()
             return count + 1
         }else {
-            let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-            noDataLabel.text          = "No data available"
-            noDataLabel.textColor     = #colorLiteral(red: 0.262745098, green: 0.5019607843, blue: 0.7607843137, alpha: 1)
-            noDataLabel.textAlignment = .center
-            tableView.backgroundView  = noDataLabel
-            tableView.separatorStyle  = .none
+            self.bookingTable.setNoData()
             return count
 
         }
@@ -190,6 +190,8 @@ extension MyEdalVC: UITableViewDataSource {
             cell.dealDateLabel.text = book.startDate ?? ""
             cell.dealTimeLabel.text = "\(book.from ?? "") - \(book.to ?? "")"
             cell.dealStatusValueLabel.text = book.statusText ?? ""
+            cell.priceLabel.text = "\(book.price ?? 0.0) EGP"
+            cell.setStatusColor(id: book.status ?? 0)
             cell.backgroundColor = .clear
             return cell
         }
@@ -207,4 +209,5 @@ extension MyEdalVC: UITableViewDataSource {
             }
 
     }
+    
 }

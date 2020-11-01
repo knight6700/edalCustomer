@@ -105,9 +105,9 @@ class MoreNavigator: Navigator {
     }
     
     private func getComplaintsVC()-> UIViewController{
-//        let id = complaintsId
-//        let vc = Initializer.createViewController(storyBoard: .CompalintsSB, andId: id) as!
-        return UIViewController()
+        let id = complaintsId
+        guard let vc = Initializer.createViewController(storyBoard: .ComplaintsSB, andId: id) as? ComplaintsListVC else {return UIViewController()}
+        return vc
     }
    
 }

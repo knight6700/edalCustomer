@@ -12,7 +12,7 @@ class ServicesProvidersModel: Mappable {
     
     
     var data: [HomeProvidersDatum]?
-    var meta : ProviderServicesMeta?
+    var meta : Meta?
       
     
     required init?(map: Map) {

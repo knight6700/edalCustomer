@@ -31,7 +31,7 @@ class ProfileNavigator: Navigator {
         case profile
         case personalInfo
         case editPersonalInfo
-        case editLocation
+        case editLocation(customer: Customer)
         case updatePassword
         case updatedPassword
 
@@ -67,8 +67,8 @@ class ProfileNavigator: Navigator {
             return personalInfoVC()
         case .editPersonalInfo:
             return editPersonalInfoVC()
-        case .editLocation:
-            return editLocationVC()
+        case .editLocation(let customer):
+            return editLocationVC(customer: customer)
         case .updatePassword:
             return updatePasswordVC()
         case .updatedPassword:
@@ -102,9 +102,10 @@ class ProfileNavigator: Navigator {
         let nextVC = Initializer.createViewController(storyBoard: .ProfileSB , andId: id) as! EditPersonalInfoVC
         return nextVC
     }
-    private func editLocationVC() -> UIViewController{
+    private func editLocationVC(customer: Customer) -> UIViewController{
         let id = editLocationId
         let nextVC = Initializer.createViewController(storyBoard: .ProfileSB , andId: id) as! EditLocationVC
+        nextVC.customer = customer
         return nextVC
     }
     private func updatePasswordVC() -> UIViewController{

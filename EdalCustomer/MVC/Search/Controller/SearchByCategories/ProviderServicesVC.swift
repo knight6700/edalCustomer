@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import CoreLocation
 
 class ProviderServicesVC: SlideMenuController {
 
@@ -24,7 +25,8 @@ class ProviderServicesVC: SlideMenuController {
     @IBOutlet weak var priceSlider: RangeSeekSlider!
     @IBOutlet weak var sideContainerView: UIView!
     var servicesId: Int?
-     var providerServicesData = [HomeProvidersDatum]()
+    var providerServicesData = [ProvidersDatum] ()
+    var searchableResponse: SearchableResponse?
     var providerServicesPaginationData = [HomeProvidersDatum]()
     var providerServiceTotalPages = 1
     let servicesSubCategories = ServicesSubCategoriesVC()
@@ -69,7 +71,6 @@ class ProviderServicesVC: SlideMenuController {
     }()
     var SelectedCategory: CategoriesData?{
         didSet{
-            print("categories id", SelectedCategory?.id)
             categoriesButton.setTitle(SelectedCategory?.name, for: .normal)
             categoryId = SelectedCategory?.id
         }
@@ -77,27 +78,34 @@ class ProviderServicesVC: SlideMenuController {
             showSideMenu()
         }
     }
+    let locationManager = CLLocationManager()
+    var currentLocation = CLLocation()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         noResultsView.isHidden = true
         tabBarHeight = self.tabBarController?.tabBar.frame.height
         providerServicesTableView.delegate = self
         providerServicesTableView.dataSource = self
         self.navigationController?.navigationBar.addSubview(sideMenuView)
         self.navigationController?.navigationBar.addSubview(blackView)
-       // self.tabBarController?.tabBar.backgroundImage = UIImage()
-       // configurationSideMenu()
         servicesId = Defaults.servicesId
-        print("services id in provider", servicesId!)
         Configuration()
-        print("total",categoriesTotalpages)
-        //loadMoreCategories()
-        //gettotalPagesofProviderServices()
-        //loadMoreProviderServices()
         setupUI()
         setupSideMenu()
         providerServicesTableView.addSubview(refresher)
-       // setupSideMenu()
+    }
+    
+    func setupLocationManager() {
+        self.locationManager.requestAlwaysAuthorization()
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
 
     }
 
@@ -117,10 +125,9 @@ class ProviderServicesVC: SlideMenuController {
     }
     
     @objc func pullToRefresh(_ refreshControl: UIRefreshControl) {
-        // Update your conntent here
-       // loadMoreProviderServices()
         refreshControl.endRefreshing()
     }
+    
     func searchWithKeyWord(){
         
     }
@@ -148,21 +155,13 @@ class ProviderServicesVC: SlideMenuController {
         guard let maxPrice = maxPrice else {return}
         searchAndFilter(keyword: keyword, districtId: nil, time: nil, page: providerCurrentPage, date: nil, minPrice: minPrice, maxPrice: maxPrice, locationRange: nil, ratingFrom: nil, ratingTo: nil, categoryId: categoryId, sortingId: nil)
     }
+    
     fileprivate func setupSideMenu() {
-        
-        
         SideMenuManager.default.menuPresentMode = .menuDissolveIn
         SideMenuManager.default.menuWidth = self.view.frame.width * 0.8
-        // (Optional) Prevent status bar area from turning black when menu appears:
         SideMenuManager.default.menuFadeStatusBar = false
-        
-     
     }
     
-    fileprivate func setDefaults() {
-        
-
-    }
     
     @IBAction func onTappedFilter(_ sender: UIBarButtonItem) {
 
@@ -181,13 +180,14 @@ class ProviderServicesVC: SlideMenuController {
         let tapGestRecognizer = UITapGestureRecognizer(target: self, action: #selector(blackScreenTapAction(sender:)))
         blackView.addGestureRecognizer(tapGestRecognizer)
     }
+    
     @objc func blackScreenTapAction(sender: UITapGestureRecognizer) {
         hideSideMenu()
     }
 
     @IBAction func OnTappedSideButton(_ sender: UIBarButtonItem) {
      handleSideMenu()
-        }
+    }
 
     func showSideMenu(){
         let tabBarHeight = self.tabBarController?.tabBar.frame.height
@@ -199,12 +199,14 @@ class ProviderServicesVC: SlideMenuController {
         sideMenuView.slideInFromRight()
         sideMenuShowing = !sideMenuShowing
     }
+    
     func hideSideMenu(){
         blackView.isHidden=true
         sideMenuView.isHidden = true
         sideMenuView.slideInToRight()
         sideMenuShowing = !sideMenuShowing
     }
+    
     func handleSideMenu() {
         if sideMenuShowing {
             DispatchQueue.main.async {
@@ -233,23 +235,17 @@ class ProviderServicesVC: SlideMenuController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handleNavigationBar()
-        getAllCategories(for: 1)
         if searchByCategory == true {
-            //gettotalPagesofProviderServices()
              loadMoreProviderServices()
         }else {
-            print(searchKeyword!)
-            print(cityDistrict!)
-            print(date!)
-            print(time!)
-            searchAndFilter(keyword: searchKeyword!, districtId: cityDistrict, time: time, page: providerCurrentPage, date: date, minPrice: nil, maxPrice: nil, locationRange: nil, ratingFrom: nil, ratingTo: nil, categoryId: nil, sortingId: nil)
+            searchAndFilter(keyword: searchKeyword ?? "", districtId: 1, time: time, page: providerCurrentPage, date: date, minPrice: nil, maxPrice: nil, locationRange: nil, ratingFrom: nil, ratingTo: nil, categoryId: nil, sortingId: nil)
         }
         
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
     }
     
     
@@ -267,11 +263,11 @@ class ProviderServicesVC: SlideMenuController {
         self.navigationController?.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
+    
     func seaarchMore(){
         if providerCurrentPage <= self.providerServiceTotalPages {
             searchAndFilter(keyword: searchKeyword, districtId: cityDistrict, time: time, page: providerCurrentPage, date: date, minPrice: minPrice, maxPrice: maxPrice, locationRange: locationRange, ratingFrom: ratingFrom, ratingTo: ratingTo, categoryId: categoryId, sortingId: sorting)
             providerCurrentPage += 1
-            print("page:\(providerCurrentPage)")
             self.hideLoading()
             return
         }
@@ -279,62 +275,55 @@ class ProviderServicesVC: SlideMenuController {
     }
     
     func searchAndFilter(keyword: String?, districtId: Int?, time: String?,page: Int?, date: String?, minPrice: Int?, maxPrice: Int?,locationRange: Int?, ratingFrom: Int?, ratingTo: Int?, categoryId: Int?, sortingId: Int?){
-
         let services = SearchServices()
         self.showLoading()
-        services.search(byKeyword: keyword, byDistrict: districtId, byDate: date, byTime: time, byPage: page, byMinPrice: minPrice, byMaxPrice: maxPrice, byLocationRange: locationRange, byCategoryId: categoryId, byRatingFrom: ratingFrom, byRatingTo: ratingTo, bySorting: sortingId, locationRange: locationRange) { (error, data) in
-            self.hideLoading()
+        services.search(byKeyword: keyword, byDistrict: districtId, byDate: date, byTime: time, byPage: page, byMinPrice: minPrice, byMaxPrice: maxPrice, byLocationRange: locationRange, byCategoryId: categoryId, byRatingFrom: ratingFrom, byRatingTo: ratingTo, bySorting: sortingId, locationRange: locationRange) {[weak self] (error, data) in
+            self?.hideLoading()
             if let error = error {
-                self.alertUser(title: "", message: error)
+                self?.alertUser(title: "", message: error)
                 return
             }
-//
-//            guard let data = data else {return}
-//            self.providerServicesData += (data.providers.data)
-//            self.providerTotalpages = data.providers.meta.pagination.total_pages
-//            print(self.providerServicesData)
-//            if self.providerServicesData.count == 0 {
-//                self.noResultsView.isHidden = false
-//                self.searchResultLabel.text = "Search results (No Results)"
-//            } else {
-//                self.totalNumberOfItems = data.providers.meta.pagination.per_page*data.providers.meta.pagination.total_pages
-//                self.searchResultLabel.text = "Search results (\(self.totalNumberOfItems))"
-//
-//                self.providerServicesTableView.reloadData()
-//            }
+            guard let data = data else {return}
+            self?.searchableResponse = data
+            self?.providerTotalpages = data.providers?.meta?.pagination?.totalPages ?? 0
+            self?.providerServicesData = data.providers?.data ?? [ProvidersDatum]()
+            print(self?.providerServicesData.count ?? 0)
+            if self?.searchableResponse?.providers?.data?.count == 0 {
+                self?.searchResultLabel.text = "Search results (No Results)"
+                self?.providerServicesTableView.reloadData()
+                self?.refresher.removeFromSuperview()
+            } else {
+                self?.totalNumberOfItems = data.providers?.meta?.pagination?.count ?? 0 * (data.providers?.meta?.pagination?.totalPages ?? 0)
+                self?.searchResultLabel.text = "Search results (\(self?.totalNumberOfItems ?? 0))"
+                self?.providerServicesTableView.reloadData()
+            }
 
         }
     }
-    func sortingBy(sortingId: Int, page: Int) {
-        
-        
-    }
-    func filtering(minPrice: Double, maxPrice: Double, locationRange: Int, categoriesId: Int, ratingForm: Int, ratingTo: Int, page: Int){
-        
-    }
+  
 
     func getproviderServices(currentPage: Int) {
         let services = SearchServices()
         self.showLoading()
-        services.getProviderServices(by: servicesId!, by: currentPage, completion: { (error, data) in
-            self.hideLoading()
+        services.getProviderServices(by: servicesId!, by: currentPage, completion: {[weak self] (error, data) in
+            self?.hideLoading()
             if let error = error{
-                self.alertUser(title: "", message: error)
+                self?.alertUser(title: "", message: error)
                 return
             }
-//            guard let data = data else{return}
-//            self.providerServicesData += (data.providers.data)
-//            self.providerTotalpages = (data.providers.meta.pagination.total_pages)
-//                print(self.providerServicesData)
-//            if self.providerServicesData.count == 0 {
-//                self.noResultsView.isHidden = false
-//                self.searchResultLabel.text = "Search results (No Results)"
-//            } else {
-//                self.totalNumberOfItems = data.providers.meta.pagination.per_page*data.providers.meta.pagination.total_pages
-//                self.searchResultLabel.text = "Search results (\(self.totalNumberOfItems))"
-//
-//                self.providerServicesTableView.reloadData()
-//            }
+            guard let data = data else{return}
+            self?.searchableResponse = data
+            self?.providerTotalpages = (data.providers?.meta?.pagination?.totalPages ?? 0)
+            if self?.providerServicesData.count == 0 {
+                self?.noResultsView.isHidden = true
+                self?.searchResultLabel.text = "Search results (No Results)"
+                self?.providerServicesTableView.reloadData()
+            } else {
+                self?.totalNumberOfItems = data.providers?.meta?.pagination?.perPage ?? 0 * (data.providers?.meta?.pagination?.totalPages ?? 0)
+                self?.searchResultLabel.text = "Search results (\(self?.totalNumberOfItems ?? 0))"
+
+                self?.providerServicesTableView.reloadData()
+            }
         })
     }
     
@@ -346,7 +335,7 @@ class ProviderServicesVC: SlideMenuController {
                 return
             }
             guard let _data = data else{return}
-//            self.providerServiceTotalPages = _data.providers.meta.pagination.total_pages
+            self.providerServiceTotalPages = _data.providers?.meta?.pagination?.totalPages ?? 0
             print(self.providerServiceTotalPages)
         })
     }
@@ -383,17 +372,7 @@ class ProviderServicesVC: SlideMenuController {
     }
 
 
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+        
     func formatPoints(num: Int) ->String{
         let thousandNum = num/1000
         let millionNum = num/1000000
@@ -439,7 +418,8 @@ class ProviderServicesVC: SlideMenuController {
 //        self.present(navShowMapVC, animated: true, completion: nil)
         let storyboard = UIStoryboard.init(name: "SearchResultSB", bundle: nil)
         let showMapVC = storyboard.instantiateViewController(withIdentifier: "ShowMapVC") as! ShowMapVC
-        showMapVC.providerServicesData = self.providerServicesData
+        // MARK: ToDO
+//        showMapVC.providerServicesData = self.providerServicesData
        // sortingVC.delegate = self
         showMapVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         self.tabBarController?.present(showMapVC, animated: true) { () -> Void in
@@ -456,7 +436,13 @@ class ProviderServicesVC: SlideMenuController {
 //MARK:- Table View Data Source
 extension ProviderServicesVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return providerServicesData.count
+        if providerServicesData.count == 0 {
+            providerServicesTableView.setNoData()
+            return 0
+        }else {
+            providerServicesTableView.backgroundView = nil
+            return providerServicesData.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -472,10 +458,8 @@ extension ProviderServicesVC: UITableViewDataSource {
         if providerServicesData[indexPath.item].imagesCount == 0 {
             cell.imagesCountLabel.text = "No Photos"
         }else {
-            cell.imagesCountLabel.text = "\(providerServicesData[indexPath.item].imagesCount) Photos"
+            cell.imagesCountLabel.text = "\(providerServicesData[indexPath.item].imagesCount ?? 0) Photos"
         }
-        
-        
         
         cell.categoriesRateView.rating = Double(providerServicesData[indexPath.item].rate!)
         
@@ -525,24 +509,31 @@ extension ProviderServicesVC: SortingPopupVCDelegate {
         self.lowToHighPrice = lowToHighPrice
         self.topRated = topRated
         self.aToZ = aToZ
-       // guard let keyword = searchKeyword else {return}
-//        blackView.isHidden = true
         if highToLowPrice == false {
             sorting = 1
-            searchAndFilter(keyword: searchKeyword, districtId: nil, time: nil, page: providerCurrentPage, date: nil, minPrice: nil, maxPrice: nil, locationRange: nil, ratingFrom: nil, ratingTo: nil, categoryId: nil, sortingId: sorting)
+            providerServicesData = providerServicesData.sorted(by: { (one, Two) -> Bool in
+                return one.minValue ?? 0 > Two.minValue ?? 0
+            })
         }
         if lowToHighPrice == false {
             sorting = 2
-            searchAndFilter(keyword: searchKeyword, districtId: nil, time: nil, page: providerCurrentPage, date: nil, minPrice: nil, maxPrice: nil, locationRange: nil, ratingFrom: nil, ratingTo: nil, categoryId: nil, sortingId: sorting)
+            providerServicesData = providerServicesData.sorted(by: { (one, Two) -> Bool in
+                return one.minValue ?? 0 < Two.minValue ?? 0
+            })
         }
         if topRated == false {
             sorting = 3
-            searchAndFilter(keyword: searchKeyword, districtId: nil, time: nil, page: providerCurrentPage, date: nil, minPrice: nil, maxPrice: nil, locationRange: nil, ratingFrom: nil, ratingTo: nil, categoryId: nil, sortingId: sorting)
+            providerServicesData = providerServicesData.sorted(by: { (one, Two) -> Bool in
+                return one.rate ?? 0 > Two.rate ?? 0
+            })
         }
         if aToZ == false {
             sorting = 4
-            searchAndFilter(keyword: searchKeyword, districtId: nil, time: nil, page: providerCurrentPage, date: nil, minPrice: nil, maxPrice: nil, locationRange: nil, ratingFrom: nil, ratingTo: nil, categoryId: nil, sortingId: sorting)
+            providerServicesData = providerServicesData.sorted(by: { (one, Two) -> Bool in
+                return (one.businessName?.localizedCaseInsensitiveCompare(Two.businessName ?? "") == .orderedAscending)
+            })
         }
+        providerServicesTableView.reloadData()
     }
 }
 
@@ -550,7 +541,21 @@ extension ProviderServicesVC: SortingPopupVCDelegate {
 extension ProviderServicesVC: FilteringVCDelegate {
     
     func onTappedSaveFilterData(categoryId: Int?, maxRange: Int?, minRange: Int?, ratingFrom: Int?, ratingTo: Int?, farLocation: Int?) {
+        if farLocation != nil {
+              var index = 0
+              providerServicesData.forEach { (provider) in
+                  let cordinate = CLLocation(latitude: (CLLocationDegrees(exactly: Double(provider.latitude ?? "0") ?? 0) ?? 0.0), longitude: (CLLocationDegrees(exactly: Double(provider.latitude ?? "0") ?? 0) ?? 0.0))
+                  providerServicesData[index].distance = (getDistance(from: cordinate) ?? 0.0 / 1000).rounded()
+                  index += 1
+              }
+            providerServicesData =   providerServicesData.sorted { (one, two) -> Bool in
+                  return one.distance ?? 0.0 < Double(farLocation ?? 0)
+              }
+        }
+        providerServicesTableView.reloadData()
+        
         // guard let catId = categoryId else {return}
+        
         self.categoryId = categoryId
         //guard let maxprice = maxRange else {return}
         self.maxPrice = maxRange
@@ -558,8 +563,15 @@ extension ProviderServicesVC: FilteringVCDelegate {
         self.minPrice = minRange
         self.locationRange = farLocation
         //  blackView.isHidden = true
-        searchAndFilter(keyword: nil, districtId: nil, time: nil, page: providerCurrentPage, date: nil, minPrice: minRange, maxPrice: maxRange, locationRange: farLocation, ratingFrom: ratingFrom, ratingTo: ratingTo, categoryId: categoryId, sortingId: nil)
+        
+//        searchAndFilter(keyword: nil, districtId: nil, time: nil, page: providerCurrentPage, date: nil, minPrice: minRange, maxPrice: maxRange, locationRange: farLocation, ratingFrom: ratingFrom, ratingTo: ratingTo, categoryId: categoryId, sortingId: nil)
     }
+    
+    func getDistance(from branch: CLLocation) -> CLLocationDistance? {
+        let distance = currentLocation.distance(from: branch)
+        return distance
+    }
+
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
     }
@@ -572,35 +584,56 @@ extension ProviderServicesVC: FilteringVCDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        let lastSectionIndex = tableView.numberOfSections - 1
-        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
-        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
-            // print("this is the last cell")
-            let spinner = UIActivityIndicatorView()
-            spinner.color = UIColor.blueColor()
-            spinner.activityIndicatorView.hidesWhenStopped = true
-            spinner.startAnimating()
-            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-            self.providerServicesTableView.tableFooterView = spinner
-            self.providerServicesTableView.tableFooterView?.isHidden = false
-            if searchByCategory == true {
-                loadMoreProviderServices()
-            } else {
-                seaarchMore()
-                print(indexPath.row)
-            }
-            if indexPath.row == totalNumberOfItems-1 {
-                spinner.stopAnimating()
-                //spinner.isHidden = true
-                self.providerServicesTableView.tableFooterView?.isHidden = true
-                return
-            }
-            
-            
-        }
+//        let lastSectionIndex = tableView.numberOfSections - 1
+//        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+//        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+//            // print("this is the last cell")
+//            let spinner = UIActivityIndicatorView()
+//            spinner.color = UIColor.blueColor()
+//            spinner.activityIndicatorView.hidesWhenStopped = true
+//            spinner.startAnimating()
+//            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+//            self.providerServicesTableView.tableFooterView = spinner
+//            self.providerServicesTableView.tableFooterView?.isHidden = false
+//            if searchByCategory == true {
+//                loadMoreProviderServices()
+//            } else {
+//                seaarchMore()
+//                print(indexPath.row)
+//            }
+//            if indexPath.row == totalNumberOfItems-1 {
+//                spinner.stopAnimating()
+//                //spinner.isHidden = true
+//                self.providerServicesTableView.tableFooterView?.isHidden = true
+//                return
+//            }
+//
+//
+//        }
     }
     
 }
 
+extension ProviderServicesVC : CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        currentLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+    }
 
+}
 
+extension UITableView {
+    func setNoData () {
+        let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        noDataLabel.text          = "No data available"
+        noDataLabel.textColor     = #colorLiteral(red: 0.262745098, green: 0.5019607843, blue: 0.7607843137, alpha: 1)
+        noDataLabel.textAlignment = .center
+        self.backgroundView  = noDataLabel
+        self.separatorStyle  = .none
+
+    }
+    func restore() {
+        self.backgroundView = nil
+    }
+}

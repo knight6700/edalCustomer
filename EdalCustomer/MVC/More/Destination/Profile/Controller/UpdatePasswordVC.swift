@@ -37,7 +37,7 @@ class UpdatePasswordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.handleNavigationBars()
         // Do any additional setup after loading the view.
     }
     
@@ -47,7 +47,6 @@ class UpdatePasswordVC: UIViewController {
         // let isMobileValidate = mobileValidation()
        // guard isMobileValidate else {return}
         sendVerificationCode()
-        
         let navigator = ProfileNavigator(nav: self.navigationController)
         navigator.navigate(to: .updatedPassword)
         // self.navigationController?.popViewController(animated: true)

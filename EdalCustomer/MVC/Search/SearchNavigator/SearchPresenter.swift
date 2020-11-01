@@ -50,7 +50,8 @@ class SearchPresenter{
         let nextVC = Initializer.createViewController(storyBoard: .SearchResultSB, andId: id) as! ShowMapVC
        // nextVC.modalPresentationStyle = .overFullScreen
         nextVC.modalTransitionStyle = .crossDissolve
-        nextVC.providerServicesData = providerServicesData
+        // MARK: TODO
+//        nextVC.providerServicesData = providerServicesData
         viewController?.present(nextVC, animated: true, completion: nil)
     }
    

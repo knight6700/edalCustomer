@@ -181,10 +181,7 @@ extension ExploreVC: UICollectionViewDataSource {
             let bgImage = URL(string: mainExploreCategoriesData[indexPath.item].bg_image!)
             print("image_url:\(String(describing: bgImage))")
             cell.bgImageView.sd_setImage(with: bgImage ?? URL(string: ""))
-            if mainExploreCategoriesData[indexPath.row].maxValue! >= 1000{
-                cell.maxValuePriceLabel.text = formatPoints(num: mainExploreCategoriesData[indexPath.item].maxValue!)
-            }
-           
+            cell.maxValuePriceLabel.text = formatPoints(num: mainExploreCategoriesData[indexPath.item].maxValue!)
             cell.minValuePriceLabel.text = formatPoints(num: mainExploreCategoriesData[indexPath.item].minValue! )
             
             if mainExploreCategoriesData[indexPath.item].favorite == false {
@@ -203,8 +200,8 @@ extension ExploreVC: UICollectionViewDataSource {
             let bgImage = URL(string: recentlyBookCategoriesData[indexPath.item].icon!)
             print("image_url:\(String(describing: bgImage))")
             cell.bgImageView.sd_setImage(with: bgImage ?? URL(string: ""))
-            cell.maxValuePriceLabel.text = formatPoints(num: recentlyBookCategoriesData[indexPath.item].maxValue)
-            cell.minValuePriceLabel.text = formatPoints(num: (recentlyBookCategoriesData[indexPath.item].minValue ?? 0 ) as! Int)
+            cell.maxValuePriceLabel.text = formatPoints(num: recentlyBookCategoriesData[indexPath.item].maxValue ?? 1)
+            cell.minValuePriceLabel.text = formatPoints(num: (recentlyBookCategoriesData[indexPath.item].minValue ?? 1 ))
            
             return cell
             

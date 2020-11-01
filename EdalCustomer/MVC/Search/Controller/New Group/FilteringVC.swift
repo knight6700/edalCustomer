@@ -9,6 +9,15 @@
 import UIKit
 import GoogleMaps
 //import RangeSeekSlider
+struct FilterModel {
+    var categoryId: Int?
+    var maxRange: Int?
+    var minRange: Int?
+    var ratingFrom: Int?
+    var ratingTo: Int?
+    var location: Int?
+    
+}
 protocol FilteringVCDelegate {
     func onTappedSaveFilterData(categoryId: Int?, maxRange: Int?, minRange: Int?, ratingFrom: Int?, ratingTo: Int?, farLocation: Int?)
 }
@@ -114,7 +123,9 @@ class FilteringVC: UIViewController {
            // circle.
         }
         circle.radius = CLLocationDistance(locationKMSlider.value*1000)
-        kmLabel.text = "Within \(Int(locationKMSlider.value/1000)) km of you"
+        let value = Int(locationKMSlider.value)
+        let string = "Within \(value) km of you"
+        kmLabel.text = string
     }
     
     //MARK: fetchMoreCategories
