@@ -186,12 +186,13 @@ extension MyEdalVC: UITableViewDataSource {
                 return cell
             }
             cell.dealImage.addImage(withImage:  book.providerImage ?? "", andPlaceHolder: "photoa")
-            cell.dealTitleLabel.text = book.providerName ?? ""
+            cell.dealTitleLabel.text = book.subServiceTitle ?? ""
             cell.dealDateLabel.text = book.startDate ?? ""
             cell.dealTimeLabel.text = "\(book.from ?? "") - \(book.to ?? "")"
             cell.dealStatusValueLabel.text = book.statusText ?? ""
             cell.priceLabel.text = "\(book.price ?? 0.0) EGP"
             cell.setStatusColor(id: book.status ?? 0)
+            cell.dealCategoryLabel.text = book.resourceName ?? ""
             cell.backgroundColor = .clear
             return cell
         }
