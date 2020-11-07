@@ -11,7 +11,13 @@ import UIKit
 class CategoryCell: UICollectionViewCell {
     
     
-    var categoriesObject = [CategoriesData]()
+    var categoriesObject: [CategoriesData]! {
+        didSet {
+            categoryItemscollectionView.delegate = self
+            categoryItemscollectionView.dataSource = self
+
+        }
+    }
     @IBOutlet weak var categoryItemscollectionView: UICollectionView!
     @IBOutlet weak var indicatorActivity: UIActivityIndicatorView!
     
@@ -27,8 +33,6 @@ class CategoryCell: UICollectionViewCell {
     
  
     func setupViews(){
-       categoryItemscollectionView.delegate = self
-       categoryItemscollectionView.dataSource = self
          self.categoryItemscollectionView.register(UINib(nibName: "CatItemsCell", bundle: nil), forCellWithReuseIdentifier: "CatItemsCell")
        //// categoryItemscollectionView.reloadData()
        categoryItemscollectionView.allowsMultipleSelection = false
@@ -78,7 +82,7 @@ extension CategoryCell: UICollectionViewDelegate {
         cell.searchByCategoriesView.roundView(withCorner: 13.0, borderColor: bordersColor, borderWidth: 0.5)
         cell.categoryImageView.tintColor = .white
         cell.searchByCategoriesView.dropShadow(color: shadowsColor, opacity: 0.2, offSet: CGSize(width: 1, height: 1), radius: 0.5, scale: true)
-        cell.searchByCategoriesView.backgroundColor = UIColor.init(red: 243/255, green: 116/255, blue: 33/255, alpha: 1.0)
+        cell.searchByCategoriesView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         cell.searchByCategoriesView.roundView(withCorner: 13.0, borderColor: bordersColor, borderWidth: 0.5)
         cell.categoryImageView.image = cell.categoryImageView.image?.withRenderingMode(.alwaysTemplate)
         cell.categoryImageView.tintColor = UIColor.white
@@ -103,15 +107,18 @@ extension CategoryCell: UICollectionViewDelegate {
 }
 extension CategoryCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12//categoriesObject.count
+        return categoriesObject.count//categoriesObject.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = categoryItemscollectionView.dequeueReusableCell(withReuseIdentifier: "CatItemsCell", for: indexPath) as! CatItemsCell
         print(indexPath.item)
+        let category = categoriesObject[indexPath.row]
         cell.searchByCategoriesView.backgroundColor = .white
         cell.categoryTitle.textColor = UIColor.lightGray
+        cell.categoryImageView.addImage(withImage: category.icon ?? "", andPlaceHolder: "coursss")
+        cell.categoryTitle.text = category.name ?? ""
        // cell.searchByCategoriesView.roundView(withCorner: 13.0, borderColor: bordersColor, borderWidth: 0.5)
 
        // cell.searchByCategoriesView.addCategoryShadow() 
@@ -122,7 +129,7 @@ extension CategoryCell: UICollectionViewDataSource {
 //            cell.categoryImageView.load(url: categoryImageUrl!, color: blueColor)
 //        }
 //        cell.categoryTitle.text = categoriesObject[indexPath.item].name
-        cell.backgroundColor = UIColor.green
+        cell.backgroundColor = .clear
         return cell
     }
     

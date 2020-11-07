@@ -73,6 +73,12 @@ class CategoriesServices {
         }
     }
     
+    func getAllCities( completion: @escaping (_ error: String?, _ data: SearchLookUpsResponse?) -> ()) {
+        ApiClient.CallApi(endPoint: .city) { (data: SearchLookUpsResponse?, error: Error?, code) in
+            ApiClient.checkErrors(error: error?.localizedDescription, errorSubCategories: data?.errors.subServiceID, completion: completion)
+            completion(nil,data)
+        }
+    }
     
     
     

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OH2-Cr-WjX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OH2-Cr-WjX">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,12 +10,15 @@
         <array key="JosefinSans-Regular.ttf">
             <string>JosefinSans-Regular</string>
         </array>
+        <array key="SF-UI-Display-Regular.ttf">
+            <string>SFUIDisplay-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--ProfileVC-->
         <scene sceneID="e84-vt-JMk">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" id="Hml-to-PD1" customClass="ProfileVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="Hml-to-PD1" customClass="ProfileVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xt4-XC-ecN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,6 +132,7 @@ Please complete your data and enjoy</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xzr-Zw-xTR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.26274509800000001" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -143,7 +146,7 @@ Please complete your data and enjoy</string>
         <!--PersonalInfo-->
         <scene sceneID="bgY-hk-cQI">
             <objects>
-                <viewController storyboardIdentifier="PersonalInfoVC" id="H9x-I1-gCx" userLabel="PersonalInfo" customClass="PersonalInfoVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonalInfoVC" id="H9x-I1-gCx" userLabel="PersonalInfo" customClass="PersonalInfoVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n9H-cQ-pW4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,7 +155,7 @@ Please complete your data and enjoy</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERC-pA-Zy9">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="930"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="852"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4u9-2u-PJD" userLabel="PicView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="114"/>
@@ -187,7 +190,7 @@ Please complete your data and enjoy</string>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OpC-iG-D20">
                                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="114"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="9SV-tR-s0M">
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="9SV-tR-s0M">
                                                                                 <rect key="frame" x="10.5" y="7.5" width="99" height="99"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="99" id="taJ-b3-eM7"/>
@@ -270,108 +273,108 @@ Please complete your data and enjoy</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Iy-of-cm3" userLabel="PersonalInfoView">
-                                                <rect key="frame" x="0.0" y="114" width="375" height="816"/>
+                                                <rect key="frame" x="0.0" y="114" width="375" height="738"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="cWA-hZ-tPg">
-                                                        <rect key="frame" x="23" y="23" width="329" height="361"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cWA-hZ-tPg">
+                                                        <rect key="frame" x="23" y="23" width="329" height="306"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jyW-Pk-YgU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="329" height="41"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="329" height="38.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGs-cg-xiX">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="17"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                                                         <color key="textColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJk-W3-9k7">
-                                                                        <rect key="frame" x="0.0" y="20.5" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="17" width="329" height="21.5"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="biR-tS-mBM">
-                                                                <rect key="frame" x="0.0" y="64" width="329" height="41"/>
+                                                                <rect key="frame" x="0.0" y="53.5" width="329" height="38.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JZ-8g-FK0">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="17"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                                                         <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9g-vv-q9g">
-                                                                        <rect key="frame" x="0.0" y="20.5" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="17" width="329" height="21.5"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u1E-xY-laK">
-                                                                <rect key="frame" x="0.0" y="128" width="329" height="41"/>
+                                                                <rect key="frame" x="0.0" y="107" width="329" height="38.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLD-bp-18S">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="17"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                                                         <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mh-cr-65J">
-                                                                        <rect key="frame" x="0.0" y="20.5" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="17" width="329" height="21.5"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gxE-qc-BTM">
-                                                                <rect key="frame" x="0.0" y="192" width="329" height="41"/>
+                                                                <rect key="frame" x="0.0" y="160.5" width="329" height="38.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAV-JQ-8sA">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="17"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                                                         <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXP-yA-jRS">
-                                                                        <rect key="frame" x="0.0" y="20.5" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="17" width="329" height="21.5"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="txt-c9-rfd">
-                                                                <rect key="frame" x="0.0" y="256" width="329" height="41"/>
+                                                                <rect key="frame" x="0.0" y="214" width="329" height="38.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLd-xT-CgM">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="17"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                                                         <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBH-jc-y52">
-                                                                        <rect key="frame" x="0.0" y="20.5" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="17" width="329" height="21.5"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V5S-gh-wtL">
-                                                                <rect key="frame" x="0.0" y="320" width="329" height="41"/>
+                                                                <rect key="frame" x="0.0" y="267.5" width="329" height="38.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i2-Y9-GJa">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="17"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                                                         <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIe-gY-lF5">
-                                                                        <rect key="frame" x="0.0" y="20.5" width="329" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="17" width="329" height="21.5"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -380,34 +383,34 @@ Please complete your data and enjoy</string>
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHK-Tk-8y1" userLabel="indicatorView">
-                                                        <rect key="frame" x="0.0" y="407" width="375" height="2"/>
+                                                        <rect key="frame" x="0.0" y="352" width="375" height="2"/>
                                                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="dWo-eb-kDq"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTN-ep-fsA" userLabel="locationView">
-                                                        <rect key="frame" x="0.0" y="442" width="375" height="360"/>
+                                                        <rect key="frame" x="0.0" y="364" width="375" height="360"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lCs-0q-7Pn">
-                                                                <rect key="frame" x="23" y="16" width="262" height="63.5"/>
+                                                                <rect key="frame" x="23" y="16" width="262" height="58.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRe-0W-ice">
                                                                         <rect key="frame" x="0.0" y="0.0" width="262" height="17"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                                                         <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street: 40801 Sunnyside City: Irvine State: NY Zip: 53416-8320" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqa-JD-Pn8">
-                                                                        <rect key="frame" x="0.0" y="25" width="262" height="38.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                        <rect key="frame" x="0.0" y="25" width="262" height="33.5"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                                                         <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pyx-Qp-TIj" userLabel="MapView" customClass="GMSMapView">
-                                                                <rect key="frame" x="20" y="95.5" width="335" height="248.5"/>
+                                                                <rect key="frame" x="20" y="90.5" width="335" height="253.5"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUL-gH-vLP">
@@ -480,7 +483,7 @@ Please complete your data and enjoy</string>
                                                     <constraint firstItem="BHK-Tk-8y1" firstAttribute="top" secondItem="cWA-hZ-tPg" secondAttribute="bottom" constant="23" id="EE1-i6-JHu"/>
                                                     <constraint firstItem="cWA-hZ-tPg" firstAttribute="leading" secondItem="0Iy-of-cm3" secondAttribute="leading" constant="23" id="Fdx-v2-XsL"/>
                                                     <constraint firstAttribute="bottom" secondItem="GTN-ep-fsA" secondAttribute="bottom" constant="14" id="GRk-Ch-ilE"/>
-                                                    <constraint firstItem="GTN-ep-fsA" firstAttribute="top" secondItem="BHK-Tk-8y1" secondAttribute="bottom" constant="33" id="PLp-m7-zsV"/>
+                                                    <constraint firstItem="GTN-ep-fsA" firstAttribute="top" secondItem="BHK-Tk-8y1" secondAttribute="bottom" constant="10" id="PLp-m7-zsV"/>
                                                     <constraint firstAttribute="trailing" secondItem="cWA-hZ-tPg" secondAttribute="trailing" constant="23" id="VqQ-1e-Ah9"/>
                                                     <constraint firstItem="cWA-hZ-tPg" firstAttribute="top" secondItem="0Iy-of-cm3" secondAttribute="top" constant="23" id="Vsf-e9-3Ac"/>
                                                     <constraint firstItem="BHK-Tk-8y1" firstAttribute="leading" secondItem="0Iy-of-cm3" secondAttribute="leading" id="eoS-sd-IwB"/>
@@ -538,7 +541,7 @@ Please complete your data and enjoy</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Ys-6A-svG"/>
                     </view>
-                    <navigationItem key="navigationItem" title="More" id="GPl-Ey-bIE"/>
+                    <navigationItem key="navigationItem" id="GPl-Ey-bIE"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="BusinessLocationLabel" destination="Xqa-JD-Pn8" id="EIW-fv-lvr"/>
@@ -562,7 +565,7 @@ Please complete your data and enjoy</string>
         <!--UpdatePersonalInfo-->
         <scene sceneID="d5R-h6-Txf">
             <objects>
-                <viewController storyboardIdentifier="EditPersonalInfoVC" id="4eX-59-bPe" userLabel="UpdatePersonalInfo" customClass="EditPersonalInfoVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditPersonalInfoVC" id="4eX-59-bPe" userLabel="UpdatePersonalInfo" customClass="EditPersonalInfoVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZsV-Tf-QEe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -595,7 +598,7 @@ Please complete your data and enjoy</string>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCl-jE-ZRv">
                                                                         <rect key="frame" x="0.0" y="0.0" width="131" height="114"/>
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="dAl-6N-bsi">
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="dAl-6N-bsi">
                                                                                 <rect key="frame" x="16" y="7.5" width="99" height="99"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="99" id="XtU-iX-gDE"/>
@@ -1131,7 +1134,7 @@ Please complete your data and enjoy</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xfa-9r-uM6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="More" id="2qN-Xj-Vw0"/>
+                    <navigationItem key="navigationItem" id="2qN-Xj-Vw0"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="ageErrorInlineLabel" destination="tdN-j3-A6L" id="cRy-Yo-WVe"/>
@@ -1161,7 +1164,7 @@ Please complete your data and enjoy</string>
         <!--UpdateLocationPersonalInfo-->
         <scene sceneID="VUU-6b-Q8E">
             <objects>
-                <viewController id="Aq2-BS-yuF" userLabel="UpdateLocationPersonalInfo" customClass="EditLocationVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditLocationVC" id="Aq2-BS-yuF" userLabel="UpdateLocationPersonalInfo" customClass="EditLocationVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k60-CQ-S8x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1170,7 +1173,7 @@ Please complete your data and enjoy</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ffe-C6-Bex">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="615.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="690.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orz-2V-qtP" userLabel="PicView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="114"/>
@@ -1241,12 +1244,12 @@ Please complete your data and enjoy</string>
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFR-ly-QGt">
-                                                                                <rect key="frame" x="168" y="10" width="30" height="30"/>
-                                                                                <state key="normal" title="Edit">
+                                                                                <rect key="frame" x="164" y="10" width="34" height="30"/>
+                                                                                <state key="normal" title="Save">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <action selector="onTappedEditPersonalInfo:" destination="H9x-I1-gCx" eventType="touchUpInside" id="sJR-VC-e5c"/>
+                                                                                    <action selector="onTappedSaveButton:" destination="Aq2-BS-yuF" eventType="touchUpInside" id="lLm-tE-9DS"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -1288,7 +1291,7 @@ Please complete your data and enjoy</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GsM-ZZ-rGV">
-                                                <rect key="frame" x="0.0" y="114" width="375" height="501.5"/>
+                                                <rect key="frame" x="0.0" y="114" width="375" height="576.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="XPY-qz-BxL" userLabel="Inputs Stack View">
                                                         <rect key="frame" x="30" y="30" width="315" height="246"/>
@@ -1420,14 +1423,14 @@ Please complete your data and enjoy</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4v-kH-vKH" customClass="GMSMapView">
-                                                        <rect key="frame" x="30" y="346" width="315" height="125"/>
+                                                        <rect key="frame" x="30" y="346" width="315" height="200"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="125" id="V8j-JA-ZOy"/>
+                                                            <constraint firstAttribute="height" constant="200" id="V8j-JA-ZOy"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzC-mQ-SOL">
-                                                        <rect key="frame" x="125.5" y="451.5" width="124" height="40"/>
+                                                        <rect key="frame" x="125.5" y="526.5" width="124" height="40"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="W59-RK-U3B"/>
@@ -1483,7 +1486,7 @@ Please complete your data and enjoy</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Ffe-C6-Bex" secondAttribute="bottom" id="4qz-ER-AFg"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ffe-C6-Bex" secondAttribute="bottom" constant="15" id="4qz-ER-AFg"/>
                                     <constraint firstAttribute="trailing" secondItem="Ffe-C6-Bex" secondAttribute="trailing" id="C48-ql-ww8"/>
                                     <constraint firstItem="Ffe-C6-Bex" firstAttribute="leading" secondItem="J3o-7c-62k" secondAttribute="leading" id="DYL-dm-JRQ"/>
                                     <constraint firstItem="Ffe-C6-Bex" firstAttribute="width" secondItem="J3o-7c-62k" secondAttribute="width" id="Jk0-pV-VRg"/>
@@ -1500,7 +1503,7 @@ Please complete your data and enjoy</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b21-IM-DTi"/>
                     </view>
-                    <navigationItem key="navigationItem" title="More" id="eul-Ex-t7b"/>
+                    <navigationItem key="navigationItem" id="eul-Ex-t7b"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="addressLabel" destination="DTB-OJ-3Hm" id="d07-Rx-Fwx"/>
@@ -1521,7 +1524,7 @@ Please complete your data and enjoy</string>
         <!--ChangePassword-->
         <scene sceneID="XGa-Pd-xfg">
             <objects>
-                <viewController id="JxX-Ss-3mG" userLabel="ChangePassword" customClass="UpdatePasswordVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JxX-Ss-3mG" userLabel="ChangePassword" customClass="UpdatePasswordVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HYg-Tt-Zt8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1867,7 +1870,7 @@ Please complete your data and enjoy</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3W1-QM-C5c"/>
                     </view>
-                    <navigationItem key="navigationItem" title="More" id="9tA-9G-Vh9"/>
+                    <navigationItem key="navigationItem" id="9tA-9G-Vh9"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="changePasswordButton" destination="u6E-8c-EeY" id="StN-KL-NbX"/>
@@ -1886,7 +1889,7 @@ Please complete your data and enjoy</string>
         <!--ChangePassword-->
         <scene sceneID="D2I-hJ-iHI">
             <objects>
-                <viewController id="Ncf-AQ-F2c" userLabel="ChangePassword" customClass="UpdatedPasswordVC" customModule="edal_IosCustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ncf-AQ-F2c" userLabel="ChangePassword" customClass="UpdatedPasswordVC" customModule="EdalCustomer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xV4-sh-tWL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2126,7 +2129,7 @@ Please complete your data and enjoy</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="niL-yv-h9L"/>
                     </view>
-                    <navigationItem key="navigationItem" title="More" id="Qdj-U1-7Xn"/>
+                    <navigationItem key="navigationItem" id="Qdj-U1-7Xn"/>
                     <size key="freeformSize" width="375" height="1500"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPY-mO-ghO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2141,6 +2144,7 @@ Please complete your data and enjoy</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TL2-D8-eb8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -2177,6 +2181,7 @@ Please complete your data and enjoy</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UTX-HU-XaP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.26274509800000001" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

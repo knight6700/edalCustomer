@@ -19,13 +19,12 @@ enum StoryBoard: String {
     case SettingSB
     case PaymentInfoSB
     case MyBalanceSB
-    case CompalintsSB
+    case ComplaintsSB
     case FavoriteListSB
     case SearchSB
     case SearchResultSB
     case BusinessProfileSB
     case CategoriesSB
-    case ComplaintsSB
     case LaunchScreen
 
 }

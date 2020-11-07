@@ -77,7 +77,6 @@ class ExploreVC: UIViewController {
                 return
             }
             guard let _ = data else{return}
-            
             self.mainExploreCategoriesData = (data?.homeProviders?.data)!
             self.recentlyBookCategoriesData = (data?.recentServices?.data)!
             self.recommendedCategoriesData = (data?.recommendedProviders?.data)!
@@ -95,9 +94,8 @@ class ExploreVC: UIViewController {
         self.showLoading()
         services.updateFavoriteProvider(withProviderId: proId, favorite: fav, completion: { (error, data) in
             self.hideLoading()
-            
             if let error = error{
-                self.alertUser(title: "", message: error)
+                self.alertUser(title: "Error" , message: error)
                 return
             }
             guard let _ = data else{return}
@@ -170,7 +168,7 @@ extension ExploreVC: UICollectionViewDataSource {
             cell.businessNameLabel.text = mainExploreCategoriesData[indexPath.item].businessName
             let businessImage = URL(string: mainExploreCategoriesData[indexPath.item].image!)
             print("image_url:\(String(describing: businessImage))")
-            cell.businessImageView.sd_setImage(with: businessImage)
+            cell.businessImageView.sd_setImage(with: businessImage ?? URL(string: ""))
             cell.categoriesNameLabel.text = mainExploreCategoriesData[indexPath.item].categoryName
             if mainExploreCategoriesData[indexPath.item].imagesCount == 0 {
                 cell.imagesCountLabel.text = "No Photos"
@@ -179,13 +177,10 @@ extension ExploreVC: UICollectionViewDataSource {
             }
             
             cell.categoriesRateView.rating = Double(mainExploreCategoriesData[indexPath.item].rate!)
-            let bgImage = URL(string: mainExploreCategoriesData[indexPath.item].bgImage!)
+            let bgImage = URL(string: mainExploreCategoriesData[indexPath.item].bg_image!)
             print("image_url:\(String(describing: bgImage))")
-            cell.bgImageView.sd_setImage(with: bgImage)
-            if mainExploreCategoriesData[indexPath.row].maxValue! >= 1000{
-                cell.maxValuePriceLabel.text = formatPoints(num: mainExploreCategoriesData[indexPath.item].maxValue!)
-            }
-           
+            cell.bgImageView.sd_setImage(with: bgImage ?? URL(string: ""))
+            cell.maxValuePriceLabel.text = formatPoints(num: mainExploreCategoriesData[indexPath.item].maxValue!)
             cell.minValuePriceLabel.text = formatPoints(num: mainExploreCategoriesData[indexPath.item].minValue! )
             
             if mainExploreCategoriesData[indexPath.item].favorite == false {
@@ -203,9 +198,9 @@ extension ExploreVC: UICollectionViewDataSource {
             cell.businessNameLabel.text = recentlyBookCategoriesData[indexPath.item].name
             let bgImage = URL(string: recentlyBookCategoriesData[indexPath.item].icon!)
             print("image_url:\(String(describing: bgImage))")
-            cell.bgImageView.sd_setImage(with: bgImage)
-            cell.maxValuePriceLabel.text = formatPoints(num: recentlyBookCategoriesData[indexPath.item].maxValue)
-            cell.minValuePriceLabel.text = formatPoints(num: (recentlyBookCategoriesData[indexPath.item].minValue ?? 0 ) as! Int)
+            cell.bgImageView.sd_setImage(with: bgImage ?? URL(string: ""))
+            cell.maxValuePriceLabel.text = formatPoints(num: recentlyBookCategoriesData[indexPath.item].maxValue ?? 1)
+            cell.minValuePriceLabel.text = formatPoints(num: (recentlyBookCategoriesData[indexPath.item].minValue ?? 1 ))
            
             return cell
             
@@ -233,7 +228,31 @@ extension ExploreVC: UICollectionViewDelegate{
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //MARK:- Navigation to Movie Details
+        if collectionView == self.mainExploreCollectionView{
+            let item = mainExploreCategoriesData[indexPath.row]
+            let id = "ServiceItemDetailsViewController"
+            let vc = Initializer.createViewController(storyBoard: .HomeSB, andId: id) as! ServiceItemDetailsViewController
+            vc.subServiceId = item.id!
+            vc.serviceItemDetailsModel = ServiceItemDetailsModel(imageUrl: item.image ?? "", name: item.businessName ?? "", images: [item.image ?? ""], type: item.categoryName ?? "",rate: item.rate ?? 0.0, totalReview: item.raters ?? 0,isFavourite: item.favorite ?? false)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else {
+            let item = recentlyBookCategoriesData[indexPath.row]
+
+            // navigator.navigate(to: .serviceItemdetail())
+            let id = "ServiceItemDetailsViewController"
+            let vc = Initializer.createViewController(storyBoard: .HomeSB, andId: id) as! ServiceItemDetailsViewController
+            vc.serviceItemDetailsModel = ServiceItemDetailsModel(imageUrl: item.icon ?? "", name: item.name ?? "", images: [item.icon ?? ""], type: "SPA" ,rate: 4.0, totalReview: 50,isFavourite: true)
+            vc.subServiceId = item.id!
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
       
+
+    }
+    
+    private func didPrssedCollectionView(index: Int) {
+               // do Something
+            
     }
 }
 
@@ -264,9 +283,9 @@ extension ExploreVC: UITableViewDataSource {
         
         
         cell.categoriesRateView.rating = Double(recommendedCategoriesData[indexPath.item].rate ?? 0)
-        let bgImage = URL(string: recommendedCategoriesData[indexPath.item].bgImage!)
+        let bgImage = URL(string: recommendedCategoriesData[indexPath.item].bg_image!)
         print("image_url:\(String(describing: bgImage))")
-        cell.bgImageView.sd_setImage(with: bgImage)
+        cell.bgImageView.sd_setImage(with: bgImage ?? URL(string: ""))
         cell.maxValuePriceLabel.text = formatPoints(num: recommendedCategoriesData[indexPath.item].maxValue!)
         cell.minValuePriceLabel.text = formatPoints(num: recommendedCategoriesData[indexPath.item].minValue!)
         if recommendedCategoriesData[indexPath.item].favorite == false {
@@ -312,12 +331,12 @@ extension ExploreVC : ExploreCellDelegate {
     
     func didPressItemButton(index: Int) {
            // do Something
-            let item = mainExploreCategoriesData[index]
-             let navigator = MoreNavigator(nav: self.navigationController)
-           // navigator.navigate(to: .serviceItemdetail())
+        let item = recommendedCategoriesData[index]
         let id = "ServiceItemDetailsViewController"
         let vc = Initializer.createViewController(storyBoard: .HomeSB, andId: id) as! ServiceItemDetailsViewController
         vc.subServiceId = item.id!
+        vc.serviceItemDetailsModel = ServiceItemDetailsModel(imageUrl: item.image ?? "", name: item.business_name ?? "", images: [item.bg_image ?? ""], type: item.categoryName ?? "" ,rate: item.rate ?? 0.0, totalReview: item.raters ?? 0,isFavourite: item.favorite ?? false)
+
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

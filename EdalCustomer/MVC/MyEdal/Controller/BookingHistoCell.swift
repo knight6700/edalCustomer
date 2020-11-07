@@ -9,6 +9,14 @@
 import UIKit
 
 class BookingHistoryCell: UITableViewCell {
+    @IBOutlet weak var dealImage: UIImageView!
+    @IBOutlet weak var dealTitleLabel: UILabel!
+    @IBOutlet weak var dealCategoryLabel: UILabel!
+    @IBOutlet weak var dealDateLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var dealTimeLabel: UILabel!
+    @IBOutlet weak var dealStatusTitleLabel: UILabel!
+    @IBOutlet weak var dealStatusValueLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

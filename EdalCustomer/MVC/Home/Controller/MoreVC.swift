@@ -17,9 +17,12 @@ class MoreVC: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var picView: UIView!
+    var navigator:MoreNavigator? {
+        let navigator = MoreNavigator(nav: self.navigationController)
+        return navigator
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         userName.text = "\(Defaults.FirstName) \(Defaults.LastName)"
         userEmail.text = Defaults.Email
     }
@@ -27,12 +30,14 @@ class MoreVC: UIViewController {
     
 
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.262745098, green: 0.5019607843, blue: 0.7607843137, alpha: 1)
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.backgroundColor = .white
         self.navigationController?.setNavigationBarHidden(true, animated: true)
 //        UIApplication.statusBarBackgroundColor = UIColor.blueColor()
         picView.backgroundColor = UIColor.blueColor()
         scrollView.backgroundColor = UIColor.blueColor()
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,11 +79,33 @@ class MoreVC: UIViewController {
     }
     
     @IBAction func onTappedPersonalInfo(_ sender: UIButton) {
-        let navigator = MoreNavigator(nav: self.navigationController)
-        navigator.navigate(to: .personalInfo)
+        navigator?.navigate(to: .personalInfo)
     }
     
     @IBAction func onTappedLogout(_ sender: UIButton) {
             logout()
     }
+    
+    
+    @IBAction func onTappedFavorite(_ sender: Any) {
+        navigator?.navigate(to: .favoriteList)
+    }
+    
+    @IBAction func onTappedComplaints(_ sender: Any) {
+        navigator?.navigate(to: .complaints)
+
+    }
+    
+    @IBAction func onTappedPaymentInformation(_ sender: Any) {
+        navigator?.navigate(to: .paymentInfo)
+    }
+    
+    @IBAction func onTappedSettings(_ sender: Any) {
+        navigator?.navigate(to: .setting)
+    }
+    
+    @IBAction func onTappedHelpCenter(_ sender: Any) {
+        navigator?.navigate(to: .serviceItemdetail)
+    }
+    
 }

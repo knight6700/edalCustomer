@@ -11,7 +11,11 @@ import GoogleMaps
 import Cosmos
 
 class ShowMapVC: UIViewController {
-    var providerServicesData = [HomeProvidersDatum]()
+    var providerServicesData: [ProvidersDatum]{
+        return searchableResponse?.providers?.data ?? [ProvidersDatum]()
+    }
+    var searchableResponse: SearchableResponse?
+
 
 //    var providerServicesData = [ProviderUserModel]()
     var ProviderMarkerDict: [String: GMSMarker] = [:]
@@ -19,8 +23,8 @@ class ShowMapVC: UIViewController {
     var lat: String?
     var long: String?
     var location = SelectedLocation()
+    var index: Int?
     //var ProviderMarkerDict: [String: GMSMarker] = [:]
-
     @IBOutlet weak var navigationBar: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var titleNavigationBar: UILabel!
@@ -75,12 +79,19 @@ class ShowMapVC: UIViewController {
     }
     @objc func goToProviderDetails(sender: UITapGestureRecognizer) {
         print("View Tapped")
-        let storyBoard: UIStoryboard = UIStoryboard(name: "BusinessProfileSB", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProviderDetailsVC") as! ProviderDetailsVC
-        self.present(newViewController, animated: true, completion: nil)
-        
-//        let navigator = SearchResultNavigator(nav: self.navigationController)
-//        navigator.navigate(to: .providerDetails())
+        guard let index = index else {
+            return
+        }
+        let id = "ServiceItemDetailsViewController"
+        let item = providerServicesData[index]
+
+        let vc = Initializer.createViewController(storyBoard: .HomeSB, andId: id) as! ServiceItemDetailsViewController
+        vc.subServiceId = item.id!
+        vc.serviceItemDetailsModel = ServiceItemDetailsModel(imageUrl: item.image ?? "", name: item.businessName ?? "", images: [item.image ?? ""], type: item.categoryName ?? "",rate: Double(item.rate ?? 0), totalReview: item.raters ?? 0,isFavourite: item.favorite ?? false)
+        vc.isSearchable = true
+        let navigation = UINavigationController(rootViewController: vc)
+        self.present(navigation, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func onTappedFavButton(_ sender: UIButton) {
@@ -126,6 +137,7 @@ class ShowMapVC: UIViewController {
         print()
         print()
         print(providerServicesData)
+        guard providerServicesData.count > 0 else {return}
         for index in 0..<providerServicesData.count-1 {
             if let lat = providerServicesData[index].latitude {
              if !lat.isEmpty {
@@ -143,10 +155,10 @@ class ShowMapVC: UIViewController {
             providerMarker.icon = UIImage(named: "pinblue")
             providerMarker.position = CLLocationCoordinate2D(latitude: location.latitude , longitude: location.longitude)
             providerMarker.title = providerTitle
-            providerMarker.snippet = "Hey, this is \(providerTitle)"
+            providerMarker.snippet = "Hey, this is \(providerTitle ?? "")"
             providerMarker.map = mapView
             ///medhat commented as it rpoduce error
-            //ProviderMarkerDict[providerTitle] = providerMarker
+            ProviderMarkerDict[providerServicesData[index].businessName ?? ""] = providerMarker
             // Center camera to marker position
             mapView.camera = GMSCameraPosition.camera(withLatitude: 26.494184, longitude: 29.871903, zoom: 5.5)
         }
@@ -166,36 +178,33 @@ extension ShowMapVC: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        print("Tapped Done!")
         changeMarkerImage()
-      print(marker.position)
-        marker.icon = UIImage(named: "pinorange")
+        marker.icon =  UIImage(named: "pinorange")
         // mapView.selectedMarker = marker
         let markerlat = String(marker.position.latitude)
         let markerlong = String(marker.position.longitude)
         for index in 0..<providerServicesData.count-1 {
            // print(markerTitle)
-            print(providerServicesData[index].businessName)
             if markerlat == providerServicesData[index].latitude && markerlong == providerServicesData[index].longitude {
+                self.index = index
                 let bgImage = URL(string: providerServicesData[index].bgImage!)
                 print("image_url:\(String(describing: bgImage))")
-              providerImageView.sd_setImage(with: bgImage)
-              providerDataView.isHidden = false
-              providerFavButton.isHidden = false
+                providerImageView.sd_setImage(with: bgImage)
+                providerDataView.isHidden = false
+                providerFavButton.isHidden = false
                 ProviderTitleLabel.text =  providerServicesData[index].businessName
                 providerSubCatNameLabel.text = providerServicesData[index].subCategoryName
-                providerRatingView.rating = Double(providerServicesData[index].rate!)/5.0
-                providerReviewsLabel.text = "\(providerServicesData[index].raters)"
-                providerMaxValueLabel.text = "\(providerServicesData[index].maxValue)"
-                providerMinValueLabel.text = "\(providerServicesData[index].minValue)"
+                providerRatingView.rating = Double(providerServicesData[index].rate ?? 0)
+                providerReviewsLabel.text = "\(providerServicesData[index].raters ?? 0)"
+                providerMaxValueLabel.text = "\(providerServicesData[index].maxValue ?? 0)"
+                providerMinValueLabel.text = "\(providerServicesData[index].minValue ?? 0)"
                 //get providerid
                 providerFavButton.tag = providerServicesData[index].id!
                 print("providerFavButton.tag",providerFavButton.tag)
                 if providerServicesData[index].favorite == false {
                     print("unactive")
                    providerFavButton.setImage(self.image, for: .normal)
-                   // providerFavButton.tintColor = .gray
-                   // providerFavButton.setImage(UIImage(name:"faviconact"), for: .normal)
+                    providerFavButton.setImage(UIImage(named: "faviconact"), for: .normal)
                 } else {
                     print("active")
                     providerFavButton.setImage(UIImage(named: "faviconact"), for: .normal)

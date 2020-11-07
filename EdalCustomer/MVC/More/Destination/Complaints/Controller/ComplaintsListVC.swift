@@ -31,7 +31,7 @@ class ComplaintsListVC: UIViewController {
         tableView.dataSource = self
         
         let nib = UINib.init(nibName: "ComplaintsCell", bundle: Bundle.main)
-        tableView.register(nib, forCellReuseIdentifier: "Cell")
+        tableView.register(nib, forCellReuseIdentifier: "ComplaintsCellID")
         tableView.rowHeight = 80
         tableView.estimatedRowHeight = 80
         
@@ -57,8 +57,8 @@ extension ComplaintsListVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ComplaintsCellID", for: indexPath) as? ComplaintsCell else {return UITableViewCell()}
+        cell.setStatusColor(id: 7)
         return cell
     }
     
