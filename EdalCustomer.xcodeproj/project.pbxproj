@@ -245,6 +245,12 @@
 		9ED347340802F72E33F17F4C /* Pods_EdalCustomer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD3EBA7AFE552115DEF50FA /* Pods_EdalCustomer.framework */; };
 		DA71A538252E05A200023236 /* GradianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71A537252E05A100023236 /* GradianView.swift */; };
 		DA71A53A252E965500023236 /* ServiceItemDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71A539252E965500023236 /* ServiceItemDetailsModel.swift */; };
+		DA73007A25554ACA00373E08 /* CallOut.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA73007625554AC900373E08 /* CallOut.xib */; };
+		DA73007B25554ACA00373E08 /* CalloutAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73007725554AC900373E08 /* CalloutAnnotationView.swift */; };
+		DA73007C25554ACA00373E08 /* CallOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73007825554AC900373E08 /* CallOut.swift */; };
+		DA73007D25554ACA00373E08 /* CustomAnnotaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73007925554AC900373E08 /* CustomAnnotaionView.swift */; };
+		DA73008425554B0D00373E08 /* MapAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA73008325554B0D00373E08 /* MapAsset.xcassets */; };
+		DA7300862555826100373E08 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7300852555826100373E08 /* PickerDialog.swift */; };
 		DA96DB252530C19600D304AC /* MyDealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96DB232530C19600D304AC /* MyDealsTableViewCell.swift */; };
 		DA96DB262530C19600D304AC /* MyDealsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA96DB242530C19600D304AC /* MyDealsTableViewCell.xib */; };
 		DA96DB282530D2AE00D304AC /* UpCommeingDealsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96DB272530D2AE00D304AC /* UpCommeingDealsResponse.swift */; };
@@ -508,6 +514,12 @@
 		37F166BF4D5735B7AEB879F8 /* Pods-EdalCustomer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EdalCustomer.release.xcconfig"; path = "Target Support Files/Pods-EdalCustomer/Pods-EdalCustomer.release.xcconfig"; sourceTree = "<group>"; };
 		DA71A537252E05A100023236 /* GradianView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradianView.swift; sourceTree = "<group>"; };
 		DA71A539252E965500023236 /* ServiceItemDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItemDetailsModel.swift; sourceTree = "<group>"; };
+		DA73007625554AC900373E08 /* CallOut.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallOut.xib; sourceTree = "<group>"; };
+		DA73007725554AC900373E08 /* CalloutAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutAnnotationView.swift; sourceTree = "<group>"; };
+		DA73007825554AC900373E08 /* CallOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallOut.swift; sourceTree = "<group>"; };
+		DA73007925554AC900373E08 /* CustomAnnotaionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotaionView.swift; sourceTree = "<group>"; };
+		DA73008325554B0D00373E08 /* MapAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MapAsset.xcassets; sourceTree = "<group>"; };
+		DA7300852555826100373E08 /* PickerDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
 		DA96DB232530C19600D304AC /* MyDealsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDealsTableViewCell.swift; sourceTree = "<group>"; };
 		DA96DB242530C19600D304AC /* MyDealsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyDealsTableViewCell.xib; sourceTree = "<group>"; };
 		DA96DB272530D2AE00D304AC /* UpCommeingDealsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCommeingDealsResponse.swift; sourceTree = "<group>"; };
@@ -1366,6 +1378,11 @@
 			isa = PBXGroup;
 			children = (
 				12DF2F3E2477348B0006421B /* MapVC.swift */,
+				DA73007825554AC900373E08 /* CallOut.swift */,
+				DA73007625554AC900373E08 /* CallOut.xib */,
+				DA73007725554AC900373E08 /* CalloutAnnotationView.swift */,
+				DA73007925554AC900373E08 /* CustomAnnotaionView.swift */,
+				DA73008325554B0D00373E08 /* MapAsset.xcassets */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1608,6 +1625,7 @@
 				12DF3064247734D00006421B /* UIFontExtension.swift */,
 				12DF3065247734D00006421B /* UIImageExtension.swift */,
 				DAA027092540B4F5007FD64E /* TextField+Images.swift */,
+				DA7300852555826100373E08 /* PickerDialog.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1754,6 +1772,7 @@
 				12DF30212477348B0006421B /* AuthenticationSB.strings in Resources */,
 				12DF2F7D2477348B0006421B /* Intro.xib in Resources */,
 				12DF2E45247733B00006421B /* LaunchScreen.storyboard in Resources */,
+				DA73007A25554ACA00373E08 /* CallOut.xib in Resources */,
 				12DF3028247734AA0006421B /* Lato-Medium.ttf in Resources */,
 				12DF2FA42477348B0006421B /* BPReviewsCell.xib in Resources */,
 				12DF2E5B247734710006421B /* Localizable.strings in Resources */,
@@ -1785,6 +1804,7 @@
 				12DF3057247734C80006421B /* SF-UI-Display-Ultralight_1.ttf in Resources */,
 				12DF2FA32477348B0006421B /* BPReviewsHeaderView.xib in Resources */,
 				DA96DB262530C19600D304AC /* MyDealsTableViewCell.xib in Resources */,
+				DA73008425554B0D00373E08 /* MapAsset.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1924,6 +1944,7 @@
 				12DF2E6B2477347C0006421B /* DefaultResponse.swift in Sources */,
 				DAABC7DC252D0FED0073F3DE /* ApiClinet.swift in Sources */,
 				12DF2FDD2477348B0006421B /* CategoryCell.swift in Sources */,
+				DA7300862555826100373E08 /* PickerDialog.swift in Sources */,
 				12DF2FF32477348B0006421B /* FilteringVC.swift in Sources */,
 				12DF2FE42477348B0006421B /* SubCategoriesVC.swift in Sources */,
 				DAA0270A2540B4F5007FD64E /* TextField+Images.swift in Sources */,
@@ -1949,11 +1970,13 @@
 				DA9817212544C0A50027A64E /* TimeCellCollectionViewCell.swift in Sources */,
 				123F5BE024785FAC002089E6 /* ProviderResponseModel.swift in Sources */,
 				12DF2FCF2477348B0006421B /* UpdatedPasswordVC.swift in Sources */,
+				DA73007C25554ACA00373E08 /* CallOut.swift in Sources */,
 				12DF306E247734D10006421B /* UIViewExtension.swift in Sources */,
 				DA981723254742A30027A64E /* BookAppointment.swift in Sources */,
 				12DF30192477348B0006421B /* RegisterResponse.swift in Sources */,
 				12DF2FE82477348B0006421B /* ContainerVC.swift in Sources */,
 				12DF2FE32477348B0006421B /* SortingPopupVC.swift in Sources */,
+				DA73007D25554ACA00373E08 /* CustomAnnotaionView.swift in Sources */,
 				12DF2E5A247734710006421B /* Router.swift in Sources */,
 				12DF2F7C2477348B0006421B /* RecommendedCell.swift in Sources */,
 				12DF3040247734B80006421B /* Initializer.swift in Sources */,
@@ -1998,6 +2021,7 @@
 				12DF2FF22477348B0006421B /* TapticEngine.swift in Sources */,
 				DAABC7DB252D0FED0073F3DE /* APIConfigurations.swift in Sources */,
 				12DF2F9C2477348B0006421B /* ProviderDetailsVC.swift in Sources */,
+				DA73007B25554ACA00373E08 /* CalloutAnnotationView.swift in Sources */,
 				12DF303B247734B80006421B /* Subclasses.swift in Sources */,
 				12DF2FAB2477348B0006421B /* BookingCell.swift in Sources */,
 				DAB5FE162549A11500A518A6 /* LanguageViewController.swift in Sources */,
@@ -2161,7 +2185,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2215,7 +2239,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2231,8 +2255,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = SD74TQT3K4;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = AULHYB573N;
 				INFOPLIST_FILE = EdalCustomer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2252,8 +2276,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = SD74TQT3K4;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = AULHYB573N;
 				INFOPLIST_FILE = EdalCustomer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

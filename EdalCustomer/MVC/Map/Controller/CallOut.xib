@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CallOut" customModule="MacQueen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="281" height="126"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annot" translatesAutoresizingMaskIntoConstraints="NO" id="Zjp-76-Ipt">
+                    <rect key="frame" x="0.0" y="0.0" width="281" height="126"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7gN-f8-SRK">
+                    <rect key="frame" x="8" y="14" width="79" height="69"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="79" id="VcY-Pv-l4b"/>
+                        <constraint firstAttribute="height" constant="69" id="z4x-L4-sIv"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="uFe-2b-Fx2">
+                    <rect key="frame" x="100" y="15" width="171" height="67"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFs-vo-UJ1">
+                            <rect key="frame" x="0.0" y="0.0" width="171" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxr-ov-Me6">
+                            <rect key="frame" x="0.0" y="24" width="171" height="43"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="7gN-f8-SRK" firstAttribute="centerY" secondItem="uFe-2b-Fx2" secondAttribute="centerY" id="3Ez-YY-TGf"/>
+                <constraint firstItem="uFe-2b-Fx2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="100" id="Fnj-rF-nGp"/>
+                <constraint firstAttribute="bottom" secondItem="Zjp-76-Ipt" secondAttribute="bottom" id="FyW-1O-45s"/>
+                <constraint firstItem="uFe-2b-Fx2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="PFO-iN-9hd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uFe-2b-Fx2" secondAttribute="bottom" constant="30" id="Soy-4w-SCw"/>
+                <constraint firstItem="Zjp-76-Ipt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WH3-lD-Q7q"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uFe-2b-Fx2" secondAttribute="trailing" constant="10" id="e0i-LX-OMj"/>
+                <constraint firstAttribute="trailing" secondItem="Zjp-76-Ipt" secondAttribute="trailing" id="iiL-45-3Cq"/>
+                <constraint firstItem="Zjp-76-Ipt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="tmi-ej-ZfE"/>
+                <constraint firstItem="7gN-f8-SRK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="vgq-Jt-Oys"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="imgHotel" destination="7gN-f8-SRK" id="j0N-OV-lsq"/>
+                <outlet property="lblSubtitle" destination="Fxr-ov-Me6" id="A3Q-oi-N0S"/>
+                <outlet property="lblTitle" destination="gFs-vo-UJ1" id="MsG-i4-fq9"/>
+            </connections>
+            <point key="canvasLocation" x="-0.7246376811594204" y="389.0625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="annot" width="200" height="70"/>
+    </resources>
+</document>

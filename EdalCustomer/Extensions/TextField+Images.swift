@@ -19,7 +19,7 @@ class TextFieldImage: UITextField {
         }
     }
 
-    @IBInspectable var CornerRadius: CGFloat = 12 {
+    @IBInspectable var CornerRadiuss: CGFloat = 12 {
         didSet {
             updateView()
         }
@@ -104,7 +104,7 @@ class TextFieldImage: UITextField {
         // set backgroundColor in order to cover the shadow inside the bounds
         layer.backgroundColor = UIColor.white.cgColor
 
-        self.layer.cornerRadius  = CornerRadius
+        self.layer.cornerRadius  = CornerRadiuss
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 0
        layer.backgroundColor = UIColor.clear.cgColor

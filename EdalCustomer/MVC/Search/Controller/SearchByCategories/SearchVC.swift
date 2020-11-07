@@ -11,7 +11,6 @@ import UIKit
 class SearchVC: UIViewController {
     
     @IBOutlet weak var searchTextField: UITextField!
-    
     @IBOutlet weak var timeTextFiled: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var selectCityDistrictButton: TextFieldImage!
@@ -48,6 +47,7 @@ class SearchVC: UIViewController {
     var time: Int = 0
     var cityDistrictDataPicker: [String] = ["Choose City, Distract"]
     var searchLookUpsResponse: SearchLookUpsResponse?
+    var isKeyBoardDisplay = false
     override func viewDidLoad() {
         super.viewDidLoad()
         SingletonClass.shared.searchNav = self.navigationController!
@@ -87,7 +87,19 @@ class SearchVC: UIViewController {
     }
     
     func showPickerInActionSheet() {
-        let title = ""
+        guard isKeyBoardDisplay != true else {
+            self.view.endEditing(true)
+            searchTextField.becomeFirstResponder()
+            return
+        }
+//        guard let pickerData = searchLookUpsResponse?.defaultResponse.citiesDistricts.data.map({$0.name}) else {return}
+//        let picker = PickerDialog()
+//        picker.show(title: "Select Distrected", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", options: pickerData, selected: "") { (index) in
+//            print(index)
+//        }
+//        self.view.addSubview(picker)
+
+        let title = "Select City"
         let message = "\n\n\n\n\n\n\n\n\n\n"
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.actionSheet)
         alert.modalPresentationStyle = .overCurrentContext
@@ -101,21 +113,21 @@ class SearchVC: UIViewController {
         //Create the toolbar view - the view witch will hold our 2 buttons
         let toolFrame = CGRect(x: 0,y:  7, width: alert.view.frame.width, height: 45)
         let toolView: UIView = UIView(frame: toolFrame)
-        
+
         //add buttons to the view
         let buttonCancelFrame: CGRect = CGRect(x:0,y: 7,width: 100, height: 30) //size & position of the button as placed on the toolView
-        
+
         //Create the cancel button & set its title
         let buttonCancel: UIButton = UIButton(frame: buttonCancelFrame)
         buttonCancel.setTitle("Cancel", for: UIControl.State.normal)
         buttonCancel.setTitleColor(UIColor.blueColor(), for: UIControl.State.normal)
         buttonCancel.addTarget(self, action: #selector(cancelSelection), for: .touchUpInside)
         toolView.addSubview(buttonCancel) //add it to the toolView
-        
+
         //Add the target - target, function to call, the event witch will trigger the function call
-        
-        
-        
+
+
+
         //add buttons to the view
         let buttonOkFrame: CGRect = CGRect(x: alert.view.frame.width - (100),y: 7, width: 100, height: 30) //size & position of the button as placed on the toolView
         //Create the Select button & set the title
@@ -158,7 +170,19 @@ class SearchVC: UIViewController {
         CatCollectionView.allowsMultipleSelection = false
         getAllCategoriesOneTime(for: 1)
         refreshAllInputs()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
+    
+    @objc func keyboardWillAppear() {
+        isKeyBoardDisplay = true
+    }
+
+    @objc func keyboardWillDisappear() {
+        isKeyBoardDisplay = false
+    }
+
+
     
     @IBAction func pressedCityAndDistrectied(_ sender: Any) {
         self.view.endEditing(true)
@@ -172,6 +196,7 @@ class SearchVC: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         print("window will go")
+        NotificationCenter.default.removeObserver(self)
     }
     func refreshAllInputs(){
         searchTextField.text = ""
@@ -554,8 +579,8 @@ extension SearchVC: UIPickerViewDataSource {
 extension SearchVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         searchButton.isEnabled = false
-        if timeTextFiled.text != "" , searchTextField.text != "",
-            dateTextField.text != "", searchTextField.text != "",
+        if timeTextFiled.text != "" ,
+            dateTextField.text != "",
         selectCityDistrictButton.text != "" {
             searchButton.isEnabled = true
             searchButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.5019607843, blue: 0.7607843137, alpha: 1)
@@ -574,8 +599,8 @@ extension SearchVC: UITextFieldDelegate {
         selectCityDistrictButton.endEditing(true)
         searchButton.isEnabled = false
         searchButton.backgroundColor = #colorLiteral(red: 0.323800981, green: 0.5801380277, blue: 0.8052206635, alpha: 0.7860804966)
-        if timeTextFiled.text != "" , searchTextField.text != "",
-            dateTextField.text != "", searchTextField.text != "",
+        if timeTextFiled.text != "" ,
+            dateTextField.text != "",
         selectCityDistrictButton.text != "" {
             searchButton.isEnabled = true
             searchButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.5019607843, blue: 0.7607843137, alpha: 1)

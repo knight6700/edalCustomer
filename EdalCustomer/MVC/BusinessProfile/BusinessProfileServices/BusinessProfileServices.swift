@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-
+import ObjectMapper
 class BusinessprofileServices {
     
     func getProfileDetails(for providerId: Int, completion: @escaping (_ error: String?, _ data: BusinessProfileDetailsResponse?) -> ()) {
@@ -21,19 +21,26 @@ class BusinessprofileServices {
         
         RequestManager().request(fromUrl: url, byMethod: .post, withParameters: parameters, andHeaders: headers) { (error, data: [String:Any]?) in
             
-            if let error = error {
-                completion(error, nil)
-                return
+               if let error = error {
+                    completion(error, nil)
+                    return
+                }
+                
+                guard let mainResponse = Mapper<BusinessProfileDetailsResponse>().map(JSON: data!) else {
+                    completion("error occurred please try again later" ,nil)
+                    return
+                }
+                
+                guard mainResponse.status == "1" else {
+                    completion(mainResponse.error_msg, nil)
+                    return
+                }
+                
+                completion(nil, mainResponse)
+                
             }
-            
-            guard let data = data else {
-                completion(nil, nil)
-                return
-            }
-            
-             
+
         }
-    }
     
     func getProviderSubServices(for providerId: Int, completion: @escaping (_ error: String?, _ data: BusinessProfileDetailsResponse?) -> ()){
         

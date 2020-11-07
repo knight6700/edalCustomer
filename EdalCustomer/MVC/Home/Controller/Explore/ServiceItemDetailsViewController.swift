@@ -17,6 +17,8 @@ struct ServiceItemDetailsModel {
     var rate: Double
     var totalReview: Int
     var isFavourite: Bool
+//    var details: String
+//    var reviews: String
 }
 class ServiceItemDetailsViewController: UIViewController,UIScrollViewDelegate {
 var scrollView = UIScrollView(frame: CGRect(x:0, y:100, width:320 , height: 523))
@@ -34,7 +36,7 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
     @IBOutlet weak var totalReviewsLabel: UILabel!
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var favButton: UIButton!
-    
+    var isSearchable: Bool = false
     
     var serviceItemDetailsModel:ServiceItemDetailsModel?
     
@@ -49,6 +51,13 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if isSearchable {
+         self.navigationController?.navigationBar.isHidden = true
+         }
+
+    }
+    
     private func setupUI() {
         
         guard let service = serviceItemDetailsModel else {return}
@@ -61,7 +70,6 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
         } else {
             favButton.setImage(#imageLiteral(resourceName: "unfavorite"), for: .normal)
         }
-
         
     }
     
@@ -77,7 +85,7 @@ var frame: CGRect = CGRect(x:20, y:0, width:0, height:0)
             frame.origin.x = self.scrollView.frame.size.width * CGFloat(index)
             frame.size = self.scrollView.frame.size
             let subView = Bundle.main.loadNibNamed("Intro", owner: self, options: nil)! [0] as! IntroUIScrollView
-            subView.image.addImage(withImage: serviceItemDetailsModel?.images[0], andPlaceHolder: "edallogo")
+            subView.image.addImage(withImage: "", andPlaceHolder: "edallogo")
             subView.frame = frame
             subView.backgroundColor = UIColor.clear
             self.scrollView.addSubview(subView)
