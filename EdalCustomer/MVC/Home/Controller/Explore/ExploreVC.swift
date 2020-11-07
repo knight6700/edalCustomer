@@ -77,7 +77,6 @@ class ExploreVC: UIViewController {
                 return
             }
             guard let _ = data else{return}
-            
             self.mainExploreCategoriesData = (data?.homeProviders?.data)!
             self.recentlyBookCategoriesData = (data?.recentServices?.data)!
             self.recommendedCategoriesData = (data?.recommendedProviders?.data)!

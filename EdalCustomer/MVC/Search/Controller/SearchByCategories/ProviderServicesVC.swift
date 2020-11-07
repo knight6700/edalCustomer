@@ -279,8 +279,8 @@ class ProviderServicesVC: SlideMenuController {
         self.showLoading()
         services.search(byKeyword: keyword, byDistrict: districtId, byDate: date, byTime: time, byPage: page, byMinPrice: minPrice, byMaxPrice: maxPrice, byLocationRange: locationRange, byCategoryId: categoryId, byRatingFrom: ratingFrom, byRatingTo: ratingTo, bySorting: sortingId, locationRange: locationRange) {[weak self] (error, data) in
             self?.hideLoading()
-            if let error = error {
-                self?.alertUser(title: "", message: error)
+            if  error != "" {
+                self?.alertUser(title: "", message: error ?? "")
                 return
             }
             guard let data = data else {return}
@@ -418,9 +418,11 @@ class ProviderServicesVC: SlideMenuController {
 //        self.present(navShowMapVC, animated: true, completion: nil)
         let storyboard = UIStoryboard.init(name: "SearchResultSB", bundle: nil)
         let showMapVC = storyboard.instantiateViewController(withIdentifier: "ShowMapVC") as! ShowMapVC
+        
         // MARK: ToDO
 //        showMapVC.providerServicesData = self.providerServicesData
        // sortingVC.delegate = self
+        showMapVC.searchableResponse = searchableResponse
         showMapVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         self.tabBarController?.present(showMapVC, animated: true) { () -> Void in
             
@@ -474,7 +476,6 @@ extension ProviderServicesVC: UITableViewDataSource {
             cell.favButton.setImage(#imageLiteral(resourceName: "faviconact"), for: .normal)
         }
         
-        
         return cell
     }
     
@@ -482,7 +483,15 @@ extension ProviderServicesVC: UITableViewDataSource {
 }
 //MARK:- Table View Data Source
 extension ProviderServicesVC: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = providerServicesData[indexPath.item]
+        // navigator.navigate(to: .serviceItemdetail())
+        let id = "ServiceItemDetailsViewController"
+        let vc = Initializer.createViewController(storyBoard: .HomeSB, andId: id) as! ServiceItemDetailsViewController
+        vc.serviceItemDetailsModel = ServiceItemDetailsModel(imageUrl: item.image ?? "", name: item.businessName ?? "", images: item.images?.data?.map({$0.image ?? ""}) ?? [""], type: "SPA" ,rate: 4.0, totalReview: 50,isFavourite: true)
+        vc.subServiceId = item.id!
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 
@@ -611,6 +620,8 @@ extension ProviderServicesVC: FilteringVCDelegate {
 //
 //        }
     }
+    
+    
     
 }
 
